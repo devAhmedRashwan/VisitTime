@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/backgroundmedical"
+    tools:context=".bookvisit">
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/visitdate"
+            android:layout_width="108dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/background_title"
+            android:gravity="center"
+            android:text="2020/02/07"
+            android:textAlignment="center"
+
+            android:textAllCaps="false"
+            android:textColor="@color/mywhite"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/chmax"
+            android:layout_width="110dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/background_title"
+            android:gravity="center"
+            android:text="max"
+            android:textAlignment="center"
+
+            android:textAllCaps="false"
+            android:textColor="@color/mywhite"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/lastday"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/background_edit"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="last day "
+            android:textAllCaps="false"
+            android:textColor="@color/mywhite"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="93dp"
+        android:orientation="horizontal">
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/deletetime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/background_delete"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="delete time"
+            android:textAllCaps="false"
+            android:textColor="@color/mywhite"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/showtimesspinner"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/backgrount_transparent"
+            android:padding="1dp"
+            android:popupBackground="@drawable/backgrount_transparent"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/showtimes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/background_edit"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="show times"
+            android:textAllCaps="false"
+            android:textColor="@color/mywhite"
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/background_edit"
+            android:gravity="center"
+            android:text="add"
+            android:textAllCaps="false"
+            android:textColor="@color/mywhite"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="132dp"
+            android:layout_height="46dp"
+            android:background="@drawable/background_title"
+            android:gravity="center"
+            android:text="2:00 PM"
+            android:textColor="@color/mywhite"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/pick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/background_edit"
+            android:gravity="center"
+            android:text="Pick"
+            android:textAllCaps="false"
+            android:textColor="@color/mywhite"
+            android:textSize="24sp" />
+
+
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/post"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/background_edit"
+            android:gravity="center"
+            android:text="post settings"
+            android:textAllCaps="false"
+            android:textColor="@color/mywhite"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

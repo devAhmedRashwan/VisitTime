@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundmedical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/booknow"
+        android:layout_width="232dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginBottom="11dp"
+        android:background="@drawable/background_edit"
+        android:fontFamily="@font/wendy_one"
+        android:text="Reservation Page"
+        android:textAllCaps="false"
+        android:textColor="@color/mywhite"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/Manage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Cname" />
+
+    <TextView
+        android:id="@+id/Cname"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="81dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="casual"
+        android:text="Hello World!"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/booknow"
+        app:layout_constraintEnd_toEndOf="@+id/booknow"
+        app:layout_constraintStart_toStartOf="@+id/booknow"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Manage"
+        android:layout_width="214dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="431dp"
+        android:background="@drawable/background_edit"
+        android:fontFamily="@font/wendy_one"
+        android:text="Managment"
+        android:textAllCaps="false"
+        android:textColor="@color/mywhite"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/booknow"
+        app:layout_constraintStart_toStartOf="@+id/booknow"
+        app:layout_constraintTop_toBottomOf="@+id/booknow" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundmedical"
+    android:orientation="vertical"
+    tools:context=".bookvisit">
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/visitdate"
+            android:layout_width="311dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/background_title"
+            android:gravity="center"
+            android:text="Pick a Day here"
+            android:textAlignment="center"
+
+            android:textAllCaps="false"
+            android:textColor="@color/mywhite"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/check"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/background_title"
+            android:gravity="center"
+            android:text="max"
+            android:textAlignment="center"
+
+            android:textAllCaps="false"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/maintimes"
+            android:layout_width="170dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/background_rowstyle"
+            android:popupBackground="@drawable/backgrount_transparent"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/getmain"
+            android:layout_width="170dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/background_title"
+            android:gravity="center"
+            android:text="Basic Times"
+            android:textAllCaps="false"
+            android:textColor="@color/mywhite"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="68dp">
+
+        <Spinner
+            android:id="@+id/availabletimespinner"
+            android:layout_width="170dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/background_rowstyle"
+            android:popupBackground="@drawable/backgrount_transparent"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/availabletimes"
+            android:layout_width="170dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/background_title"
+            android:gravity="center"
+            android:text="Available!"
+            android:textAllCaps="false"
+            android:textColor="@color/mywhite"
+            android:textSize="24sp" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Spinner
+            android:id="@+id/fullbookedsp"
+            android:layout_width="170dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/background_rowstyle"
+            android:popupBackground="@drawable/backgrount_transparent"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/fullbooked"
+            android:layout_width="170dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/background_title"
+            android:gravity="center"
+            android:text="Full Booked"
+            android:textAllCaps="false"
+            android:textColor="@color/mywhite"
+            android:textSize="24sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/booknow"
+            android:layout_width="198dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/background_delete"
+            android:fontFamily="@font/wendy_one"
+            android:gravity="center"
+            android:text="Book Now!"
+            android:layout_gravity="center"
+            android:textAllCaps="false"
+            android:textColor="@color/mywhite"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

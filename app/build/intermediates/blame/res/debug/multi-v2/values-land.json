@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Rashwan-Home\\.gradle\\caches\\transforms-2\\files-2.1\\74821a2f1c77df21560e51ad523e230e\\appcompat-1.1.0\\res\\values-land\\values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,125,196",
+                        "endColumns": "69,70,67",
+                        "endOffsets": "120,191,259"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Rashwan-Home\\.gradle\\caches\\transforms-2\\files-2.1\\af961bf8c86574563590f3386f61faba\\jetified-materialdatetimepicker-4.2.3\\res\\values-land\\values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,120,183,245,315,388,459,511,565,616,676,737",
+                        "endColumns": "64,62,61,69,72,70,51,53,50,59,60,59",
+                        "endOffsets": "115,178,240,310,383,454,506,560,611,671,732,792"
+                    },
+                    "to": {
+                        "startLines": "5,6,7,8,9,10,11,12,13,14,15,16",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "264,329,392,454,524,597,668,720,774,825,885,946",
+                        "endColumns": "64,62,61,69,72,70,51,53,50,59,60,59",
+                        "endOffsets": "324,387,449,519,592,663,715,769,820,880,941,1001"
+                    }
+                }
+            ]
+        }
+    ]
+}
