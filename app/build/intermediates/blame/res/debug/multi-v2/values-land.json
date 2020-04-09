@@ -4,7 +4,26 @@
             "outputFile": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Rashwan-Home\\.gradle\\caches\\transforms-2\\files-2.1\\74821a2f1c77df21560e51ad523e230e\\appcompat-1.1.0\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\Rashwan-Home\\.gradle\\caches\\transforms-2\\files-2.1\\84a640419f8ddb69b03d4bf019cb8c57\\material-1.0.0\\res\\values-land\\values-land.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "10",
+                        "endOffsets": "222"
+                    },
+                    "to": {
+                        "startLines": "17",
+                        "startColumns": "4",
+                        "startOffsets": "1006",
+                        "endLines": "20",
+                        "endColumns": "10",
+                        "endOffsets": "1173"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Rashwan-Home\\.gradle\\caches\\transforms-2\\files-2.1\\f7993ae09dfdb5b3366ab792a53481da\\appcompat-1.1.0\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",
@@ -14,7 +33,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Rashwan-Home\\.gradle\\caches\\transforms-2\\files-2.1\\af961bf8c86574563590f3386f61faba\\jetified-materialdatetimepicker-4.2.3\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\Rashwan-Home\\.gradle\\caches\\transforms-2\\files-2.1\\a6d814d880163d57d10501f82c0fd93f\\jetified-materialdatetimepicker-4.2.3\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",

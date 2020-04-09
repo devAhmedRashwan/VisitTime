@@ -10,4 +10,6 @@
         <item>17:00</item>
         <item>18:00</item>
     </string-array>
+    <string name="draw_open">Open</string>
+    <string name="draw_close">Close</string>
 </resources>

@@ -63,7 +63,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="93dp"
+        android:layout_height="48dp"
         android:orientation="horizontal">
 
 
@@ -71,7 +71,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="142dp">
 
         <Button
             android:id="@+id/deletetime"
@@ -138,29 +138,14 @@
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/picked"
             android:layout_width="132dp"
             android:layout_height="46dp"
             android:background="@drawable/background_title"
             android:gravity="center"
-            android:text="2:00 PM"
+            android:hint="Pick time"
             android:textColor="@color/mywhite"
             android:textSize="18dp" />
-
-        <Button
-            android:id="@+id/pick"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/background_edit"
-            android:gravity="center"
-            android:text="Pick"
-            android:textAllCaps="false"
-            android:textColor="@color/mywhite"
-            android:textSize="24sp" />
-
-
-
 
 
     </LinearLayout>
@@ -178,7 +163,7 @@
 
         <Button
             android:id="@+id/post"
-            android:layout_width="match_parent"
+            android:layout_width="192dp"
             android:layout_height="56dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"
@@ -191,6 +176,24 @@
             android:textColor="@color/mywhite"
             android:textSize="24sp" />
 
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/testbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="test" />
+
+    <Spinner
+        android:id="@+id/afterdeletespinner"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/background_rowstyle"
+        android:padding="1dp"
+        android:popupBackground="@drawable/backgrount_transparent"
+        android:textAlignment="center" />
+
 
 </LinearLayout>

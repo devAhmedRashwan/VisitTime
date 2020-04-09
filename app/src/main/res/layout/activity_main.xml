@@ -1,59 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/mydrawer"
     android:background="@drawable/backgroundmedical"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/booknow"
-        android:layout_width="232dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="75dp"
-        android:layout_marginBottom="11dp"
-        android:background="@drawable/background_edit"
-        android:fontFamily="@font/wendy_one"
-        android:text="Reservation Page"
-        android:textAllCaps="false"
-        android:textColor="@color/mywhite"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/Manage"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Cname" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/main_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/Cname"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="81dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="16dp"
-        android:fontFamily="casual"
-        android:text="Hello World!"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/booknow"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/mytoolbar"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/mygreen1">
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/Cname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:text="Hello World!"
+            android:textSize="24sp"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/Manage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_edit"
+            android:fontFamily="@font/wendy_one"
+            android:text="Managment"
+            android:textAllCaps="false"
+            android:textColor="@color/mywhite"
+            android:textSize="30sp"
+            android:visibility="visible" />
+
+        <Button
+
+            android:id="@+id/booknow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_edit"
+            android:fontFamily="@font/wendy_one"
+            android:text="Reservation Page"
+            android:textAllCaps="false"
+            android:textColor="@color/mywhite"
+            android:textSize="24sp"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="@+id/booknow"
-        app:layout_constraintStart_toStartOf="@+id/booknow"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/Manage"
-        android:layout_width="214dp"
-        android:layout_height="62dp"
-        android:layout_marginBottom="431dp"
-        android:background="@drawable/background_edit"
-        android:fontFamily="@font/wendy_one"
-        android:text="Managment"
-        android:textAllCaps="false"
-        android:textColor="@color/mywhite"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/booknow"
-        app:layout_constraintStart_toStartOf="@+id/booknow"
-        app:layout_constraintTop_toBottomOf="@+id/booknow" />
+        app:layout_constraintStart_toEndOf="@+id/booknow">
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/mNav"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:headerLayout="@layout/header_layout"
+        android:layout_gravity="start"
+        app:menu="@menu/navigation_menu">
+
+    </com.google.android.material.navigation.NavigationView>
+
+
+
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
