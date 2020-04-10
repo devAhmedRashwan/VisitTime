@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         //navbar
         setSupportActionBar(mytoolbar)
-        supportActionBar?.title = "البرنامج الاساسي للحجز"
+        supportActionBar?.title=getString(R.string.arapp_name)
         val actiontoggle = ActionBarDrawerToggle(
             this,
             mydrawer,
@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             startActivity(Intent(this, bookvisit::class.java))
 
         }
+
         Manage.setOnClickListener() {
             startActivity(Intent(this, com.rashwan.visittime.Manage::class.java))
 

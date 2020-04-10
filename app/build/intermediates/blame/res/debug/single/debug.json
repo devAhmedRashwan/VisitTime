@@ -8,6 +8,10 @@
         "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
     },
     {
+        "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_allreservation.xml.flat",
+        "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\layout\\activity_allreservation.xml"
+    },
+    {
         "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\drawable_state_pressed.xml.flat",
         "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\drawable\\state_pressed.xml"
     },
@@ -182,6 +186,10 @@
     {
         "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\layout_confirmed.xml.flat",
+        "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\layout\\confirmed.xml"
     },
     {
         "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_1.xml.flat",

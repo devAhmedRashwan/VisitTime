@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:2:1-28:12
+ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:2:1-29:12
 MERGED from [com.wdullaer:materialdatetimepicker:4.2.3] C:\Users\Rashwan-Home\.gradle\caches\transforms-2\files-2.1\a6d814d880163d57d10501f82c0fd93f\jetified-materialdatetimepicker-4.2.3\AndroidManifest.xml:17:1-30:12
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\Rashwan-Home\.gradle\caches\transforms-2\files-2.1\84a640419f8ddb69b03d4bf019cb8c57\material-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\Rashwan-Home\.gradle\caches\transforms-2\files-2.1\f7993ae09dfdb5b3366ab792a53481da\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -65,25 +65,25 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\Rashwan-
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\Rashwan-Home\.gradle\caches\transforms-2\files-2.1\9c6d55509de7c875c64de1c11c43968b\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:protolite-well-known-types:17.0.0] C:\Users\Rashwan-Home\.gradle\caches\transforms-2\files-2.1\ea76af9b9090ceebbcd7ab79e79c4e2f\jetified-protolite-well-known-types-17.0.0\AndroidManifest.xml:2:1-11:12
 MERGED from [io.grpc:grpc-android:1.21.0] C:\Users\Rashwan-Home\.gradle\caches\transforms-2\files-2.1\706036cbf0755377b4a36f3a6d3f1b94\jetified-grpc-android-1.21.0\AndroidManifest.xml:2:1-13:12
-INJECTED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:2:1-29:12
 	package
 		ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:3:5-36
 		INJECTED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:2:1-29:12
 		INJECTED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:2:1-29:12
 		INJECTED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:5:5-26:19
+ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:5:5-27:19
 MERGED from [com.wdullaer:materialdatetimepicker:4.2.3] C:\Users\Rashwan-Home\.gradle\caches\transforms-2\files-2.1\a6d814d880163d57d10501f82c0fd93f\jetified-materialdatetimepicker-4.2.3\AndroidManifest.xml:28:5-20
 MERGED from [com.wdullaer:materialdatetimepicker:4.2.3] C:\Users\Rashwan-Home\.gradle\caches\transforms-2\files-2.1\a6d814d880163d57d10501f82c0fd93f\jetified-materialdatetimepicker-4.2.3\AndroidManifest.xml:28:5-20
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\Rashwan-Home\.gradle\caches\transforms-2\files-2.1\84a640419f8ddb69b03d4bf019cb8c57\material-1.0.0\AndroidManifest.xml:22:5-20
@@ -148,38 +148,42 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Ra
 		ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:6:9-35
 	android:theme
 		ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:11:9-40
-activity#com.rashwan.visittime.dialog
-ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:12:9-53
+activity#com.rashwan.visittime.AllReservation
+ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:12:9-51
 	android:name
-		ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:12:19-41
-activity#com.rashwan.visittime.Manage
+		ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:12:19-49
+activity#com.rashwan.visittime.dialog
 ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:13:9-44
 	android:name
 		ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:13:19-41
+activity#com.rashwan.visittime.Manage
+ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:14:9-44
+	android:name
+		ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:14:19-41
 activity#com.rashwan.visittime.bookvisit
-ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:14:9-47
+ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:15:9-47
 	android:name
-		ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:14:19-44
+		ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:15:19-44
 activity#com.rashwan.visittime.MainActivity
-ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:15:9-21:20
+ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:16:9-22:20
 	android:name
-		ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:15:19-47
+		ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:16:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:16:13-20:29
+ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:17:13-21:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:17:17-69
+ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:18:17-69
 	android:name
-		ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:17:25-66
+		ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:18:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:19:17-77
+ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:20:17-77
 	android:name
-		ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:19:27-74
+		ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:20:27-74
 meta-data#preloaded_fonts
-ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:23:9-25:57
+ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:24:9-26:57
 	android:resource
-		ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:25:13-54
+		ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:26:13-54
 	android:name
-		ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:24:13-43
+		ADDED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml:25:13-43
 uses-sdk
 INJECTED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Rashwan-Home\AndroidStudioProjects\VisitTime\app\src\main\AndroidManifest.xml

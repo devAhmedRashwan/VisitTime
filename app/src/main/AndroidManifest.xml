@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".dialog"></activity>
+        <activity android:name=".AllReservation"/>
+        <activity android:name=".dialog" />
         <activity android:name=".Manage" />
         <activity android:name=".bookvisit" />
         <activity android:name=".MainActivity">

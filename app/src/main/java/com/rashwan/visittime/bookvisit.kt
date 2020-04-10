@@ -1,12 +1,15 @@
 package com.rashwan.visittime
 
+import android.app.AlertDialog
 import android.app.Application
 import android.app.DatePickerDialog
 import android.content.DialogInterface
+import android.content.Intent
 import android.media.ImageReader.newInstance
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -14,21 +17,25 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 import kotlinx.android.synthetic.main.activity_bookvisit.*
+import kotlinx.android.synthetic.main.confirmed.view.*
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 import java.util.GregorianCalendar as GregorianCalendar1
 
 
-class bookvisit : AppCompatActivity(){
+class bookvisit : AppCompatActivity() {
 
     var mRef: DatabaseReference? = null
     var BookedList: ArrayList<Booked>? = null
     var mAuth: FirebaseAuth? = null
+    val maintimesarray = ToolsVisit.gettimes()
+    var database: FirebaseDatabase = FirebaseDatabase.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bookvisit)
-        var database: FirebaseDatabase = FirebaseDatabase.getInstance()
         mRef = database.getReference("Booked")
         mAuth = FirebaseAuth.getInstance()
 
@@ -39,7 +46,6 @@ class bookvisit : AppCompatActivity(){
 
 
         }
-        val maintimesarray = ToolsVisit.gettimes()
 
         getmain.setOnClickListener() {
             val textviewid = (R.id.tv)
@@ -50,51 +56,12 @@ class bookvisit : AppCompatActivity(){
 
 
         availabletimes.setOnClickListener() {
-            mRef?.addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    try {
-                        var vacant: MutableList<String> = mutableListOf()
-                        vacant.addAll(maintimesarray)
-                        var wantedvisit = "notexist"
-                        for (n in dataSnapshot.children) {
-                            val visita = n.getValue(Booked::class.java)
-
-                            var visittime = visita?.time.toString()
-                            var pickedvisitdate = visita?.date?.toLong()
-                            if (pickedvisitdate == tools.strToEpoch(visitdate.text.toString())) {
-                                wantedvisit = visita?.time.toString()
-                            }
-
-                            if (vacant.contains(wantedvisit)) {
-                                vacant.remove(wantedvisit)
-                            } else {
-                                // vacant.add(visittime)
-
-
-                            }
-
-
-                        }
-                        val adapter =
-                            ArrayAdapter(this@bookvisit, R.layout.spstyle, (R.id.tv), vacant)
-                        availabletimespinner.adapter = adapter
-                    }
-                    catch (e:Exception){
-                                  Toast.makeText(application, e.message , Toast.LENGTH_LONG).show()
-
-                    }
-                }
-
-
-                override fun onCancelled(databaseError: DatabaseError) {
-                    println("loadPost:onCancelled ${databaseError.toException()}")
-
-                }
-            })
-//            Toast.makeText(this, gotid , Toast.LENGTH_LONG).show()
-
-
+            getavailabletimes(availabletimespinner)
         }
+//        availabletimespinner.setOnClickListener() {
+//            getavailabletimes(availabletimespinner)
+//
+//        }
         fullbooked.setOnClickListener() {
             mRef?.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -136,58 +103,116 @@ class bookvisit : AppCompatActivity(){
 
         }
         booknow.setOnClickListener() {
-            val id = mRef!!.push().key!!
-            try {
-                val mybooking =
-                    Booked(
-                        id,
-                        tools.strToEpoch(visitdate.text.toString()),
-                        availabletimespinner.selectedItem.toString(),
-                        0,
-                        0,
-                        0,
-                        0,
-                        "",
-                        0,
-                        "test"
-                    )
-
-
-                mRef!!.child(id).setValue(mybooking)
-
-            } catch (e: Exception) {
-                Toast.makeText(
-                    this,
-                    "لم يتم اختيار موعد",
-                    Toast.LENGTH_SHORT
-                ).show()
-
-            }
+            booknow()
+        }
 
 
 
-            check.setOnClickListener() {
-
-
-            }
-
-
-
-
-
-
-
-
-
-
-
+        check.setOnClickListener() {
 
 
         }
 
 
-
     }
+
+    fun booknow() {
+        val id = mRef!!.push().key!!
+        try {
+            val mybooking =
+                Booked(
+                    id,
+                    tools.strToEpoch(visitdate.text.toString()),
+                    visitdate.text.toString(),
+                    (LocalDateTime.now().format(
+                        DateTimeFormatter.ofPattern("yyyy-MM-dd EEEE HH-mm")
+                    )),
+                    availabletimespinner.selectedItem.toString(),
+                    1,
+                    0,
+                    0,
+                    0,
+                    patname.text.toString(),
+                    patemail.text.toString(),
+                    patage.text.toString().toInt(),
+                    patnote.text.toString()
+                )
+
+
+            mRef!!.child(id).setValue(mybooking)
+            Toast.makeText(
+                this,
+                "تم تسجيل الحجز بنجاح",
+                Toast.LENGTH_SHORT
+            )
+
+            var alert= AlertDialog.Builder(this)
+            var inflater=layoutInflater
+            val view =inflater.inflate(R.layout.confirmed,null)
+            alert.setView(view)
+            val alertdailoge=alert.create()
+            alertdailoge.show()
+            view.closeit.setOnClickListener(){
+                alertdailoge.dismiss()
+                startActivity(Intent(this, MainActivity::class.java))
+
+            }
+        } catch (e: Exception) {
+            Toast.makeText(
+                this,
+                "تأكد من اكمال جميع البيانات $e",
+                Toast.LENGTH_SHORT
+            ).show()
+
+
+        }
+    }
+
+
+    fun getavailabletimes(myspinner: Spinner) {
+        mRef?.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                try {
+                    var vacant: MutableList<String> = mutableListOf()
+                    vacant.addAll(maintimesarray)
+                    var wantedvisit = "notexist"
+                    for (n in dataSnapshot.children) {
+                        val visita = n.getValue(Booked::class.java)
+
+                        var visittime = visita?.time.toString()
+                        var pickedvisitdate = visita?.date?.toLong()
+                        if (pickedvisitdate == tools.strToEpoch(visitdate.text.toString())) {
+                            wantedvisit = visita?.time.toString()
+                        }
+
+                        if (vacant.contains(wantedvisit)) {
+                            vacant.remove(wantedvisit)
+                        } else {
+                            // vacant.add(visittime)
+
+
+                        }
+
+
+                    }
+                    val adapter =
+                        ArrayAdapter(this@bookvisit, R.layout.spstyle, (R.id.tv), vacant)
+                    myspinner.adapter = adapter
+                } catch (e: Exception) {
+                    Toast.makeText(application, e.message, Toast.LENGTH_LONG).show()
+
+                }
+            }
+
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                println("loadPost:onCancelled ${databaseError.toException()}")
+
+            }
+        })
+    }
+
+
     fun pickDateValidation(textview: TextView): Long {
         var orginalvalue = textview.text
         val c = Calendar.getInstance()
@@ -255,5 +280,4 @@ class bookvisit : AppCompatActivity(){
         dpd.show()
         return result
     }
-
 }

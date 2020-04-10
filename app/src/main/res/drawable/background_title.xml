@@ -34,7 +34,7 @@
 
             </stroke>
             <!--    <solid android:color="@color/myred" /> -->
-            <gradient android:endColor="@color/myblack" android:startColor="@color/myblackLight" />
+            <gradient android:endColor="#EA040332" android:startColor="@color/myblackLight" />
 
 
             <corners android:radius="20dp">

@@ -2,24 +2,24 @@
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mydrawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/mydrawer"
     android:background="@drawable/backgroundmedical"
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
         android:id="@+id/main_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/mytoolbar"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/mygreen1">
+            android:background="@color/mygreen1"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -27,35 +27,107 @@
             android:id="@+id/Cname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:fontFamily="casual"
-            android:text="Hello World!"
+            android:gravity="center_horizontal"
+            android:text="@string/clinic"
             android:textSize="24sp"
             android:visibility="visible" />
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_marginStart="20dp"
+    android:layout_height="wrap_content"/>
         <Button
             android:id="@+id/Manage"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_edit"
+            android:background="@drawable/background_title"
             android:fontFamily="@font/wendy_one"
-            android:text="Managment"
+            android:includeFontPadding="false"
+            android:paddingVertical="15dp"
+            android:text="@string/managment"
             android:textAllCaps="false"
             android:textColor="@color/mywhite"
-            android:textSize="30sp"
+            android:textSize="25sp"
+            android:visibility="visible" />
+        <Button
+            android:id="@+id/mybooks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_title"
+            android:fontFamily="@font/wendy_one"
+            android:includeFontPadding="false"
+            android:paddingVertical="15dp"
+            android:text="@string/mybooks"
+            android:textAllCaps="false"
+            android:textColor="@color/mywhite"
+            android:textSize="25sp"
             android:visibility="visible" />
 
         <Button
 
             android:id="@+id/booknow"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_edit"
+            android:background="@drawable/background_title"
             android:fontFamily="@font/wendy_one"
-            android:text="Reservation Page"
+            android:includeFontPadding="false"
+            android:paddingVertical="15dp"
+            android:text="@string/newbook"
             android:textAllCaps="false"
             android:textColor="@color/mywhite"
-            android:textSize="24sp"
+            android:textSize="25sp"
             android:visibility="visible" />
+
+        <Button
+
+            android:id="@+id/editbook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_title"
+            android:fontFamily="@font/wendy_one"
+            android:includeFontPadding="false"
+            android:paddingVertical="15dp"
+            android:text="@string/editbook"
+            android:textAllCaps="false"
+            android:textColor="@color/mywhite"
+            android:textSize="25sp"
+            android:visibility="visible" />
+
+        <Button
+
+            android:id="@+id/cancelbook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_title"
+            android:fontFamily="@font/wendy_one"
+            android:includeFontPadding="false"
+            android:paddingVertical="15dp"
+            android:text="@string/cancelbook"
+            android:textAllCaps="false"
+            android:textColor="@color/mywhite"
+            android:textSize="25sp"
+            android:visibility="visible" />
+
+        <Button
+
+            android:id="@+id/callus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_title"
+            android:fontFamily="@font/wendy_one"
+            android:includeFontPadding="false"
+            android:paddingVertical="15dp"
+            android:text="@string/callus"
+            android:textAllCaps="false"
+            android:textColor="@color/mywhite"
+            android:textSize="25sp"
+            android:visibility="visible" />
+
+
+
+
+
 
     </LinearLayout>
 
@@ -72,15 +144,11 @@
         android:id="@+id/mNav"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:headerLayout="@layout/header_layout"
         android:layout_gravity="start"
+        app:headerLayout="@layout/header_layout"
         app:menu="@menu/navigation_menu">
 
     </com.google.android.material.navigation.NavigationView>
-
-
-
-
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -2,15 +2,14 @@ package com.rashwan.visittime
 
 
 import android.app.AlertDialog
-import android.app.Dialog
 import android.app.TimePickerDialog
 import android.content.DialogInterface
+import android.content.Intent
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.DialogFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -39,7 +38,10 @@ class Manage : AppCompatActivity() {
         val maintimesadapter =
             ArrayAdapter(this, R.layout.spstyle, textviewid, maintimesarray)
         showtimesspinner.adapter = maintimesadapter
+        allreservations.setOnClickListener(){
+            startActivity(Intent(this, AllReservation::class.java))
 
+        }
         showtimes.setOnClickListener() {
             // ToolsVisit.gettimes()
             val textviewid = (R.id.tv)

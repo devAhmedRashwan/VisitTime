@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">VisitTime</string>
+    <string name="arapp_name">فيزيتا- احجز تذكرة</string>
     <string-array name="mytimes">
         <item>11:00</item>
         <item>12:00</item>
@@ -12,4 +13,64 @@
     </string-array>
     <string name="draw_open">Open</string>
     <string name="draw_close">Close</string>
+    <string name="pickday">اختر يوم الحجز</string>
+    <string name="basictimes">المواعيد الاساسية</string>
+    <string name="fullbooked">مواعيد محجوزة</string>
+    <string name="choosetime">اختر الموعد المناسب</string>
+    <string name="insertphone">ادخل رقم الهاتف</string>
+    <string name="age">السن</string>
+    <string name="insertemail">ادخل البريد الالكتروني</string>
+    <string name="email">البريد الالكتروني</string>
+    <string name="notes">ملاحظات</string>
+    <string name="managment">الادارة</string>
+    <string name="clinic">العيادة</string>
+    <string name="newbook">حجز جديد</string>
+    <string name="editbook">تعديل حجز مسبق</string>
+    <string name="callus">الاتصال هاتفيا بالعيادة</string>
+    <string name="mybooks">حجوزاتي</string>
+    <string name="cancelbook">الغاء حجز مسبق</string>
+
+
+    <string name="caseaddtitle">بيانات القضية </string>
+    <string name="caseNum">رقم القضية  </string>
+    <string name="caseYear"> عام القضية </string>
+    <string name="caseCount">الرقم الآلي </string>
+    <string name="caseCountYear">الدائرة </string>
+    <string name="caseAccuser">المتهم </string>
+    <string name="caseCreater">المدعي </string>
+    <string name="caseSessionDate">تاريخ الجلسة </string>
+    <string name="casePapers">مستندات القضية </string>
+    <string name="caseNotes">ملاحظات القضية </string>
+    <string name="caseModifiedDate"> تسجيل البيانات </string>
+    <string name="Addsessioninfo">  اضف جلسة جديدة </string>
+    <string name="insertcaselay">  اضف </string>
+    <string name="updatecasely">  عدل </string>
+    <string name="deletecaselay">  احذف </string>
+
+
+    <string name="add">اضف</string>
+    <string name="button">Button</string>
+    <string name="title">title</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+
+    <string name="editandrestore">تعديل واستعادة</string>
+    <string name="deleted_cases">Deleted Cases</string>
+    <string name="cw"> الاسبوع الحالي</string>
+    <string name="nw"> الاسبوع المقبل</string>
+    <string name="cm"> الشهر الحالي</string>
+    <string name="nm"> الشهر المقبل</string>
+    <string name="all">جميع الجلسات</string>
+    <string name="deletedcases">الحجوزات المحذوفة</string>
+    <string name="edit">تعديل</string>
+    <string name="cancel">الغاء</string>
+    <string name="delete">حذف</string>
+    <string name="manage">ادارة</string>
+    <string name="test">اختبر</string>
+    <string name="search">بحث</string>
+    <string name="anw">الاسبوع اللاحق</string>
+    <string name="Reservation">الحجوزات</string>
+
+
 </resources>

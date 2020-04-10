@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundmedical">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/Pbar"
+            style="?android:attr/progressBarStyle"
+
+            android:layout_width="150dp"
+            android:layout_height="140dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="6">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <EditText
+                    android:id="@+id/searchtext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="34dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_title"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:hint="ابحث عن اسم او رقم هاتف"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/mywhite"
+                    android:textStyle="italic"
+                    android:visibility="visible" />
+
+                <Switch
+                    android:id="@+id/btnswitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:text="استخدام البحث" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/TTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:background="@drawable/background_title"
+                android:padding="5dp"
+                android:text="@string/Reservation"
+                android:textAlignment="center"
+                android:textColor="@color/myYellow"
+                android:textSize="25sp"
+
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/delbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="3dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_marginVertical="3dp"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_selected_t"
+                    android:clickable="true"
+                    android:contentDescription="@string/deletedcases"
+                    android:fontFamily="sans-serif"
+                    android:onClick="LVA"
+                    android:stateListAnimator="@android:anim/slide_in_left"
+                    android:text="@string/deletedcases"
+                    android:textColor="@color/mywhite"
+                    android:textSize="12sp"
+                    android:textStyle="normal|bold" />
+
+                <Button
+                    android:id="@+id/nm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="3dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_marginVertical="3dp"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_selected_t"
+                    android:contentDescription="@string/nm"
+                    android:fontFamily="sans-serif"
+                    android:onClick="LVA"
+                    android:stateListAnimator="@android:anim/slide_in_left"
+                    android:text="@string/nm"
+                    android:textColor="@color/mywhite"
+                    android:textSize="12sp"
+                    android:textStyle="normal|bold" />
+
+                <Button
+                    android:id="@+id/cm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="3dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_marginVertical="3dp"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_selected_t"
+                    android:clickable="true"
+                    android:contentDescription="@string/cm"
+                    android:fontFamily="sans-serif"
+                    android:onClick="LVA"
+                    android:stateListAnimator="@android:anim/slide_in_left"
+                    android:text="@string/cm"
+                    android:textColor="@color/mywhite"
+                    android:textSize="12sp"
+                    android:textStyle="normal|bold" />
+
+                <Button
+                    android:id="@+id/anwbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="3dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_marginVertical="3dp"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_selected_t"
+                    android:clickable="true"
+                    android:contentDescription="@string/anw"
+                    android:fontFamily="sans-serif"
+                    android:onClick="LVA"
+                    android:stateListAnimator="@android:anim/slide_in_left"
+                    android:text="@string/anw"
+                    android:textColor="@color/mywhite"
+                    android:textSize="12sp"
+                    android:textStyle="normal|bold" />
+
+                <Button
+                    android:id="@+id/nwbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="3dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_marginVertical="3dp"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_selected_t"
+                    android:contentDescription="@string/nw"
+                    android:fontFamily="sans-serif"
+                    android:onClick="LVA"
+                    android:stateListAnimator="@android:anim/slide_in_left"
+                    android:text="@string/nw"
+                    android:textColor="@color/mywhite"
+                    android:textSize="12sp"
+                    android:textStyle="normal|bold" />
+
+                <Button
+                    android:id="@+id/cwbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="3dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_marginVertical="3dp"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_selected_t"
+                    android:clickable="true"
+                    android:contentDescription="@string/cw"
+                    android:fontFamily="sans-serif"
+                    android:onClick="LVA"
+                    android:stateListAnimator="@android:anim/slide_in_left"
+                    android:text="@string/cw"
+                    android:textColor="@color/mywhite"
+                    android:textSize="12sp"
+                    android:textStyle="normal|bold" />
+
+                <Button
+                    android:id="@+id/allbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="3dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_marginVertical="3dp"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_selected_t"
+                    android:contentDescription="@string/all"
+                    android:fontFamily="sans-serif"
+                    android:onClick="LVA"
+                    android:stateListAnimator="@android:anim/slide_in_left"
+                    android:text="@string/all"
+                    android:textColor="@color/mywhite"
+                    android:textSize="12sp"
+                    android:textStyle="normal|bold" />
+
+            </LinearLayout>
+
+            <ListView
+
+                android:id="@+id/new_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:paddingStart="1dp"
+                android:paddingEnd="1dp">
+
+            </ListView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addfltbtn"
+        android:layout_width="123dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@android:drawable/ic_input_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.881"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.989" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
