@@ -20,7 +20,7 @@
     <string name="insertphone">ادخل رقم الهاتف</string>
     <string name="age">السن</string>
     <string name="insertemail">ادخل البريد الالكتروني</string>
-    <string name="email">البريد الالكتروني</string>
+    <string name="email">الايميل </string>
     <string name="notes">ملاحظات</string>
     <string name="managment">الادارة</string>
     <string name="clinic">العيادة</string>
@@ -71,6 +71,11 @@
     <string name="search">بحث</string>
     <string name="anw">الاسبوع اللاحق</string>
     <string name="Reservation">الحجوزات</string>
+    <string name="Phone">الهاتف</string>
+    <string name="sex">النوع</string>
+    <string name="visitdate">تاريخ الكشف</string>
+    <string name="status">الحجز</string>
+    <string name="patname">اسم المريض</string>
 
 
 </resources>

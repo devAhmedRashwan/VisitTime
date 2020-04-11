@@ -11,10 +11,13 @@ package com.rashwan.visittime
         var isdeleted: Int? = null
         var ischanged: Int? = null
         var isconfirmed: Int? = null
-        var name: String? = null
+        var patname: String? = null
         var patemail: String? = null
+        var patphone: String? = null
         var age: Int? = null
+        var sex: Int? = null
         var notes: String? = null
+        var user: String? = null
 
 
 
@@ -24,7 +27,7 @@ package com.rashwan.visittime
 
 
         constructor(
-            id: String, visitdate: Long, regvisitdate:String,modifdate:String,time: String, isbooked: Int,isdeleted:Int,ischanged:Int,isconfirmed:Int,name:String,patemail:String,age:Int,notes:String
+            id: String, visitdate: Long, regvisitdate:String,modifdate:String,time: String, isbooked: Int,isdeleted:Int,ischanged:Int,isconfirmed:Int,patname:String,patemail:String,patphone:String,age:Int,sex:Int,notes:String,user:String
         ) {
 
             this.id = id
@@ -36,10 +39,13 @@ package com.rashwan.visittime
             this.isdeleted=isdeleted
             this.ischanged=ischanged
             this.isconfirmed=isconfirmed
-            this.name=name
+            this.patname=patname
             this.patemail=patemail
+            this.patphone=patphone
             this.age=age
+            this.sex=sex
             this.notes=notes
+            this.user=user
 
           
 

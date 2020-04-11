@@ -10,10 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".AllReservation"/>
+        <activity android:name=".SignUp"/>
+        <activity android:name=".MainActivity"/>
         <activity android:name=".dialog" />
         <activity android:name=".Manage" />
         <activity android:name=".bookvisit" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".landing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

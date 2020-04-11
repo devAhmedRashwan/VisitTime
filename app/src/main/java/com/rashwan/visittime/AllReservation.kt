@@ -4,13 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.core.view.isVisible
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ValueEventListener
-import com.rashwan.myapplication.VisitAdapter
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_allreservation.*
 import java.time.DayOfWeek
 import java.time.LocalDate
@@ -18,20 +13,24 @@ import java.time.temporal.TemporalAdjusters
 
 class AllReservation : AppCompatActivity() {
     var mNotelist: ArrayList<Booked>? = null
-
     var mAuth: FirebaseAuth? = null
-
     var mRef: DatabaseReference? = null
+    var database: FirebaseDatabase = FirebaseDatabase.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_allreservation)
+        mRef = database.getReference("Booked")
+        mAuth = FirebaseAuth.getInstance()
+        mNotelist = ArrayList()
+
     }
     fun LVA(view: View) {
 
+
         mNotelist?.clear()
 //        Pbar.isVisible=true
-        
+
         if (btnswitch.isChecked == true) {
             val searchtext = searchtext.text.toString()
 //            TTitle2.text ="نتيجة البحث عن " + searchtext +"."
@@ -109,26 +108,27 @@ class AllReservation : AppCompatActivity() {
             }
 
             override fun onDataChange(p0: DataSnapshot) {
-                
 
-                mNotelist?.clear()
+
+//                mNotelist?.clear()
                 try {
                     for (n in p0.children) {
-                        val case = n.getValue(Booked::class.java)
-                        var checkDeleted = n.child("deleted").value
-                        var visitdate = n.child("visitdate").value.toString().toLong()
-                        var casenumsearch =
-                            n.child("caseNum").value.toString() + n.child("caseAccuser").value.toString() + n.child(
-                                "caseCreater").value.toString() + n.child("caseCount").value.toString() + n.child("caseCountYear").value.toString() + n.child(
-                                "caseCreater").value.toString()
+                        val case = n.getValue(Booked::class.java)!!
+                        val checkDeleted = n.child("isdeleted").value
+                        val visitdate = n.child("visitdate").value.toString().toLong()
+                        val casenumsearch =  n.child("patname").value.toString() + n.child("patphone").value.toString()
                         var searchtxt = searchtext.text.toString()
+                        Toast.makeText(this@AllReservation,casenumsearch,Toast.LENGTH_SHORT).show()
+                        mNotelist!!.add(0, case)
                         if (btnswitch.isChecked == false) {
                             searchtxt = ""
                         }
                         if (delStat == false) {
 
                             if (checkDeleted.toString() == "0" && (visitdate >= firstDayOfWeek) && (visitdate <= lastDayOfWeek) && searchtxt in casenumsearch) {
-                                mNotelist!!.add(0, case!!)
+                                Toast.makeText(this@AllReservation,casenumsearch,Toast.LENGTH_SHORT).show()
+
+                                mNotelist!!.add(0, case)
 
 
 
@@ -144,16 +144,20 @@ class AllReservation : AppCompatActivity() {
 //
                         var sortedList =
                             mNotelist?.sortedWith(compareBy({ it.visitdate }))?.toList()
-
-                        val noteadapter = VisitAdapter(application, sortedList!!)
+try{
+                        val noteadapter = visitadapter(application, mNotelist!!)
 //                        Pbar.isVisible=false
                         new_list_view.adapter = noteadapter
+}catch (e:Exception){
+    Toast.makeText(this@AllReservation,e.message,Toast.LENGTH_SHORT).show()
 
+
+}
 
                     }
 
                 }catch  (e : Exception){
-                    Toast.makeText(this@AllReservation,e.message.toString(),Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@AllReservation,e.message.toString(),Toast.LENGTH_SHORT).show()
 //                    Pbar.isVisible = false
                 }
                 if (mNotelist?.count() == 0) {

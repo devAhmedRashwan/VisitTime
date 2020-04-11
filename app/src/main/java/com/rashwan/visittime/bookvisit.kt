@@ -71,7 +71,7 @@ class bookvisit : AppCompatActivity() {
                     var wantedvisit = "notexist"
                     for (n in dataSnapshot.children) {
                         val visita = n.getValue(Booked::class.java)
-                        var pickedvisitdate = visita?.date?.toLong()
+                        var pickedvisitdate = visita?.visitdate?.toLong()
                         if (pickedvisitdate == tools.strToEpoch(visitdate.text.toString())) {
                             wantedvisit = visita?.time.toString()
                         }
@@ -134,8 +134,8 @@ class bookvisit : AppCompatActivity() {
                     0,
                     patname.text.toString(),
                     patemail.text.toString(),
-                    patage.text.toString().toInt(),
-                    patnote.text.toString()
+                    patphone.text.toString(),
+                    0,1,"notes","currentuser"
                 )
 
 
@@ -180,7 +180,7 @@ class bookvisit : AppCompatActivity() {
                         val visita = n.getValue(Booked::class.java)
 
                         var visittime = visita?.time.toString()
-                        var pickedvisitdate = visita?.date?.toLong()
+                        var pickedvisitdate = visita?.visitdate?.toLong()
                         if (pickedvisitdate == tools.strToEpoch(visitdate.text.toString())) {
                             wantedvisit = visita?.time.toString()
                         }

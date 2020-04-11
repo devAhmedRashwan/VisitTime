@@ -29,10 +29,12 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity android:name="com.rashwan.visittime.AllReservation" />
+        <activity android:name="com.rashwan.visittime.SignUp" />
+        <activity android:name="com.rashwan.visittime.MainActivity" />
         <activity android:name="com.rashwan.visittime.dialog" />
         <activity android:name="com.rashwan.visittime.Manage" />
         <activity android:name="com.rashwan.visittime.bookvisit" />
-        <activity android:name="com.rashwan.visittime.MainActivity" >
+        <activity android:name="com.rashwan.visittime.landing" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
