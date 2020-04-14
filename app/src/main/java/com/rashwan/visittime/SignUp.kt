@@ -33,7 +33,6 @@ class SignUp : AppCompatActivity() {
 //                            val profileUpdates =
 //                                UserProfileChangeRequest.Builder()
 //                                    .setDisplayName(mName).build()
-//
 //                            user!!.updateProfile(profileUpdates)
                             Toast.makeText(applicationContext, "Successfull", Toast.LENGTH_LONG)
                                 .show()

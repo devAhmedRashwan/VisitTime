@@ -25,14 +25,18 @@ class tools {
         }
 
         fun strToEpoch(l: String): Long {
-            //   var edited=l.replace(" Sun","")
             var edited = l
-            if (l.length != 10) {
-                edited = l.substring(0, 10)
-            } else edited = l
+            try {
+                if (l.length != 10) {
+                    edited = l.substring(0, 10)
+                } else edited = l
+            }catch(e:Exception){
+                edited="2020-01-01"
+            }
 
             return LocalDateTime.parse(edited + "T00:00:00.000").atZone(ZoneOffset.systemDefault())
                 .toEpochSecond()
+
         }
         fun strToMilliEpoch(l: Date): Long {
             //   var edited=l.replace(" Sun","")

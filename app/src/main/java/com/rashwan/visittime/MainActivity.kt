@@ -11,6 +11,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -78,9 +79,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 Toast.makeText(this, itemtitle, Toast.LENGTH_LONG).show()
             (id == R.id.myprofile) ->
                 Toast.makeText(this, itemtitle, Toast.LENGTH_LONG).show()
-            (id == R.id.logout) ->
-                Toast.makeText(this, itemtitle, Toast.LENGTH_LONG).show()
-            (id == R.id.history) ->
+            (id == R.id.logout) -> {
+                FirebaseAuth.getInstance().signOut()
+                startActivity(Intent(this, landing::class.java))
+            }
+                (id == R.id.history) ->
                 Toast.makeText(this, itemtitle, Toast.LENGTH_LONG).show()
 
 

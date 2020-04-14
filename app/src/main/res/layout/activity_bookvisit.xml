@@ -7,50 +7,16 @@
     android:background="@drawable/backgroundmedical"
     android:orientation="vertical"
     tools:context=".bookvisit">
+
     <LinearLayout
+        android:id="@+id/patform"
         android:layout_width="match_parent"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_height="match_parent">
+        android:orientation="vertical">
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="85dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/visitdate"
-                android:layout_width="203dp"
-                android:layout_height="56dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="30dp"
-                android:background="@drawable/background_title"
-                android:gravity="center"
-                android:text="@string/pickday"
-                android:textAlignment="center"
-
-                android:textAllCaps="false"
-                android:textColor="@color/mywhite"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/check"
-                android:layout_width="84dp"
-                android:layout_height="56dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="30dp"
-                android:background="@drawable/background_title"
-                android:gravity="center"
-                android:text="max"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textSize="15sp" />
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,7 +30,7 @@
                 android:id="@+id/fullbookedsp"
                 android:layout_width="80dp"
                 android:layout_height="40dp"
-                android:background="@drawable/background_rowstyle"
+                android:background="@drawable/bg_inbut_style"
                 android:popupBackground="@drawable/backgrount_transparent"
                 android:textAlignment="center" />
 
@@ -72,7 +38,7 @@
                 android:id="@+id/fullbooked"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:background="@drawable/background_title"
+                android:background="@drawable/bg_btn_main"
                 android:padding="10dp"
                 android:text="@string/fullbooked"
                 android:textAllCaps="false"
@@ -83,7 +49,7 @@
                 android:id="@+id/maintimes"
                 android:layout_width="80dp"
                 android:layout_height="40dp"
-                android:background="@drawable/background_rowstyle"
+                android:background="@drawable/bg_inbut_style"
                 android:popupBackground="@drawable/backgrount_transparent"
                 android:textAlignment="center" />
 
@@ -91,7 +57,7 @@
                 android:id="@+id/getmain"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:background="@drawable/background_title"
+                android:background="@drawable/bg_btn_main"
                 android:padding="10dp"
                 android:text="@string/basictimes"
                 android:textAllCaps="false"
@@ -99,42 +65,43 @@
                 android:textSize="15sp" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="349dp"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:gravity="center_horizontal">
-
-            <Spinner
-                android:id="@+id/availabletimespinner"
-                android:layout_width="146dp"
-                android:layout_height="56dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/background_rowstyle"
-                android:popupBackground="@drawable/background_rowstyle"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/availabletimes"
-                android:layout_width="wrap_content"
-                android:layout_height="56dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/background_title"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="@string/choosetime"
-                android:textAllCaps="false"
-                android:textColor="@color/mywhite"
-                android:textSize="18sp" />
-
-
-        </LinearLayout>
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/bg_l_greenblue"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/bookcard"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/mywhite"
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/pickday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/bg_btn_main"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="اختر يوم"
+                android:textAlignment="center"
+
+                android:textAllCaps="false"
+                android:textColor="@color/mywhite"
+                android:textSize="20sp" />
 
 
         </LinearLayout>
@@ -147,18 +114,22 @@
             android:layout_marginEnd="20dp"
             android:gravity="center_horizontal">
 
-            <TextView
-                android:layout_width="286dp"
+            <Button
+                android:id="@+id/popuptime"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:background="@drawable/background_title"
-                android:gravity="center_horizontal"
-                android:padding="15dp"
-                android:text="بيانات المريض"
+                android:layout_marginStart="90dp"
+                android:layout_marginEnd="90dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bg_btn_main"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="اخترموعد"
+                android:textAllCaps="false"
                 android:textColor="@color/mywhite"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
+                android:textSize="22sp"
+                android:visibility="gone" />
         </LinearLayout>
 
         <LinearLayout
@@ -171,20 +142,22 @@
                 android:id="@+id/patname"
                 android:layout_width="180dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/background_rowstyle"
+                android:background="@drawable/bg_inbut_style"
                 android:hint="ادخل اسم المريض"
+                android:shadowColor="@color/honeyl"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#D5373535"
+                android:textColor="#000000"
+                android:textColorHint="#D5686363"
+                android:textColorLink="#BA5151"
                 android:textSize="18sp"
-                android:textStyle="italic" />
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="10dp"
-                android:background="@drawable/background_title"
+                android:background="@drawable/bg_btn_main"
                 android:gravity="center_horizontal"
                 android:padding="8dp"
                 android:text="الاسم"
@@ -203,22 +176,24 @@
                 android:id="@+id/patphone"
                 android:layout_width="180dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/background_rowstyle"
+                android:background="@drawable/bg_inbut_style"
                 android:hint="@string/insertphone"
                 android:inputType="phone"
                 android:padding="10dp"
+                android:shadowColor="@color/honeyl"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#D5373535"
+                android:textColor="#000000"
+                android:textColorHint="#D5686363"
+                android:textColorLink="#BA5151"
                 android:textSize="18sp"
-                android:textStyle="italic" />
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="10dp"
-                android:background="@drawable/background_title"
+                android:background="@drawable/bg_btn_main"
                 android:gravity="center_horizontal"
                 android:padding="8dp"
                 android:text=" رقم الهاتف"
@@ -226,6 +201,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -236,21 +212,23 @@
                 android:id="@+id/patage"
                 android:layout_width="180dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/background_rowstyle"
+                android:background="@drawable/bg_inbut_style"
                 android:hint="السن"
                 android:inputType="number"
+                android:shadowColor="@color/honeyl"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#D5373535"
+                android:textColor="#000000"
+                android:textColorHint="#D5686363"
+                android:textColorLink="#BA5151"
                 android:textSize="18sp"
-                android:textStyle="italic" />
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="10dp"
-                android:background="@drawable/background_title"
+                android:background="@drawable/bg_btn_main"
                 android:gravity="center_horizontal"
                 android:padding="8dp"
                 android:text="@string/age"
@@ -271,21 +249,23 @@
                 android:id="@+id/patemail"
                 android:layout_width="180dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/background_rowstyle"
+                android:background="@drawable/bg_inbut_style"
                 android:hint="@string/insertemail"
                 android:inputType="textEmailAddress"
+                android:shadowColor="@color/honeyl"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#D5373535"
+                android:textColor="#000000"
+                android:textColorHint="#D5686363"
+                android:textColorLink="#BA5151"
                 android:textSize="18sp"
-                android:textStyle="italic" />
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="10dp"
-                android:background="@drawable/background_title"
+                android:background="@drawable/bg_btn_main"
                 android:gravity="center_horizontal"
                 android:padding="8dp"
                 android:text="@string/email"
@@ -304,28 +284,30 @@
                 android:id="@+id/patnote"
                 android:layout_width="180dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/background_rowstyle"
+                android:background="@drawable/bg_inbut_style"
                 android:hint="@string/notes"
+                android:shadowColor="@color/honeyl"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#D5373535"
+                android:textColor="#000000"
+                android:textColorHint="#D5686363"
+                android:textColorLink="#BA5151"
                 android:textSize="18sp"
-                android:textStyle="italic" />
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="10dp"
-                android:background="@drawable/background_title"
+                android:background="@drawable/bg_btn_main"
                 android:gravity="center_horizontal"
                 android:padding="8dp"
                 android:text="@string/notes"
                 android:textColor="#FFEB3B"
                 android:textSize="18sp"
                 android:textStyle="bold" />
-        </LinearLayout>
 
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -339,7 +321,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginEnd="16dp"
-                android:background="@drawable/background_delete"
+                android:background="@drawable/bg_btn_main"
                 android:fontFamily="@font/wendy_one"
                 android:gravity="center"
                 android:text="احجز الموعد وادفع الآن"
@@ -348,5 +330,29 @@
                 android:textSize="24sp" />
 
         </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/backtomain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_btn_main"
+            android:fontFamily="@font/wendy_one"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="الرجوع الى الصفحة الرئيسية"
+            android:textAllCaps="false"
+            android:textColor="@color/mywhite"
+            android:textSize="24sp" />
     </LinearLayout>
 </LinearLayout>

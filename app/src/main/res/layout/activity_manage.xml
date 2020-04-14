@@ -9,196 +9,173 @@
     tools:context=".bookvisit">
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    >
+
     <TextView
         android:id="@+id/allreservations"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/background_title"
+        android:background="@drawable/bg_btn_main"
         android:gravity="center"
-        android:text="عرض كافة الحجوزات"
+        android:text="@string/Manageall"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/mywhite"
-        android:textSize="15sp" />
-
+        android:textSize="22sp" />
 
 </LinearLayout>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="85dp"
+        android:gravity="center_horizontal"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/aa"
-            android:layout_width="108dp"
-            android:layout_height="56dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/background_title"
-            android:gravity="center"
-            android:text="2020/02/07"
-            android:textAlignment="center"
-
-            android:textAllCaps="false"
-            android:textColor="@color/mywhite"
-            android:textSize="15sp" />
-
-
         <Button
-            android:id="@+id/lastday"
-            android:layout_width="wrap_content"
-            android:layout_height="56dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/background_edit"
-            android:gravity="center"
-            android:padding="15dp"
-            android:text="last day "
-            android:textAllCaps="false"
-            android:textColor="@color/mywhite"
-            android:textSize="24sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:orientation="horizontal">
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="142dp">
-
-        <Button
-            android:id="@+id/deletetime"
+            android:id="@+id/disabletimebtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/background_delete"
-            android:gravity="center"
-            android:padding="15dp"
-            android:text="delete time"
-            android:textAllCaps="false"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_btn_main"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/disabletimes"
             android:textColor="@color/mywhite"
-            android:textSize="20sp" />
-
-        <Spinner
-            android:id="@+id/showtimesspinner"
-            android:layout_width="120dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/backgrount_transparent"
-            android:padding="1dp"
-            android:popupBackground="@drawable/backgrount_transparent"
-            android:textAlignment="center" />
+            android:textSize="22sp" />
 
         <Button
-            android:id="@+id/showtimes"
+            android:id="@+id/enabletimesbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/background_edit"
-            android:gravity="center"
-            android:padding="15dp"
-            android:text="show times"
-            android:textAllCaps="false"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_btn_main"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/enabletimes"
             android:textColor="@color/mywhite"
-            android:textSize="18sp" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            android:textSize="22sp" />
 
         <Button
-            android:id="@+id/add"
+            android:id="@+id/addtimebtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/background_edit"
-            android:gravity="center"
-            android:text="add"
-            android:textAllCaps="false"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_btn_main"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/addnewtimebtn"
             android:textColor="@color/mywhite"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/picked"
-            android:layout_width="132dp"
-            android:layout_height="46dp"
-            android:background="@drawable/background_title"
-            android:gravity="center"
-            android:hint="Pick time"
-            android:textColor="@color/mywhite"
-            android:textSize="18dp" />
-
-
+            android:textSize="22sp" />
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-    </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        android:gravity="center_horizontal"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/post"
-            android:layout_width="192dp"
-            android:layout_height="56dp"
+            android:id="@+id/adddisabledday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/background_edit"
-            android:gravity="center"
-            android:text="post settings"
-            android:textAllCaps="false"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_btn_main"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/disableday"
             android:textColor="@color/mywhite"
-            android:textSize="24sp" />
+            android:textSize="22sp" />
 
+        <Button
+            android:id="@+id/addlastdaybtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_btn_main"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/lastavilday"
+            android:textColor="@color/mywhite"
+            android:textSize="22sp" />
 
+        <Button
+            android:id="@+id/addfirstdaybtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_btn_main"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/firstavilday"
+            android:textColor="@color/mywhite"
+            android:textSize="22sp" />
     </LinearLayout>
-
-    <Button
-        android:id="@+id/testbtn"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="test" />
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
 
-    <Spinner
-        android:id="@+id/afterdeletespinner"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/background_rowstyle"
-        android:padding="1dp"
-        android:popupBackground="@drawable/backgrount_transparent"
-        android:textAlignment="center" />
+        <Button
+            android:id="@+id/DaysInbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_btn_main"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/DaysIn"
+            android:textColor="@color/mywhite"
+            android:textSize="22sp" />
 
+        <Button
+            android:id="@+id/none"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_btn_main"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/lastavilday"
+            android:textColor="@color/mywhite"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/setdatesbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_btn_main"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="اضافة فترة"
+            android:textColor="@color/mywhite"
+            android:textSize="22sp" />
+    </LinearLayout>
 
 </LinearLayout>

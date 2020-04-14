@@ -110,7 +110,7 @@ class AllReservation : AppCompatActivity() {
             override fun onDataChange(p0: DataSnapshot) {
 
 
-//                mNotelist?.clear()
+              mNotelist?.clear()
                 try {
                     for (n in p0.children) {
                         val case = n.getValue(Booked::class.java)!!
@@ -118,7 +118,7 @@ class AllReservation : AppCompatActivity() {
                         val visitdate = n.child("visitdate").value.toString().toLong()
                         val casenumsearch =  n.child("patname").value.toString() + n.child("patphone").value.toString()
                         var searchtxt = searchtext.text.toString()
-                        Toast.makeText(this@AllReservation,casenumsearch,Toast.LENGTH_SHORT).show()
+//                        Toast.makeText(this@AllReservation,casenumsearch,Toast.LENGTH_SHORT).show()
                         mNotelist!!.add(0, case)
                         if (btnswitch.isChecked == false) {
                             searchtxt = ""
@@ -126,7 +126,7 @@ class AllReservation : AppCompatActivity() {
                         if (delStat == false) {
 
                             if (checkDeleted.toString() == "0" && (visitdate >= firstDayOfWeek) && (visitdate <= lastDayOfWeek) && searchtxt in casenumsearch) {
-                                Toast.makeText(this@AllReservation,casenumsearch,Toast.LENGTH_SHORT).show()
+//                                Toast.makeText(this@AllReservation,casenumsearch,Toast.LENGTH_SHORT).show()
 
                                 mNotelist!!.add(0, case)
 
@@ -144,15 +144,11 @@ class AllReservation : AppCompatActivity() {
 //
                         var sortedList =
                             mNotelist?.sortedWith(compareBy({ it.visitdate }))?.toList()
-try{
-                        val noteadapter = visitadapter(application, mNotelist!!)
+
+                        val noteadapter = visitadapter(application, sortedList!!)
 //                        Pbar.isVisible=false
                         new_list_view.adapter = noteadapter
-}catch (e:Exception){
-    Toast.makeText(this@AllReservation,e.message,Toast.LENGTH_SHORT).show()
 
-
-}
 
                     }
 

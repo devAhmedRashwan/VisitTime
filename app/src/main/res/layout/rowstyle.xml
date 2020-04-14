@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginStart="5dp"
-    android:layout_marginEnd="5dp"
     android:layout_marginTop="10dp"
+    android:layout_marginEnd="5dp"
     android:layout_marginBottom="10dp"
-    android:background="@drawable/background_rowstyle"
+    android:background="@drawable/bg_l_greenblue"
     android:orientation="vertical">
 
     <LinearLayout
@@ -21,234 +21,136 @@
         android:layout_marginBottom="5dp"
         android:orientation="horizontal"
 
-        android:weightSum="8">
-
-        <LinearLayout
-            android:layout_width="216dp"
-            android:layout_height="140dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_weight="3"
-            android:orientation="vertical"
-            android:weightSum="100">
-
-
-            <TextView
-                android:id="@+id/name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/background_edit"
-                android:backgroundTint="@color/honey"
-                android:padding="3dp"
-                android:text="@string/patname"
-                android:textAlignment="center"
-                android:textColor="@color/mywhite"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/background_edit"
-                android:backgroundTint="@color/honey"
-                android:padding="3dp"
-                android:text="@string/email"
-                android:textAlignment="center"
-                android:textColor="@color/mywhite"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/background_edit"
-                android:backgroundTint="@color/honey"
-                android:padding="3dp"
-                android:text="@string/visitdate"
-                android:textAlignment="center"
-                android:textColor="@color/mywhite"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/remain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/calendar2"
-                android:gravity="fill|fill_horizontal|center_vertical|fill_vertical"
-                android:padding="3dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="8dp"
-                android:text="الوقت المتبقي"
-                android:textColor="@color/mywhite"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-
-        </LinearLayout>
+        >
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
-            android:layout_weight="4"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/age"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="1dp"
-                android:layout_marginEnd="1dp"
-                android:layout_weight="25"
-                android:background="@drawable/background_cancel"
-                android:padding="4dp"
-                android:text="@string/age"
-                android:textAlignment="center"
-                android:textColor="@color/myYellow"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/patphone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="1dp"
-                android:layout_marginEnd="1dp"
-                android:layout_weight="25"
-                android:background="@drawable/background_cancel"
-                android:baselineAligned="false"
-                android:padding="4dp"
-                android:text="@string/Phone"
-                android:textAlignment="center"
-                android:textColor="@color/myYellow"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-
-                android:id="@+id/sex"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="1dp"
-                android:layout_marginEnd="1dp"
-                android:layout_weight="25"
-                android:background="@drawable/background_cancel"
-                android:padding="4dp"
-                android:text="@string/sex"
-                android:textAlignment="center"
-                android:textColor="@color/myYellow"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-
-                android:id="@+id/status"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="1dp"
-                android:layout_marginEnd="1dp"
-                android:layout_weight="25"
-                android:background="@drawable/background_cancel"
-                android:gravity="center_vertical"
-                android:padding="4dp"
-                android:text="@string/status"
-                android:textColor="@color/myYellow"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="5dp"
-            android:gravity="center_vertical"
-            android:orientation="vertical"
-            android:weightSum="100">
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="1dp"
-                android:layout_marginEnd="1dp"
-                android:layout_weight="25"
-                android:background="@drawable/background_cancel"
-                android:padding="4dp"
-                android:text="@string/age"
-                android:textAlignment="center"
-                android:textColor="#E7ECE9"
-                android:textSize="16sp" />
+                android:orientation="horizontal"
+                android:weightSum="3">
 
-            <TextView
+                <TextView
+                    android:id="@+id/remain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
 
+                    android:background="@drawable/bg_greenblue"
+                    android:gravity="right"
+                    android:padding="3dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:text="الوقت المتبقي ⏳"
+                    android:textColor="@color/mywhite"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_greenblue"
+                    android:baselineAligned="false"
+                    android:gravity="center_horizontal"
+                    android:padding="3dp"
+                    android:text="10:33  AM"
+                    android:textAlignment="center"
+                    android:textColor="@color/myYellow"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_greenblue"
+                    android:gravity="center_horizontal"
+                    android:padding="3dp"
+                    android:text="@string/visitdate"
+                    android:textAlignment="center"
+                    android:textColor="@color/mywhite"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="1dp"
-                android:layout_marginEnd="1dp"
-                android:layout_weight="25"
-                android:background="@drawable/background_cancel"
-                android:baselineAligned="false"
-                android:padding="4dp"
-                android:text="@string/Phone"
-                android:textAlignment="center"
-                android:textColor="#E7ECE9"
-                android:textSize="16sp" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
 
-            <TextView
+                <TextView
 
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="1dp"
-                android:layout_marginEnd="1dp"
-                android:layout_weight="25"
-                android:background="@drawable/background_cancel"
-                android:padding="4dp"
-                android:text="@string/sex"
-                android:textAlignment="center"
-                android:textColor="#E7ECE9"
-                android:textSize="16sp" />
+                    android:id="@+id/status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_greenblue"
+                    android:gravity="center_horizontal"
+                    android:padding="3dp"
+                    android:text="@string/status"
+                    android:textColor="@color/myYellow"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
-            <TextView
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_greenblue"
+                    android:gravity="center_horizontal"
+                    android:padding="3dp"
+                    android:text="@string/patname"
+                    android:textAlignment="center"
+                    android:textColor="@color/mywhite"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="1dp"
-                android:layout_marginEnd="1dp"
-                android:layout_weight="25"
-                android:background="@drawable/background_cancel"
-                android:padding="4dp"
-                android:text="@string/status"
-                android:textAlignment="center"
-                android:textColor="#E7ECE9"
-                android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/patphone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_greenblue"
+                    android:baselineAligned="false"
+                    android:gravity="center_horizontal"
+                    android:padding="3dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:text="@string/Phone"
+                    android:textAlignment="center"
+                    android:textColor="@color/myYellow"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
 
         </LinearLayout>

@@ -61,7 +61,7 @@
     <string name="nw"> الاسبوع المقبل</string>
     <string name="cm"> الشهر الحالي</string>
     <string name="nm"> الشهر المقبل</string>
-    <string name="all">جميع الجلسات</string>
+    <string name="all">جميع الحجوزات</string>
     <string name="deletedcases">الحجوزات المحذوفة</string>
     <string name="edit">تعديل</string>
     <string name="cancel">الغاء</string>
@@ -76,6 +76,33 @@
     <string name="visitdate">تاريخ الكشف</string>
     <string name="status">الحجز</string>
     <string name="patname">اسم المريض</string>
+    <string name="Manageall">ادارة الحجوزات </string>
+    <string name="addnewtimebtn">اضافة موعد </string>
+    <string name="deletetimebtn">حذف موعد</string>
+    <string name="disabletimes">ايقاف موعد</string>
+    <string name="enabletimes">تفعيل موعد</string>
+    <string name="close">❌اغلاق</string>
+    <string name="diabletimenow">✓ ايقاف الموعد  </string>
+    <string name="addtimenow">✓ اضافة الموعد  </string>
+    <string name="enabletimenow">✓ تفعيل الموعد  </string>
+    <string name="picktime">🕙 حدد الموعد</string>
+    <string name="pickoday">🕙 حدد اليوم</string>
+    <string name="stoptimecard">🚫 بطاقة ايقاف موعد </string>
+    <string name="stopdaycard">🚫 بطاقة تعطيل يوم </string>
+    <string name="starttimecard"> بطاقة تفعيل موعد </string>
+    <string name="disableday">  تعطيل يوم </string>
+    <string name="addtimecard"> بطاقة اضافة موعد </string>
+    <string name="enableonceadded">  تفعيل الموعد تلقائيا مع الاضافة  </string>
+    <string name="bookcard">بطاقة حجز موعد</string>
+    <string name="DaysOut"> ايام العطلـة</string>
+    <string name="lastavilday">نهاية الفـترة</string>
+    <string name="firstavilday">بداية الـفترة</string>
+    <string name="firstdatecard">بطاقة اضافة بداية الفترة</string>
+    <string name="lastdatecard">بطاقة اضافة نهاية الفترة</string>
+    <string name="setdatecard">بطاقة اضافة بداية و نهاية الفترة</string>
+    <string name="setday">حدد اليوم</string>
+    <string name="confirmset"> ✓  تأكيد الاعدادات </string>
+    <string name="DaysIn">ايام العمل</string>
 
 
 </resources>

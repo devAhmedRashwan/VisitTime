@@ -12,4 +12,14 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+    <!-- This style is for the dialoge popup -->
+    <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:background">@drawable/bg_l_greenblue_noline</item>
+        <item name="android:textColor">@color/mywhite</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="checkboxStyle">@drawable/bg_inbut_style</item>
+
+
+    </style>
 </resources>
