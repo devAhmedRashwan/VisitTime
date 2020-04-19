@@ -1,6 +1,4 @@
 package com.rashwan.visittime
-
-
 import android.app.AlertDialog
 import android.app.AlertDialog.THEME_DEVICE_DEFAULT_LIGHT
 import android.app.TimePickerDialog
@@ -8,11 +6,17 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.icu.util.Calendar
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_manage.*
 import kotlinx.android.synthetic.main.addnewtime.view.*
 import kotlinx.android.synthetic.main.addnewtime.view.addtimenow
@@ -22,22 +26,16 @@ import kotlinx.android.synthetic.main.disabletimes.view.disabletimenow
 import kotlinx.android.synthetic.main.set_dates.view.*
 import java.text.SimpleDateFormat
 import java.util.*
-
-
 class Manage : AppCompatActivity() {
     var mRef: DatabaseReference? = null
     var mAuth: FirebaseAuth? = null
-    var Year: Int = 2020
-    var Month: Int = 3
-    var Day: Int = 20
     val FirstDate = ToolsVisit.Dates(0)
     val LastDate = ToolsVisit.Dates(1)
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_manage)
-        var database: FirebaseDatabase = FirebaseDatabase.getInstance()
+        val database: FirebaseDatabase = FirebaseDatabase.getInstance()
         mRef = database.getReference("Times")
         mAuth = FirebaseAuth.getInstance()
         val maintimesarray = ToolsVisit.gettimes()
@@ -45,13 +43,14 @@ class Manage : AppCompatActivity() {
         val disabledtimesarray = ToolsVisit.disabledtimes()
         val textviewid = (R.id.tv)
         allreservations.setOnClickListener() {
+            ToolsVisit.btnanim(it)
             startActivity(Intent(this, AllReservation::class.java))
 
         }
         addtimebtn.setOnClickListener() {
-
-            var alert = AlertDialog.Builder(this)
-            var inflater = layoutInflater
+            ToolsVisit.btnanim(it)
+            val alert = AlertDialog.Builder(this)
+            val inflater = layoutInflater
             val view = inflater.inflate(R.layout.addnewtime, null)
             alert.setView(view)
             val alertdailoge = alert.create()
@@ -136,7 +135,98 @@ class Manage : AppCompatActivity() {
 
 
         }
+        enabletimesbtn.setOnClickListener() {
+            ToolsVisit.btnanim(it)
+            if (disabledtimesarray.isEmpty()) {
+                ToolsVisit.vtoast(
+                    "لا يوجد اي مواعيد موقوفة يمكن تفعيلها",
+                    2,
+                    this@Manage,
+                    layoutInflater
+                )
+            } else {
+
+                var selectedItems = mutableListOf<String>()
+                val final = Collections.unmodifiableList(selectedItems)
+                val builder = AlertDialog.Builder(this, THEME_DEVICE_DEFAULT_LIGHT)
+                builder.setTitle("اختر الموعد المراد تفعيله")
+                builder.setIcon(R.drawable.icon_time_set)
+
+                    .setMultiChoiceItems(disabledtimesarray.toTypedArray(), null,
+                        DialogInterface.OnMultiChoiceClickListener { dialog, which, isChecked ->
+                            if (isChecked) {
+                                selectedItems.add(disabledtimesarray.toTypedArray()[which])
+                            } else if (selectedItems.contains(disabledtimesarray.toTypedArray()[which])) {
+                                selectedItems.remove(disabledtimesarray.toTypedArray()[which])
+                            }
+                        })
+                    .setPositiveButton("OK",
+                        DialogInterface.OnClickListener { dialog, id ->
+//                            Toast.makeText(this,"you choose $final",Toast.LENGTH_LONG).show()
+                            if (final.toString() != "[]") {
+
+
+                                val joinedarry =
+                                    final.toString().replace("[", "").replace("]", "")
+                                        .split(",").toTypedArray()
+                                var lastitemindex=joinedarry.size
+                                var timeormore="المواعيد"
+                                if(lastitemindex==1){timeormore="الموعد"}
+                                for (item in joinedarry) {
+                                    try {
+                                        var firstchar = item.substring(0, 1)
+                                        var edited = item
+                                        if (firstchar == " ") {
+                                            edited = item.removeRange(0, 1)
+                                        }
+                                        mRef = database.getReference("Times")
+                                        mRef!!.child(edited).setValue(1)
+                                            .addOnSuccessListener {
+                                                if (item == joinedarry[lastitemindex - 1]) {
+                                                    ToolsVisit.vtoast(
+                                                        " تم تفعيل $timeormore  بنجاح   ",
+                                                        1,
+                                                        this@Manage,
+                                                        layoutInflater
+                                                    )
+                                                }
+
+
+                                            }
+                                            .addOnFailureListener {
+                                                ToolsVisit.vtoast(
+                                                    " لم يتم التفعيل " + it.message,
+                                                    3,
+                                                    this@Manage,
+                                                    layoutInflater
+                                                )
+
+
+                                            }
+
+
+                                    } catch (e: Exception) {
+                                        ToolsVisit.vtoast(
+                                            " لم يتم التفعيل " + e.message,
+                                            3,
+                                            this@Manage,
+                                            layoutInflater
+                                        )
+                                    }
+                                }
+                            }
+                        })
+                    .setNegativeButton("Cancel",
+                        DialogInterface.OnClickListener { dialog, id ->
+                        })
+                builder.create()
+                builder.show()
+            }
+
+
+        }
         disabletimebtn.setOnClickListener() {
+            ToolsVisit.btnanim(it)
             if (maintimesarray.isEmpty()) {
                 ToolsVisit.vtoast(
                     "لا يوجد اي مواعيد نشطة يمكن ايقافها",
@@ -145,456 +235,168 @@ class Manage : AppCompatActivity() {
                     layoutInflater
                 )
             } else {
-                val alert = AlertDialog.Builder(this)
-                val inflater = layoutInflater
-                val view = inflater.inflate(R.layout.disabletimes, null)
-                alert.setView(view)
-                val alertdailoge = alert.create()
-                alertdailoge.show()
-                view.closeit.setOnClickListener() {
-                    alertdailoge.dismiss()
-                    startActivity(Intent(this, MainActivity::class.java))
-                }
-                view.pickthetime.setOnClickListener() {
-                    var selectedItems = mutableListOf<String>()
-                    val final = Collections.unmodifiableList(selectedItems)
+
+                var selectedItems = mutableListOf<String>()
+                val final = Collections.unmodifiableList(selectedItems)
 //                    val builder = AlertDialog.Builder(this,R.style.MyDialogTheme)
-                    val builder = AlertDialog.Builder(this, THEME_DEVICE_DEFAULT_LIGHT)
-                    builder.setIcon(R.drawable.ico_clock)
+                val builder = AlertDialog.Builder(this, THEME_DEVICE_DEFAULT_LIGHT)
+                builder.setIcon(R.drawable.icon_time_off)
 
-                    builder.setTitle("اختر الموعد المراد ايقافه")
-                        .setMultiChoiceItems(maintimesarray.toTypedArray(), null,
-                            DialogInterface.OnMultiChoiceClickListener { dialog, which, isChecked ->
-                                if (isChecked) {
+                builder.setTitle("اختر الموعد المراد ايقافه")
+                    .setMultiChoiceItems(maintimesarray.toTypedArray(), null,
+                        DialogInterface.OnMultiChoiceClickListener { dialog, which, isChecked ->
+                            if (isChecked) {
 
-                                    selectedItems.add(maintimesarray.toTypedArray()[which])
-                                } else if (selectedItems.contains(maintimesarray.toTypedArray()[which])) {
-                                    selectedItems.remove(maintimesarray.toTypedArray()[which])
-                                }
-                            })
-
-                        .setPositiveButton("تم",
-                            DialogInterface.OnClickListener { dialog, id ->
-//                            Toast.makeText(this,"you choose $final",Toast.LENGTH_LONG).show()
-                                if (final.toString() != "[]") {
-                                    view.pickthetime.text = final.toString()
-                                    view.disabletimenow.visibility = View.VISIBLE
-                                }
-
-                            })
-                        .setNegativeButton("الغاء",
-                            DialogInterface.OnClickListener { dialog, id ->
-                            })
-
-                    builder.create()
-                    builder.show()
-
-
-                }
-
-
-//end
-
-
-                view.disabletimenow.setOnClickListener() {
-
-                    var joinedarry =
-                        view.pickthetime.text.toString().replace("[", "").replace("]", "")
-                            .split(",").toTypedArray()
-                    for (item in joinedarry) {
-                        try {
-                            var firstchar = item.substring(0, 1)
-                            var edited = item
-                            if (firstchar == " ") {
-                                edited = item.removeRange(0, 1)
+                                selectedItems.add(maintimesarray.toTypedArray()[which])
+                            } else if (selectedItems.contains(maintimesarray.toTypedArray()[which])) {
+                                selectedItems.remove(maintimesarray.toTypedArray()[which])
                             }
-                            mRef = database.getReference("Times")
-                            mRef!!.child(edited).setValue(0)
-                                .addOnSuccessListener {
-                                    ToolsVisit.vtoast(
-                                        " تم الايقاف بنجاح   ",
-                                        1,
-                                        this@Manage,
-                                        layoutInflater
-                                    )
+                        })
 
-                                    view.disabletimenow.visibility = View.GONE
-                                    view.pickthetime.text = "ايقاف موعد اخر ؟"
-
-                                }
-                                .addOnFailureListener {
-                                    ToolsVisit.vtoast(
-                                        "   لم يتم الايقاف   ",
-                                        3,
-                                        this@Manage,
-                                        layoutInflater
-                                    )
-
-                                }
-
-
-                        } catch (e: Exception) {
-
-                            ToolsVisit.vtoast(
-                                "   لم يتم الايقاف   " + e.message,
-                                3,
-                                this@Manage,
-                                layoutInflater
-                            )
-
-
-                        }
-
-                    }
-                    view.disabletimenow.visibility = View.GONE
-                }
-                view.closeit.setOnClickListener() {
-                    alertdailoge.dismiss()
-                }
-
-
-            }
-
-        }
-        enabletimesbtn.setOnClickListener() {
-            if (disabledtimesarray.isEmpty()) {
-                ToolsVisit.vtoast(
-                    "لا يوجد اي مواعيد موقوفة يمكن تفعيلها",
-                    2,
-                    this@Manage,
-                    layoutInflater
-                )
-
-
-            } else {
-
-                var alert = AlertDialog.Builder(this)
-                var inflater = layoutInflater
-                val view = inflater.inflate(R.layout.enabletimes, null)
-                alert.setView(view)
-                val alertdailoge = alert.create()
-                alertdailoge.show()
-                view.closeit.setOnClickListener() {
-                    alertdailoge.dismiss()
-                    startActivity(Intent(this, MainActivity::class.java))
-
-                }
-                view.pickthetime.setOnClickListener() {
-
-
-//srat
-
-
-                    var selectedItems = mutableListOf<String>()
-                    val final = Collections.unmodifiableList(selectedItems)
-                    val builder = AlertDialog.Builder(this)
-                    builder.setTitle("اختر الموعد المراد تفعيله")
-                        .setMultiChoiceItems(disabledtimesarray.toTypedArray(), null,
-                            DialogInterface.OnMultiChoiceClickListener { dialog, which, isChecked ->
-                                if (isChecked) {
-                                    selectedItems.add(disabledtimesarray.toTypedArray()[which])
-                                } else if (selectedItems.contains(disabledtimesarray.toTypedArray()[which])) {
-                                    selectedItems.remove(disabledtimesarray.toTypedArray()[which])
-                                }
-                            })
-                        .setPositiveButton("OK",
-                            DialogInterface.OnClickListener { dialog, id ->
+                    .setPositiveButton("تم",
+                        DialogInterface.OnClickListener { dialog, id ->
 //                            Toast.makeText(this,"you choose $final",Toast.LENGTH_LONG).show()
-                                if (final.toString() != "[]") {
-                                    view.pickthetime.text = final.toString()
-                                    view.disabletimenow.visibility = View.VISIBLE
-                                }
-                            })
-                        .setNegativeButton("Cancel",
-                            DialogInterface.OnClickListener { dialog, id ->
-                            })
-                    builder.create()
-                    builder.show()
+                            if (final.toString() != "[]") {
+
+                                var joinedarry =
+                                    final.toString().replace("[", "").replace("]", "")
+                                        .split(",").toTypedArray()
+                                var lastitemindex=joinedarry.size
+                                var timeormore="المواعيد"
+                                if(lastitemindex==1){timeormore="الموعد"}
+                                for (item in joinedarry) {
+                                    try {
+                                        var firstchar = item.substring(0, 1)
+                                        var edited = item
+                                        if (firstchar == " ") {
+                                            edited = item.removeRange(0, 1)
+                                        }
+                                        mRef = database.getReference("Times")
+                                        mRef!!.child(edited).setValue(0)
+                                            .addOnSuccessListener {
+                                                if (item == joinedarry[lastitemindex - 1]) {
+                                                    ToolsVisit.vtoast(
+                                                        " تم ايقاف $timeormore  بنجاح   ",
+                                                        1,
+                                                        this@Manage,
+                                                        layoutInflater
+                                                    )
+                                                }
 
 
-                }
+                                            }
+                                            .addOnFailureListener {
+                                                ToolsVisit.vtoast(
+                                                    "   لم يتم الايقاف   ",
+                                                    3,
+                                                    this@Manage,
+                                                    layoutInflater
+                                                )
 
-                view.disabletimenow.setOnClickListener() {
-
-                    var joinedarry =
-                        view.pickthetime.text.toString().replace("[", "").replace("]", "")
-                            .split(",").toTypedArray()
-                    for (item in joinedarry) {
-                        try {
-                            var firstchar = item.substring(0, 1)
-                            var edited = item
-                            if (firstchar == " ") {
-                                edited = item.removeRange(0, 1)
-                            }
-                            mRef = database.getReference("Times")
-                            mRef!!.child(edited).setValue(1)
-                                .addOnSuccessListener {
-                                    ToolsVisit.vtoast(
-                                        " تم التفعيل بنجاح",
-                                        1,
-                                        this@Manage,
-                                        layoutInflater
-                                    )
-                                    view.disabletimenow.visibility = View.GONE
-                                    view.pickthetime.text = "تفعيل موعد اخر ؟"
-
-                                }
-                                .addOnFailureListener {
-                                    ToolsVisit.vtoast(
-                                        " لم يتم التفعيل " + it.message,
-                                        3,
-                                        this@Manage,
-                                        layoutInflater
-                                    )
+                                            }
 
 
-                                }
+                                    } catch (e: Exception) {
 
-
-                        } catch (e: Exception) {
-                            ToolsVisit.vtoast(
-                                " لم يتم التفعيل " + e.message,
-                                3,
-                                this@Manage,
-                                layoutInflater
-                            )
-
-
-                        }
-
-                    }
-                    view.disabletimenow.visibility = View.GONE
-                }
-                view.closeit.setOnClickListener() {
-                    alertdailoge.dismiss()
-                }
-
-
-            }
-
-        }
-        addfirstdaybtn.setOnClickListener() {
-
-            var alert = AlertDialog.Builder(this)
-            var inflater = layoutInflater
-            val view = inflater.inflate(R.layout.addfirstdate, null)
-            try {
-                //  view.pickthetime.text= ToolsVisit.getdates(0,view.pickthetime, this, layoutInflater)[0]
-                view.pickthetime.text = tools.epochToStr(FirstDate[0].toLong())
-            } catch (e: Exception) {
-                ToolsVisit.vtoast(e.message!!, 1, this@Manage, layoutInflater)
-            }
-            alert.setView(view)
-            val alertdailoge = alert.create()
-            alertdailoge.show()
-            view.closeit.setOnClickListener() {
-                alertdailoge.dismiss()
-            }
-            view.pickthetime.setOnClickListener() {
-                ToolsVisit.PickLongDate(this, view.pickthetime, layoutInflater)
-                if (view.pickthetime.text.toString().contains("-")) {
-                    view.addtimenow.visibility = View.VISIBLE
-                }
-
-            }
-
-
-            view.addtimenow.setOnClickListener() {
-
-                try {
-
-                    mRef = database.getReference("Dates")
-                    mRef!!.child("FirstDate")
-                        .setValue(tools.strToEpoch(view.pickthetime.text.toString()))
-
-                        .addOnSuccessListener {
-                            ToolsVisit.vtoast(
-                                "تم اضافة بداية الفترة بنجاح",
-                                1,
-                                this@Manage,
-                                layoutInflater
-                            )
-
-                        }
-                        .addOnFailureListener {
-                            ToolsVisit.vtoast(
-                                "لم تتم اضافة بداية الفترة" + it.message,
-                                1,
-                                this@Manage,
-                                layoutInflater
-                            )
-
-
-                        }
-
-
-                } catch (e: Exception) {
-                    ToolsVisit.vtoast(
-                        "لم تتم اضافة بداية الفترة" + e.message,
-                        1,
-                        this@Manage,
-                        layoutInflater
+                                        ToolsVisit.vtoast(
+                                            "   لم يتم الايقاف   " + e.message,
+                                            3,
+                                            this@Manage,
+                                            layoutInflater
+                                        )
+                                    }}}}
                     )
 
-                }
+                    .setNegativeButton("الغاء",
+                        DialogInterface.OnClickListener { dialog, id ->
+                        })
+
+                builder.create()
+                builder.show()
+
 
             }
-            view.closeit.setOnClickListener() {
-                alertdailoge.dismiss()
-            }
-
-
-        }
-        addlastdaybtn.setOnClickListener() {
-
-            var alert = AlertDialog.Builder(this)
-            var inflater = layoutInflater
-            val view = inflater.inflate(R.layout.addlastdate, null)
-            try {
-                //  view.pickthetime.text= ToolsVisit.getdates(0,view.pickthetime, this, layoutInflater)[0]
-                view.pickthetime.text = tools.epochToStr(LastDate[0].toLong())
-            } catch (e: Exception) {
-                ToolsVisit.vtoast(e.message!!, 1, this@Manage, layoutInflater)
-            }
-            alert.setView(view)
-            val alertdailoge = alert.create()
-            alertdailoge.show()
-            view.closeit.setOnClickListener() {
-                alertdailoge.dismiss()
-            }
-            view.pickthetime.setOnClickListener() {
-                ToolsVisit.PickLongDate(this, view.pickthetime, layoutInflater)
-                if (view.pickthetime.text.toString().contains("-")) {
-                    view.addtimenow.visibility = View.VISIBLE
-                }
-
-            }
-
-
-            view.addtimenow.setOnClickListener() {
-
-                try {
-
-                    mRef = database.getReference("Dates")
-                    mRef!!.child("LastDate")
-                        .setValue(tools.strToEpoch(view.pickthetime.text.toString()))
-
-                        .addOnSuccessListener {
-                            ToolsVisit.vtoast(
-                                "تم اضافة نهاية الفترة بنجاح",
-                                1,
-                                this@Manage,
-                                layoutInflater
-                            )
-
-                        }
-                        .addOnFailureListener {
-                            ToolsVisit.vtoast(
-                                "لم تتم اضافة نهاية الفترة" + it.message,
-                                1,
-                                this@Manage,
-                                layoutInflater
-                            )
-
-
-                        }
-
-
-                } catch (e: Exception) {
-                    ToolsVisit.vtoast(
-                        "لم تتم اضافة نهاية الفترة" + e.message,
-                        1,
-                        this@Manage,
-                        layoutInflater
-                    )
-
-                }
-
-            }
-            view.closeit.setOnClickListener() {
-                alertdailoge.dismiss()
-            }
-
-
         }
         setdatesbtn.setOnClickListener() {
-
-            var alert = AlertDialog.Builder(this)
-            var inflater = layoutInflater
-            val view = inflater.inflate(R.layout.set_dates, null)
+            ToolsVisit.btnanim(it)
             try {
-                view.setFdate.text = tools.epochToStr(FirstDate[0].toLong())
-                view.setLdate.text = tools.epochToStr(LastDate[0].toLong())
-
-            } catch (e: Exception) {
-                ToolsVisit.vtoast(e.message!!, 1, this@Manage, layoutInflater)
-            }
-            alert.setView(view)
-            val alertdailoge = alert.create()
-            alertdailoge.show()
-            view.closeit.setOnClickListener() {
-                alertdailoge.dismiss()
-            }
-            view.setFdate.setOnClickListener() {
-                ToolsVisit.PickLongDate(this, view.setFdate, layoutInflater)
-            }
-            view.setLdate.setOnClickListener() {
-                ToolsVisit.PickLongDate(this, view.setLdate, layoutInflater)
-            }
-
-
-            view.confirmsettings.setOnClickListener() {
-
+                val alert = AlertDialog.Builder(this)
+                val inflater = layoutInflater
+                val view = inflater.inflate(R.layout.set_dates, null)
                 try {
-
-                    mRef = database.getReference("Dates")
-                    mRef!!.child("FirstDate")
-                        .setValue(tools.strToEpoch(view.setFdate.text.toString()))
-                    mRef!!.child("LastDate")
-                        .setValue(tools.strToEpoch(view.setLdate.text.toString()))
-
-                        .addOnSuccessListener {
-                            ToolsVisit.vtoast("تم ضبط الفترة بنجاح", 1, this@Manage, layoutInflater)
-
-                        }
-                        .addOnFailureListener {
-                            ToolsVisit.vtoast(
-                                "لم يتم ضبط الفترة" + it.message,
-                                1,
-                                this@Manage,
-                                layoutInflater
-                            )
-
-
-                        }
-
-
+                    view.setFdate.text = tools.epochToStr(FirstDate[0].toLong())
+                    view.setLdate.text = tools.epochToStr(LastDate[0].toLong())
+                    alert.setView(view)
                 } catch (e: Exception) {
                     ToolsVisit.vtoast(
-                        "لم يتم  ضبط الفترة" + e.message,
-                        1,
+                        "من فضلك تأكد من اتصالك بالانترنت ",
+                        2,
                         this@Manage,
                         layoutInflater
                     )
-
                 }
 
-            }
-            view.closeit.setOnClickListener() {
-                alertdailoge.dismiss()
-            }
+                val alertdailoge = alert.create()
 
 
+                alertdailoge.show()
+                view.closeit.setOnClickListener() {
+                    alertdailoge.dismiss()
+                }
+                view.setFdate.setOnClickListener() {
+                    ToolsVisit.PickLongDate(this, view.setFdate, layoutInflater)
+                }
+                view.setLdate.setOnClickListener() {
+                    ToolsVisit.PickLongDate(this, view.setLdate, layoutInflater)
+                }
+                view.confirmsettings.setOnClickListener() {
+                    try {
+                        mRef = database.getReference("Dates")
+                        mRef!!.child("FirstDate")
+                            .setValue(tools.strToEpoch(view.setFdate.text.toString()))
+                        mRef!!.child("LastDate")
+                            .setValue(tools.strToEpoch(view.setLdate.text.toString()))
+                            .addOnSuccessListener {
+                                ToolsVisit.vtoast(
+                                    "تم ضبط الفترة بنجاح",
+                                    1,
+                                    this@Manage,
+                                    layoutInflater
+                                )
+                            }
+                            .addOnFailureListener {
+                                ToolsVisit.vtoast(
+                                    "لم يتم ضبط الفترة" + it.message,
+                                    1,
+                                    this@Manage,
+                                    layoutInflater
+                                )
+                            }
+                    } catch (e: Exception) {
+                        ToolsVisit.vtoast(
+                            "لم يتم  ضبط الفترة" + e.message,
+                            1,
+                            this@Manage,
+                            layoutInflater
+                        )
+                    }
+                }
+                view.closeit.setOnClickListener() {
+                    alertdailoge.dismiss()
+                }
+
+            }catch (e:Exception){}
         }
         DaysInbtn.setOnClickListener() {
-            var checkeditems = mutableListOf<String>()
-            var uncheckeditems = mutableListOf<String>()
+            ToolsVisit.btnanim(it)
+            val checkeditems = mutableListOf<String>()
+            val uncheckeditems = mutableListOf<String>()
             var uncheckeddays: String = "initauncheck"
             var checkeddays: String = "initacheck"
             val BArray = ToolsVisit.DaysInBL()
             val final = Collections.unmodifiableList(checkeditems)
             val builder = AlertDialog.Builder(this, THEME_DEVICE_DEFAULT_LIGHT)
-            builder.setIcon(R.drawable.ico_clock)
+            builder.setIcon(R.drawable.icondate)
             builder.setTitle("اختر الايام التي سيكون بها الحجز متاحا")
                 .setMultiChoiceItems(DaysInarray.toTypedArray(), BArray,
                     DialogInterface.OnMultiChoiceClickListener { _, which, isChecked ->
@@ -739,16 +541,12 @@ class Manage : AppCompatActivity() {
             builder.create()
             builder.show()
         }
-
-
     }
 
+
+
+
 }
-
-
-
-
-
 
 
 

@@ -1,12 +1,15 @@
 package com.rashwan.visittime
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_allreservation.*
+import kotlinx.android.synthetic.main.rowstyle.*
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.temporal.TemporalAdjusters
@@ -23,11 +26,30 @@ class AllReservation : AppCompatActivity() {
         mRef = database.getReference("Booked")
         mAuth = FirebaseAuth.getInstance()
         mNotelist = ArrayList()
+        new_list_view.onItemClickListener =
+            AdapterView.OnItemClickListener { parent, view, position, id ->
+                val sortedList = mNotelist?.sortedWith(compareBy { it.visitdate })?.toList()
+                val vBook = sortedList?.get(position)!!
+                val BdCard = Intent(this, BookDetails::class.java)
 
+
+                BdCard.putExtra("patname", vBook.patname)
+                BdCard.putExtra("vnumber", vBook.vnumber.toString())
+                BdCard.putExtra("patphone", vBook.patphone)
+                BdCard.putExtra("patemail", vBook.patemail)
+                BdCard.putExtra("patage", vBook.age.toString())
+                BdCard.putExtra("visitdate", tools.epochToStr(vBook.visitdate!!.toLong()))
+                BdCard.putExtra("time", vBook.time)
+                BdCard.putExtra("sex", vBook.sex)
+                BdCard.putExtra("isconfirmed", vBook.isconfirmed)
+                BdCard.putExtra("remain", remain.text.toString())
+                BdCard.putExtra("creator", vBook.user)
+
+
+                startActivity(BdCard)
+            }
     }
     fun LVA(view: View) {
-
-
         mNotelist?.clear()
 //        Pbar.isVisible=true
 

@@ -14,17 +14,24 @@ import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.header_layout.view.*
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+    var mRef: DatabaseReference? = null
+    var mAuth: FirebaseAuth? = null
+    var database: FirebaseDatabase = FirebaseDatabase.getInstance()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        mRef = database.getReference("Config")
+        mAuth = FirebaseAuth.getInstance()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         //navbar
         setSupportActionBar(mytoolbar)
-        supportActionBar?.title=getString(R.string.arapp_name)
+        supportActionBar?.title = getString(R.string.arapp_name)
         val actiontoggle = ActionBarDrawerToggle(
             this,
             mydrawer,
@@ -35,39 +42,33 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         mydrawer.addDrawerListener(actiontoggle)
         actiontoggle.syncState()
         mNav.setNavigationItemSelectedListener(this)
-
 //end nav bar
 
 
-        var readData = ReadData()
-        var database: FirebaseDatabase = FirebaseDatabase.getInstance()
-        var ref: DatabaseReference = database.getReference("ClinicName")
-
-        ref.addValueEventListener(ReadData())
+        getUserData()
         booknow.setOnClickListener() {
-            startActivity(Intent(this, bookvisit::class.java))
-
+            ToolsVisit.btnanim(it)
+            if(mAuth?.currentUser?.isEmailVerified!! || mAuth?.currentUser?.email.toString()=="demo@visittime.com"){
+                startActivity(Intent(this, com.rashwan.visittime.bookvisit::class.java))
+            }else{
+                ToolsVisit.vtoast(
+                    "يجب تأكيد البريد الالكتروني قبل البدء في الحجز",
+                    1,
+                    this,
+                    layoutInflater
+                )
+            }
         }
-
+        mybooks.setOnClickListener() {
+            ToolsVisit.btnanim(it)
+                startActivity(Intent(this, com.rashwan.visittime.AllReservation::class.java))
+        }
         Manage.setOnClickListener() {
+            ToolsVisit.btnanim(it)
             startActivity(Intent(this, com.rashwan.visittime.Manage::class.java))
-
         }
     }
 
-    inner class ReadData : ValueEventListener {
-
-        override fun onDataChange(p0: DataSnapshot) {
-            var clinicname = p0.getValue(String::class.java)!!
-
-            Cname.text = clinicname.toString()
-
-
-        }
-
-        override fun onCancelled(p0: DatabaseError) {
-        }
-    }
 
     override fun onNavigationItemSelected(menuitem: MenuItem): Boolean {
         var id = menuitem.itemId
@@ -77,8 +78,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             (id == R.id.exit) -> finishAffinity()
             (id == R.id.incoming) ->
                 Toast.makeText(this, itemtitle, Toast.LENGTH_LONG).show()
-            (id == R.id.myprofile) ->
+            (id == R.id.myprofile) -> {
+
                 Toast.makeText(this, itemtitle, Toast.LENGTH_LONG).show()
+            }
             (id == R.id.logout) -> {
                 FirebaseAuth.getInstance().signOut()
                 startActivity(Intent(this, landing::class.java))
@@ -101,9 +104,24 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
        }
         else
        {
-           super.onBackPressed()
+           finishAffinity()
        }
     }
+    fun getUserData() {
+try {
+    val headerView = mNav.getHeaderView(0)
+    headerView.usemail.text = mAuth?.currentUser?.email.toString()
+    headerView.usname.text = mAuth?.currentUser?.displayName
+    headerView.usphone.text = mAuth?.currentUser?.phoneNumber.toString()
 
+}catch (e:Exception){
+    ToolsVisit.vtoast(
+        "من فضلك تأكد من اتصالك بالانترنت ",
+        2,
+        this,
+        layoutInflater
+    )
+}
 
+    }
 }

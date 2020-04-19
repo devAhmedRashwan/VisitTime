@@ -17,6 +17,7 @@
     <string name="basictimes">المواعيد الاساسية</string>
     <string name="fullbooked">مواعيد محجوزة</string>
     <string name="choosetime">اختر الموعد المناسب</string>
+    <string name="choose">اختيار</string>
     <string name="insertphone">ادخل رقم الهاتف</string>
     <string name="age">السن</string>
     <string name="insertemail">ادخل البريد الالكتروني</string>
@@ -72,9 +73,9 @@
     <string name="anw">الاسبوع اللاحق</string>
     <string name="Reservation">الحجوزات</string>
     <string name="Phone">الهاتف</string>
-    <string name="sex">النوع</string>
-    <string name="visitdate">تاريخ الكشف</string>
-    <string name="status">الحجز</string>
+    <string name="dsex">النوع</string>
+    <string name="visitdate">تاريخ الزيارة</string>
+    <string name="status">ح الحجز</string>
     <string name="patname">اسم المريض</string>
     <string name="Manageall">ادارة الحجوزات </string>
     <string name="addnewtimebtn">اضافة موعد </string>
@@ -103,6 +104,37 @@
     <string name="setday">حدد اليوم</string>
     <string name="confirmset"> ✓  تأكيد الاعدادات </string>
     <string name="DaysIn">ايام العمل</string>
+    <string name="PickVdate">اختر يوم الزيارة</string>
+    <string name="PickVtime">اختر موعد</string>
+    <string name="BookNo">رقم الحجز</string>
+    <string name="vnumber">رقم الحجز</string>
+    <string name="dvisittime">موعد الزيارة</string>
+    <string name="male">ذكر</string>
+    <string name="female">انذى</string>
+    <string name="undefined">غير محدد</string>
+    <string name="pending">انتظار</string>
+    <string name="confirmed">مؤكدة</string>
+    <string name="visitdone">تمت</string>
+    <string name="missed">فائتة</string>
+    <string name="visitcanceled">الغيت</string>
+    <string name="creator">المنشئ</string>
+    <string name="insertextrade">ادخال تفاصيل اخرى</string>
+    <string name="sex">النوع</string>
+    <string name="time">الوقت</string>
+    <string name="enterpassword">ادخل كلمة المرور</string>
+    <string name="password">كلمة المرور</string>
+    <string name="confirmpassword">تأكيد كلمة المرور</string>
+    <string name="entername">ادخل الاسم</string>
+    <string name="createaccount">انشاء حساب</string>
+    <string name="registercard">بطاقة تسجيل حساب</string>
+    <string name="login">دخول</string>
+    <string name="usertrial">استخدام حساب تجريبي</string>
+    <string name="cantremember">لا اتذكرها</string>
+    <string name="verfiymail">تأكيد البريد الالكتروني</string>
+    <string name="register">التسجيل</string>
+    <string name="bookavisita">احجزلي كشف</string>
+    <string name="demo">تجريبي</string>
 
+    <string-array name="sexArr">"انثى","ذكر","حدد النوع"</string-array>
 
 </resources>

@@ -9,6 +9,7 @@
     <color name="mygreen1">#B2024100</color>
     <color name="mywhite">#FFFFFF</color>
     <color name="Lmywhite">#81FFFFFF</color>
+    <color name="Mgray">#D5686363</color>
     <color name="mdtp_white">#FFFFFF</color>
     <color name="myred">#D50000</color>
     <color name="mdtp_reds">#D50000</color>
@@ -37,4 +38,5 @@
     <color name="honeys">#48E9A05B</color>
     <color name="honeyl">#B7F86F00</color>
     <color name="grey">#344E3012</color>
+    <color name="myDark_blue">#EA040332</color>
 </resources>

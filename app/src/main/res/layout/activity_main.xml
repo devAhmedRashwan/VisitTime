@@ -5,7 +5,7 @@
     android:id="@+id/mydrawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundmedical"
+    android:background="@drawable/bg_main"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -13,15 +13,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/mytoolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/mygreen1"
+            android:background="@drawable/bg_greenblue"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         </androidx.appcompat.widget.Toolbar>
+<TextView
+    android:id="@+id/dbconnection"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text=""
+    android:visibility="gone"/>
+
 
         <TextView
             android:id="@+id/Cname"
@@ -32,16 +38,14 @@
             android:gravity="center_horizontal"
             android:text="@string/clinic"
             android:textSize="24sp"
-            android:visibility="visible" />
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_marginStart="20dp"
-    android:layout_height="wrap_content"/>
+            android:visibility="gone" />
+
         <Button
             android:id="@+id/Manage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_btn_main"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/gradient_animation"
             android:fontFamily="@font/wendy_one"
             android:includeFontPadding="false"
             android:paddingVertical="15dp"
@@ -50,11 +54,12 @@
             android:textColor="@color/mywhite"
             android:textSize="25sp"
             android:visibility="visible" />
+
         <Button
             android:id="@+id/mybooks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_btn_main"
+            android:background="@drawable/gradient_animation"
             android:fontFamily="@font/wendy_one"
             android:includeFontPadding="false"
             android:paddingVertical="15dp"
@@ -69,7 +74,7 @@
             android:id="@+id/booknow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_btn_main"
+            android:background="@drawable/gradient_animation"
             android:fontFamily="@font/wendy_one"
             android:includeFontPadding="false"
             android:paddingVertical="15dp"
@@ -84,7 +89,7 @@
             android:id="@+id/editbook"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_btn_main"
+            android:background="@drawable/gradient_animation"
             android:fontFamily="@font/wendy_one"
             android:includeFontPadding="false"
             android:paddingVertical="15dp"
@@ -99,7 +104,7 @@
             android:id="@+id/cancelbook"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_btn_main"
+            android:background="@drawable/gradient_animation"
             android:fontFamily="@font/wendy_one"
             android:includeFontPadding="false"
             android:paddingVertical="15dp"
@@ -114,7 +119,7 @@
             android:id="@+id/callus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_btn_main"
+            android:background="@drawable/gradient_animation"
             android:fontFamily="@font/wendy_one"
             android:includeFontPadding="false"
             android:paddingVertical="15dp"
@@ -123,12 +128,6 @@
             android:textColor="@color/mywhite"
             android:textSize="25sp"
             android:visibility="visible" />
-
-
-
-
-
-
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -144,8 +143,11 @@
         android:id="@+id/mNav"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/bg_l_greenblue"
         android:layout_gravity="start"
         app:headerLayout="@layout/header_layout"
+        app:itemTextColor="@color/mywhite"
+        app:itemIconTint="@color/mywhite"
         app:menu="@menu/navigation_menu">
 
     </com.google.android.material.navigation.NavigationView>

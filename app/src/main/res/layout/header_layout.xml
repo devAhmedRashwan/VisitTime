@@ -2,13 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="@drawable/bg_btn_main"
     android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/bk"
+        android:background="@drawable/bg_btn_main"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,7 +20,7 @@
             android:layout_width="224dp"
             android:layout_height="130dp"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/ppic" />
+            app:srcCompat="@drawable/visit_icon" />
 
         <TextView
             android:id="@+id/usname"
@@ -29,6 +30,7 @@
             android:gravity="center"
             android:text="user name"
             android:textAllCaps="false"
+            android:textColor="@color/bk2"
             android:textSize="35sp" />
 
         <TextView
@@ -37,9 +39,20 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="user email address"
-            android:textColor="@color/myblue"
+            android:textColor="@color/myYellow"
             android:textSize="20sp"
             android:textStyle="italic" />
+        <TextView
+            android:id="@+id/usphone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="user email address"
+            android:textColor="@color/myYellow"
+            android:textSize="20sp"
+            android:visibility="gone"
+            android:textStyle="italic" />
+
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

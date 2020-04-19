@@ -2,16 +2,19 @@ package com.rashwan.visittime
 
 import android.app.Application
 import android.app.DatePickerDialog
+import android.graphics.drawable.AnimationDrawable
 import android.util.MutableBoolean
 import android.view.ContextMenu
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
+import androidx.core.content.ContextCompat.getDrawable
 import com.google.api.Context
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_bookvisit.*
+import kotlinx.android.synthetic.main.activity_landing.*
 import kotlinx.android.synthetic.main.custom_toast.view.*
 import java.security.AccessControlContext
 import java.text.SimpleDateFormat
@@ -23,39 +26,128 @@ class ToolsVisit {
 
 
     companion object Vtools{
+        fun Availables(pickedvisitdate:Long,context:android.content.Context,layoutInflater:LayoutInflater):MutableList<String> {
+            val vacant: MutableList<String> = mutableListOf()
 
+            var enabledlist: MutableList<String> = mutableListOf()
+            var mRef: DatabaseReference? = null
+            var mAuth: FirebaseAuth? = null
+            mAuth = FirebaseAuth.getInstance()
+            val availabletimes: MutableList<String> = mutableListOf()
+            var TRef: DatabaseReference? = null
+            val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+            TRef = database.getReference("Times")
+            TRef.addValueEventListener(object : ValueEventListener  {
+                override fun onCancelled(databaseError: DatabaseError) {
+                    ToolsVisit.vtoast(
+                        " حدث خطأ في الاتصال بالانترنت",
+                        3,
+                        context,
+                        layoutInflater
+                    )
+                }
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    try {
+                        vacant.clear()
+                        for (n in dataSnapshot.children) {
+                            if (n.value.toString() == "1") {
+                                vacant.add(n.key.toString())
+                            }
+                        }
+                    } catch (e: Exception) {
+                        ToolsVisit.vtoast(
+                            " حدث خطأ",
+                            3,
+                            context,
+                            layoutInflater
+                        )
+                    }
+                }
+            })
+
+
+/*
+            val   BRef = database.getReference("Booked")
+            BRef.addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(databaseError: DatabaseError) {
+                    ToolsVisit.vtoast(
+                        " حدث خطأ في الاتصال بالانترنت",
+                        3,
+                        context,
+                        layoutInflater
+                    )
+                }
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    try {
+                        availabletimes.clear()
+                        availabletimes.addAll(alltimes)
+                        var wantedvisit = ""
+                        for (n in dataSnapshot.children) {
+                            val visita = n.getValue(Booked::class.java)
+                            if (pickedvisitdate == visita?.visitdate?.toLong()) {
+                                wantedvisit = visita.time.toString()
+                            }
+                            if (availabletimes.contains(wantedvisit)) {
+                                availabletimes.remove(wantedvisit)
+                            }
+
+                        }
+                    } catch (e: Exception) {
+                        ToolsVisit.vtoast(
+                            " حدث خطأ ",
+                            3,
+                            context,
+                            layoutInflater
+                        )
+                        availabletimes.clear()
+                    }
+                }
+
+            })
+            */
+
+            vacant.add("test test")
+            return vacant
+        }
         fun gettimes():MutableList<String>{
-        var vacant: MutableList<String> = mutableListOf()
+        val vacant: MutableList<String> = mutableListOf()
         var enabledlist: MutableList<String> = mutableListOf()
     var mRef: DatabaseReference? = null
     var mAuth: FirebaseAuth? = null
-    var database: FirebaseDatabase = FirebaseDatabase.getInstance()
+    val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     mRef = database.getReference("Times")
     mAuth = FirebaseAuth.getInstance()
 
-        mRef?.addValueEventListener(object : ValueEventListener {
+        mRef.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
-
             }
-
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                enabledlist.clear()
+
                 vacant.clear()
                 for (n in dataSnapshot.children) {
-                    //  val tindex = n.getValue(Long.toString()::class.java)
                         val tindex = n.key.toString()
                     if (n.value.toString()=="1") {
-                        vacant.add(tindex)
+
+                       vacant.add(tindex)
                     }
-//                       enabledlist.add(n.value.toString())
-
                 }
-
-
             }
 })
+            Thread.sleep(500)
     return vacant
+
     }
+fun btnanim(view:View){
+    view.setBackgroundResource(R.drawable.gradient_animation)
+    val animDrawable = view.background as AnimationDrawable
+    animDrawable.setEnterFadeDuration(10)
+    animDrawable.setExitFadeDuration(2000)
+    animDrawable.isOneShot=true
+    animDrawable.start()
+}
+
+
+
         fun disabledtimes():MutableList<String>{
             var vacant: MutableList<String> = mutableListOf()
             var enabledlist: MutableList<String> = mutableListOf()
@@ -268,8 +360,7 @@ when{
             })
             return vacant
         }
-
-
+    /*
         fun getdates(requesteddate:Int,context:android.content.Context,layoutInflater:LayoutInflater):MutableList<String>{
             var vacant: MutableList<String> = mutableListOf()
             var mRef: DatabaseReference? = null
@@ -321,8 +412,11 @@ when{
 return    vacant
 
         }
-
+    */
     }
+
+
+
     }
 
 

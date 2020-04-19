@@ -4,9 +4,90 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundmedical"
+    android:background="@drawable/bg_main"
     android:orientation="vertical"
     tools:context=".bookvisit">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/bg_l_greenblue"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/bookcard"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/mywhite"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="15dp"
+        android:gravity="center_horizontal"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/pickVtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight="1"
+            android:background="@drawable/bg_inbut_style"
+            android:gravity="center"
+            android:padding="3dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="@string/time"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/myblack"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/pickday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight="2"
+            android:background="@drawable/bg_inbut_style"
+            android:gravity="center"
+            android:padding="3dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="@string/visitdate"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/myblack"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/setDTbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight="0.25"
+            android:background="@drawable/gradient_animation"
+            android:gravity="center"
+            android:padding="3dp"
+            android:paddingBottom="10dp"
+            android:text="حدد الموعد"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/myYellow"
+            android:textColorLink="@color/myYellow"
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/patform"
@@ -17,137 +98,26 @@
         android:orientation="vertical">
 
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal"
-            android:visibility="gone">
-
-            <Spinner
-                android:id="@+id/fullbookedsp"
-                android:layout_width="80dp"
-                android:layout_height="40dp"
-                android:background="@drawable/bg_inbut_style"
-                android:popupBackground="@drawable/backgrount_transparent"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/fullbooked"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:background="@drawable/bg_btn_main"
-                android:padding="10dp"
-                android:text="@string/fullbooked"
-                android:textAllCaps="false"
-                android:textColor="@color/mywhite"
-                android:textSize="15sp" />
-
-            <Spinner
-                android:id="@+id/maintimes"
-                android:layout_width="80dp"
-                android:layout_height="40dp"
-                android:background="@drawable/bg_inbut_style"
-                android:popupBackground="@drawable/backgrount_transparent"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/getmain"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:background="@drawable/bg_btn_main"
-                android:padding="10dp"
-                android:text="@string/basictimes"
-                android:textAllCaps="false"
-                android:textColor="@color/mywhite"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/bg_l_greenblue"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="@string/bookcard"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/mywhite"
-            android:textSize="20sp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="20dp"
-            android:gravity="center_horizontal">
-
-            <TextView
-                android:id="@+id/pickday"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/bg_btn_main"
-                android:gravity="center"
-                android:padding="8dp"
-                android:text="اختر يوم"
-                android:textAlignment="center"
-
-                android:textAllCaps="false"
-                android:textColor="@color/mywhite"
-                android:textSize="20sp" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="371dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:gravity="center_horizontal">
-
-            <Button
-                android:id="@+id/popuptime"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="90dp"
-                android:layout_marginEnd="90dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/bg_btn_main"
-                android:gravity="center"
-                android:padding="8dp"
-                android:text="اخترموعد"
-                android:textAllCaps="false"
-                android:textColor="@color/mywhite"
-                android:textSize="22sp"
-                android:visibility="gone" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
             android:gravity="center_horizontal">
 
             <EditText
                 android:id="@+id/patname"
-                android:layout_width="180dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginEnd="0dp"
+                android:layout_weight="3"
                 android:background="@drawable/bg_inbut_style"
                 android:hint="ادخل اسم المريض"
                 android:shadowColor="@color/honeyl"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textColorHint="#D5686363"
+                android:textColorHint="@color/Mgray"
                 android:textColorLink="#BA5151"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -156,26 +126,32 @@
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="3dp"
+                android:layout_weight="1"
                 android:background="@drawable/bg_btn_main"
                 android:gravity="center_horizontal"
                 android:padding="8dp"
                 android:text="الاسم"
-                android:textColor="#FFEB3B"
+                android:textColor="@color/myYellow"
+                android:textColorLink="@color/myYellow"
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
             android:gravity="center_horizontal">
 
             <EditText
                 android:id="@+id/patphone"
-                android:layout_width="180dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginEnd="0dp"
+                android:layout_weight="3"
                 android:background="@drawable/bg_inbut_style"
                 android:hint="@string/insertphone"
                 android:inputType="phone"
@@ -183,7 +159,7 @@
                 android:shadowColor="@color/honeyl"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textColorHint="#D5686363"
+                android:textColorHint="@color/Mgray"
                 android:textColorLink="#BA5151"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -192,32 +168,82 @@
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="3dp"
+                android:layout_weight="1"
                 android:background="@drawable/bg_btn_main"
                 android:gravity="center_horizontal"
                 android:padding="8dp"
                 android:text=" رقم الهاتف"
-                android:textColor="#FFEB3B"
+                android:textColor="@color/myYellow"
+                android:textColorLink="@color/myYellow"
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
             android:gravity="center_horizontal">
 
             <EditText
                 android:id="@+id/patage"
-                android:layout_width="180dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginEnd="0dp"
+                android:layout_weight="3"
                 android:background="@drawable/bg_inbut_style"
                 android:hint="السن"
                 android:inputType="number"
                 android:shadowColor="@color/honeyl"
                 android:textAlignment="center"
                 android:textColor="#000000"
+                android:textColorHint="@color/Mgray"
+                android:textColorLink="#BA5151"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="128dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn_main"
+                android:gravity="center_horizontal"
+                android:padding="8dp"
+                android:text="@string/age"
+                android:textColor="@color/myYellow"
+                android:textColorLink="@color/myYellow"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:gravity="center_horizontal">
+
+            <Spinner
+                android:id="@+id/patsex"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="0dp"
+                android:layout_weight="3"
+                android:background="@drawable/backgrount_transparent"
+                android:hint="اختر النوع"
+                android:inputType="number"
+                android:popupBackground="@drawable/backgrount_transparent"
+                android:shadowColor="@color/honeyl"
+                android:textAlignment="center"
+                android:textColor="#000000"
                 android:textColorHint="#D5686363"
                 android:textColorLink="#BA5151"
                 android:textSize="18sp"
@@ -227,69 +253,80 @@
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="3dp"
+                android:layout_weight="1"
                 android:background="@drawable/bg_btn_main"
                 android:gravity="center_horizontal"
                 android:padding="8dp"
-                android:text="@string/age"
-                android:textColor="#FFEB3B"
+                android:text="@string/dsex"
+                android:textColor="@color/myYellow"
+                android:textColorLink="@color/myYellow"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
 
-
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
             android:gravity="center_horizontal">
 
             <EditText
                 android:id="@+id/patemail"
-                android:layout_width="180dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginEnd="0dp"
+                android:layout_weight="3"
                 android:background="@drawable/bg_inbut_style"
                 android:hint="@string/insertemail"
                 android:inputType="textEmailAddress"
                 android:shadowColor="@color/honeyl"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textColorHint="#D5686363"
+                android:textColorHint="@color/Mgray"
                 android:textColorLink="#BA5151"
-                android:textSize="18sp"
+                android:textSize="17sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="3dp"
+                android:layout_weight="1"
                 android:background="@drawable/bg_btn_main"
                 android:gravity="center_horizontal"
                 android:padding="8dp"
                 android:text="@string/email"
-                android:textColor="#FFEB3B"
+                android:textColor="@color/myYellow"
+                android:textColorLink="@color/myYellow"
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
             android:gravity="center_horizontal">
 
             <EditText
                 android:id="@+id/patnote"
-                android:layout_width="180dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginEnd="0dp"
+                android:layout_weight="3"
                 android:background="@drawable/bg_inbut_style"
                 android:hint="@string/notes"
                 android:shadowColor="@color/honeyl"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textColorHint="#D5686363"
+                android:textColorHint="@color/Mgray"
                 android:textColorLink="#BA5151"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -298,16 +335,20 @@
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="3dp"
+                android:layout_weight="1"
                 android:background="@drawable/bg_btn_main"
                 android:gravity="center_horizontal"
                 android:padding="8dp"
                 android:text="@string/notes"
-                android:textColor="#FFEB3B"
+                android:textColor="@color/myYellow"
+                android:textColorLink="@color/myYellow"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -315,23 +356,23 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/booknow"
-                android:layout_width="256dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/bg_btn_main"
-                android:fontFamily="@font/wendy_one"
-                android:gravity="center"
-                android:text="احجز الموعد وادفع الآن"
-                android:textAllCaps="false"
-                android:textColor="@color/mywhite"
-                android:textSize="24sp" />
-
         </LinearLayout>
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/booknow"
+        android:layout_width="256dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/gradient_animation"
+        android:fontFamily="@font/wendy_one"
+        android:gravity="center"
+        android:text="احجز الموعد وادفع الآن"
+        android:textAllCaps="false"
+        android:textColor="@color/mywhite"
+        android:textSize="24sp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -346,7 +387,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/bg_btn_main"
+            android:background="@drawable/gradient_animation"
             android:fontFamily="@font/wendy_one"
             android:gravity="center"
             android:padding="8dp"

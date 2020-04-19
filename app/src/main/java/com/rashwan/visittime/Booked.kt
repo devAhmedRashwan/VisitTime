@@ -3,6 +3,7 @@ package com.rashwan.visittime
 
     class Booked {
         var id: String? = null
+        var vnumber: Long? = null
         var visitdate: Long? = null
         var regvisitdate: String? = null
         var modifdate: String? = null
@@ -17,6 +18,8 @@ package com.rashwan.visittime
         var age: Int? = null
         var sex: Int? = null
         var notes: String? = null
+        var paymentvalue: Double? = null
+        var paymentref: String? = null
         var user: String? = null
 
 
@@ -27,10 +30,11 @@ package com.rashwan.visittime
 
 
         constructor(
-            id: String, visitdate: Long, regvisitdate:String,modifdate:String,time: String, isbooked: Int,isdeleted:Int,ischanged:Int,isconfirmed:Int,patname:String,patemail:String,patphone:String,age:Int,sex:Int,notes:String,user:String
+            id: String,vnumber:Long, visitdate: Long, regvisitdate:String,modifdate:String,time: String, isbooked: Int,isdeleted:Int,ischanged:Int,isconfirmed:Int,patname:String,patemail:String,patphone:String,age:Int,sex:Int,notes:String,paymentvalue:Double,paymentref:String,user:String
         ) {
 
             this.id = id
+            this.vnumber = vnumber
             this.visitdate = visitdate
             this.regvisitdate = regvisitdate
             this.modifdate = modifdate
@@ -45,11 +49,9 @@ package com.rashwan.visittime
             this.age=age
             this.sex=sex
             this.notes=notes
+            this.paymentvalue=paymentvalue
+            this.paymentref=paymentref
             this.user=user
-
-          
-
-
         }
 
     }

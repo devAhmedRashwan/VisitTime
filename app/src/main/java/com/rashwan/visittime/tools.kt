@@ -1,6 +1,10 @@
 package com.rashwan.visittime
 
 
+import android.content.Context
+import android.view.View
+import android.view.animation.AnimationUtils
+import android.view.animation.Interpolator
 import java.time.*
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
@@ -55,6 +59,34 @@ class tools {
         }
 
 
+    }
+
+    internal class MyBounceInterpolator(
+        amplitude: Double,
+        frequency: Double
+    ) :
+        Interpolator {
+        private var mAmplitude = 1.0
+        private var mFrequency = 10.0
+        override fun getInterpolation(time: Float): Float {
+            return (-1 * Math.pow(Math.E, -time / mAmplitude) *
+                    Math.cos(mFrequency * time) + 1).toFloat()
+        }
+
+        init {
+            mAmplitude = amplitude
+            mFrequency = frequency
+        }
+    }
+    fun didTapButton(view: View,context:Context) {
+//        val button: Button = findViewById(R.id.button) as Button
+        val myAnim =
+            AnimationUtils.loadAnimation(context,R.anim.fade_out)
+
+        // Use bounce interpolator with amplitude 0.2 and frequency 20
+        val interpolator = MyBounceInterpolator(0.2, 20.0)
+        myAnim.interpolator = interpolator
+        view.startAnimation(myAnim)
     }
 }
 
