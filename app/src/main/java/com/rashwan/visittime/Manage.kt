@@ -235,24 +235,19 @@ class Manage : AppCompatActivity() {
                     layoutInflater
                 )
             } else {
-
-                var selectedItems = mutableListOf<String>()
+                val selectedItems = mutableListOf<String>()
                 val final = Collections.unmodifiableList(selectedItems)
-//                    val builder = AlertDialog.Builder(this,R.style.MyDialogTheme)
                 val builder = AlertDialog.Builder(this, THEME_DEVICE_DEFAULT_LIGHT)
                 builder.setIcon(R.drawable.icon_time_off)
-
                 builder.setTitle("اختر الموعد المراد ايقافه")
                     .setMultiChoiceItems(maintimesarray.toTypedArray(), null,
                         DialogInterface.OnMultiChoiceClickListener { dialog, which, isChecked ->
                             if (isChecked) {
-
                                 selectedItems.add(maintimesarray.toTypedArray()[which])
                             } else if (selectedItems.contains(maintimesarray.toTypedArray()[which])) {
                                 selectedItems.remove(maintimesarray.toTypedArray()[which])
                             }
                         })
-
                     .setPositiveButton("تم",
                         DialogInterface.OnClickListener { dialog, id ->
 //                            Toast.makeText(this,"you choose $final",Toast.LENGTH_LONG).show()
@@ -282,8 +277,6 @@ class Manage : AppCompatActivity() {
                                                         layoutInflater
                                                     )
                                                 }
-
-
                                             }
                                             .addOnFailureListener {
                                                 ToolsVisit.vtoast(
@@ -292,12 +285,8 @@ class Manage : AppCompatActivity() {
                                                     this@Manage,
                                                     layoutInflater
                                                 )
-
                                             }
-
-
                                     } catch (e: Exception) {
-
                                         ToolsVisit.vtoast(
                                             "   لم يتم الايقاف   " + e.message,
                                             3,
@@ -306,15 +295,11 @@ class Manage : AppCompatActivity() {
                                         )
                                     }}}}
                     )
-
                     .setNegativeButton("الغاء",
                         DialogInterface.OnClickListener { dialog, id ->
                         })
-
                 builder.create()
                 builder.show()
-
-
             }
         }
         setdatesbtn.setOnClickListener() {
@@ -542,7 +527,6 @@ class Manage : AppCompatActivity() {
             builder.show()
         }
     }
-
 
 
 

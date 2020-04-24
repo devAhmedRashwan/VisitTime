@@ -36,6 +36,8 @@ class visitadapter(context: Context, caseList: List<Booked>) :
             (book.isconfirmed == 2) -> view.status.text = "تمت"
             (book.isconfirmed == 3) -> view.status.text = "فائتة"
             (book.isconfirmed == 4) -> view.status.text = "ملغية"
+            (book.isconfirmed == 5) -> view.status.text = "طلب تعديل موعد"
+            (book.isconfirmed == 6) -> view.status.text = "طلب الغاء"
         }
         //remaining
         var diffDays =

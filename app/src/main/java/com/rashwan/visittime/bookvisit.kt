@@ -39,6 +39,7 @@ import java.util.GregorianCalendar as GregorianCalendar1
  class bookvisit : AppCompatActivity() {
 
     var mRef: DatabaseReference? = null
+    var cRef: DatabaseReference? = null
     var BookedList: ArrayList<Booked>? = null
     var mAuth: FirebaseAuth? = null
     val maintimesarray = ToolsVisit.gettimes()
@@ -50,15 +51,21 @@ import java.util.GregorianCalendar as GregorianCalendar1
      var timeset= mutableListOf<String>()
 
 
+
      override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bookvisit)
+         ToolsVisit.get_Cinfo(null,null,null,null,vnumberTV)
          mRef = database.getReference("Booked")
+         cRef = database.getReference("Config")
         mAuth = FirebaseAuth.getInstance()
          DaysInNumbersArr= ToolsVisit.DaysInNumbers()
+
          val textviewid = (R.id.tv)
-         var patsexadapter= ArrayAdapter(this@bookvisit, R.layout.spstyle, textviewid, arrayOf("غير محدد","ذكر","انثى"))
+         val patsexadapter= ArrayAdapter(this@bookvisit, R.layout.spstyle, textviewid, arrayOf("غير محدد","ذكر","انثى"))
          patsex.adapter=patsexadapter
+
+
 
          setDTbtn.setOnClickListener() {
              ToolsVisit.btnanim(it)
@@ -123,6 +130,7 @@ import java.util.GregorianCalendar as GregorianCalendar1
          pickVtime.setOnClickListener(){
              ToolsVisit.btnanim(it)
              pickDateValidation(pickday)
+//             AvailableDialoge(tools.strToEpoch(pickday.text.toString()),pickVtime,pickday)
          }
     }
      override fun onStart() {
@@ -139,13 +147,15 @@ import java.util.GregorianCalendar as GregorianCalendar1
                 val mybooking =
                     Booked(
                         id,
-                        202015,
+                        vnumberTV.text.toString(),
                         tools.strToEpoch(pickday.text.toString()),
+                        0,
                         pickday.text.toString(),
                         (LocalDateTime.now().format(
                             DateTimeFormatter.ofPattern("yyyy-MM-dd EEEE HH-mm")
                         )),
                         pickVtime.text.toString(),
+                        "",
                         0,
                         0,
                         0,
@@ -153,7 +163,7 @@ import java.util.GregorianCalendar as GregorianCalendar1
                         patname.text.toString(),
                         patemail.text.toString(),
                         patphone.text.toString(),
-                        0, patsex.selectedItemPosition, "notes",0.0,"paymentreference", mAuth?.currentUser?.email.toString()
+                        patage.text.toString(), patsex.selectedItemPosition, patnote.text.toString(),0.0,"paymentreference", mAuth?.currentUser?.email.toString()
                     )
                 mRef!!.child(id).setValue(mybooking)
                     .addOnSuccessListener {
@@ -163,6 +173,7 @@ import java.util.GregorianCalendar as GregorianCalendar1
                             this@bookvisit,
                             layoutInflater
                         )
+                        cRef?.child("vnumber")?.setValue(vnumberTV.text.toString().toInt()+1)
                     }
                     .addOnFailureListener {
                         ToolsVisit.vtoast(
@@ -207,7 +218,7 @@ import java.util.GregorianCalendar as GregorianCalendar1
                     result = myCalendar.timeInMillis.toString().substring(0, 10).toLong()
                     textview.text = tools.epochToStr(result)
                     AvailableDialoge(result,pickVtime,textview)
-                    pickVtime.text = getString(R.string.PickVtime)
+//                    pickVtime.text = getString(R.string.PickVtime)
                     pickVtime.visibility=View.VISIBLE
                 }
             },
@@ -296,6 +307,11 @@ import java.util.GregorianCalendar as GregorianCalendar1
                          mDialog.show()
                          }
                  } catch (e: Exception) {
+                     ToolsVisit.vtoast(
+                         e.message!!,
+                         2,
+                         this@bookvisit,
+                         layoutInflater)
                      timeset.clear()
                  }
              }

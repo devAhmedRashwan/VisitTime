@@ -1,5 +1,6 @@
 package com.rashwan.visittime
 
+import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +10,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_allreservation.*
+import kotlinx.android.synthetic.main.book_operations.view.*
 import kotlinx.android.synthetic.main.rowstyle.*
 import java.time.DayOfWeek
 import java.time.LocalDate
@@ -26,13 +28,13 @@ class AllReservation : AppCompatActivity() {
         mRef = database.getReference("Booked")
         mAuth = FirebaseAuth.getInstance()
         mNotelist = ArrayList()
-        new_list_view.onItemClickListener =
-            AdapterView.OnItemClickListener { parent, view, position, id ->
+        res_LV.onItemClickListener =
+            AdapterView.OnItemClickListener { _, _, position, _ ->
                 val sortedList = mNotelist?.sortedWith(compareBy { it.visitdate })?.toList()
                 val vBook = sortedList?.get(position)!!
                 val BdCard = Intent(this, BookDetails::class.java)
 
-
+                BdCard.putExtra("id", vBook.id)
                 BdCard.putExtra("patname", vBook.patname)
                 BdCard.putExtra("vnumber", vBook.vnumber.toString())
                 BdCard.putExtra("patphone", vBook.patphone)
@@ -48,6 +50,30 @@ class AllReservation : AppCompatActivity() {
 
                 startActivity(BdCard)
             }
+
+        res_LV.onItemLongClickListener=
+            AdapterView.OnItemLongClickListener { _, _, p2, _ ->
+                val bookdbid = mNotelist?.get(p2)!!
+                val alertBuilder = AlertDialog.Builder(this)
+                var update_book_view = layoutInflater.inflate(R.layout.book_operations, null)
+                val alertDialog = alertBuilder.create()
+                alertDialog.setView(update_book_view)
+                alertDialog.show()
+                update_book_view.confirm.setOnClickListener {
+                    var childRef = mRef?.child(bookdbid.id!!)
+                    childRef?.child("isbooked")?.setValue(1)
+                    Toast.makeText(this, "تم التعديل", Toast.LENGTH_LONG).show()
+                    alertDialog.dismiss()
+                }
+
+
+                true
+            }
+
+
+
+
+
     }
     fun LVA(view: View) {
         mNotelist?.clear()
@@ -169,7 +195,7 @@ class AllReservation : AppCompatActivity() {
 
                         val noteadapter = visitadapter(application, sortedList!!)
 //                        Pbar.isVisible=false
-                        new_list_view.adapter = noteadapter
+                        res_LV.adapter = noteadapter
 
 
                     }

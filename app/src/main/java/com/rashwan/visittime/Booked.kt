@@ -3,11 +3,13 @@ package com.rashwan.visittime
 
     class Booked {
         var id: String? = null
-        var vnumber: Long? = null
+        var vnumber: String? = null
         var visitdate: Long? = null
+        var sugvisitdate: Long? = null
         var regvisitdate: String? = null
         var modifdate: String? = null
         var time: String? = null
+        var sugtime: String? = null
         var isbooked: Int? = null
         var isdeleted: Int? = null
         var ischanged: Int? = null
@@ -15,7 +17,7 @@ package com.rashwan.visittime
         var patname: String? = null
         var patemail: String? = null
         var patphone: String? = null
-        var age: Int? = null
+        var age: String? = null
         var sex: Int? = null
         var notes: String? = null
         var paymentvalue: Double? = null
@@ -30,15 +32,17 @@ package com.rashwan.visittime
 
 
         constructor(
-            id: String,vnumber:Long, visitdate: Long, regvisitdate:String,modifdate:String,time: String, isbooked: Int,isdeleted:Int,ischanged:Int,isconfirmed:Int,patname:String,patemail:String,patphone:String,age:Int,sex:Int,notes:String,paymentvalue:Double,paymentref:String,user:String
+            id: String,vnumber:String, visitdate: Long, sugvisitdate: Long, regvisitdate:String,modifdate:String,time: String,sugtime: String, isbooked: Int,isdeleted:Int,ischanged:Int,isconfirmed:Int,patname:String,patemail:String,patphone:String,age:String,sex:Int,notes:String,paymentvalue:Double,paymentref:String,user:String
         ) {
 
             this.id = id
             this.vnumber = vnumber
             this.visitdate = visitdate
+            this.sugvisitdate = sugvisitdate
             this.regvisitdate = regvisitdate
             this.modifdate = modifdate
             this.time = time
+            this.sugtime = sugtime
             this.isbooked = isbooked
             this.isdeleted=isdeleted
             this.ischanged=ischanged

@@ -1,22 +1,20 @@
 package com.rashwan.visittime
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import android.view.Gravity
 import android.view.MenuItem
-import android.widget.ArrayAdapter
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import androidx.core.view.isVisible
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.header_layout.view.*
-
-
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     var mRef: DatabaseReference? = null
@@ -27,11 +25,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         mRef = database.getReference("Config")
         mAuth = FirebaseAuth.getInstance()
+
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //navbar
         setSupportActionBar(mytoolbar)
         supportActionBar?.title = getString(R.string.arapp_name)
+        ToolsVisit.get_Cinfo(c_name, c_address, c_phone, c_web,null)
+        ToolsVisit.get_Cinfo(set_c_name, set_c_address,set_c_phone,set_c_web,null)
         val actiontoggle = ActionBarDrawerToggle(
             this,
             mydrawer,
@@ -42,10 +43,25 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         mydrawer.addDrawerListener(actiontoggle)
         actiontoggle.syncState()
         mNav.setNavigationItemSelectedListener(this)
-//end nav bar
-
-
         getUserData()
+        getClinicData()
+        set_clinic_btn.setOnClickListener(){
+            ToolsVisit.btnanim(it)
+            if (clinic_info_show.isShown) {
+                set_clinic_btn.text="تم"
+                clinic_info_show.visibility = View.GONE
+                clinic_info_set.visibility = View.VISIBLE
+            }else{
+                set_clinic_btn.text="تعديل"
+                clinic_info_show.visibility = View.VISIBLE
+                clinic_info_set.visibility = View.GONE
+                ToolsVisit.set_Cinfo(set_c_name, set_c_address,set_c_phone,set_c_web,this,layoutInflater)
+                c_name.text=set_c_name.text
+                c_address.text=set_c_address.text
+                 c_phone.text=set_c_phone.text
+                 c_web.text==set_c_web.text
+            }
+        }
         booknow.setOnClickListener() {
             ToolsVisit.btnanim(it)
             if(mAuth?.currentUser?.isEmailVerified!! || mAuth?.currentUser?.email.toString()=="demo@visittime.com"){
@@ -67,6 +83,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             ToolsVisit.btnanim(it)
             startActivity(Intent(this, com.rashwan.visittime.Manage::class.java))
         }
+
+
     }
 
 
@@ -83,8 +101,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 Toast.makeText(this, itemtitle, Toast.LENGTH_LONG).show()
             }
             (id == R.id.logout) -> {
+
                 FirebaseAuth.getInstance().signOut()
                 startActivity(Intent(this, landing::class.java))
+
             }
                 (id == R.id.history) ->
                 Toast.makeText(this, itemtitle, Toast.LENGTH_LONG).show()
@@ -113,7 +133,6 @@ try {
     headerView.usemail.text = mAuth?.currentUser?.email.toString()
     headerView.usname.text = mAuth?.currentUser?.displayName
     headerView.usphone.text = mAuth?.currentUser?.phoneNumber.toString()
-
 }catch (e:Exception){
     ToolsVisit.vtoast(
         "من فضلك تأكد من اتصالك بالانترنت ",
@@ -124,4 +143,9 @@ try {
 }
 
     }
+    fun getClinicData(){
+
+
+    }
+
 }

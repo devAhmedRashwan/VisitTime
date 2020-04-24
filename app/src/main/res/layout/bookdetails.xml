@@ -19,11 +19,11 @@
         android:layout_marginBottom="5dp"
         android:background="@drawable/background_edit"
         android:backgroundTint="@color/honey"
-        android:padding="15dp"
+        android:padding="5dp"
         android:text="بطاقة حجز تفصيلية"
         android:textAlignment="center"
         android:textColor="@color/mywhite"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -62,7 +62,7 @@
                 android:layout_marginBottom="2dp"
                 android:background="@drawable/bg_greenblue"
                 android:gravity="center"
-                android:padding="8dp"
+                android:padding="4dp"
                 android:text="@string/BookNo"
                 android:textAlignment="center"
                 android:textColor="@color/myYellow"
@@ -80,7 +80,7 @@
                 android:layout_marginBottom="2dp"
                 android:background="@drawable/bg_greenblue"
                 android:gravity="center"
-                android:padding="8dp"
+                android:padding="4dp"
                 android:text="@string/patname"
                 android:textAlignment="center"
                 android:textColor="@color/myYellow"
@@ -98,7 +98,7 @@
                 android:layout_marginBottom="2dp"
                 android:background="@drawable/bg_greenblue"
                 android:gravity="center"
-                android:padding="8dp"
+                android:padding="4dp"
                 android:text="@string/age"
                 android:textAlignment="center"
                 android:textColor="@color/myYellow"
@@ -116,7 +116,7 @@
                 android:layout_marginBottom="2dp"
                 android:background="@drawable/bg_greenblue"
                 android:gravity="center"
-                android:padding="8dp"
+                android:padding="4dp"
                 android:text="@string/email"
                 android:textAlignment="center"
                 android:textColor="@color/myYellow"
@@ -136,7 +136,7 @@
                 android:background="@drawable/bg_greenblue"
                 android:baselineAligned="false"
                 android:gravity="center"
-                android:padding="8dp"
+                android:padding="4dp"
                 android:text="@string/Phone"
                 android:textAlignment="center"
                 android:textColor="@color/myYellow"
@@ -155,8 +155,26 @@
                 android:layout_marginBottom="2dp"
                 android:background="@drawable/bg_greenblue"
                 android:gravity="center"
-                android:padding="8dp"
+                android:padding="4dp"
                 android:text="@string/sex"
+                android:textAlignment="center"
+                android:textColor="@color/myYellow"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+            <TextView
+
+                android:id="@+id/dpatnotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/bg_greenblue"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="@string/notes"
                 android:textAlignment="center"
                 android:textColor="@color/myYellow"
                 android:textSize="18sp"
@@ -174,11 +192,12 @@
                 android:layout_marginBottom="2dp"
                 android:background="@drawable/bg_greenblue"
                 android:gravity="center"
-                android:padding="8dp"
+                android:padding="4dp"
                 android:text="@string/status"
                 android:textColor="@color/myYellow"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+
             <TextView
 
                 android:id="@+id/dcreator"
@@ -191,11 +210,47 @@
                 android:layout_marginBottom="2dp"
                 android:background="@drawable/bg_greenblue"
                 android:gravity="center"
-                android:padding="8dp"
-                android:text="@string/status"
+                android:padding="4dp"
+                android:text="@string/creator"
                 android:textColor="@color/myYellow"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+            <TextView
+
+                android:id="@+id/sugdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/bg_greenblue"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="@string/sugdate"
+                android:textColor="@color/myYellow"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+            <TextView
+
+                android:id="@+id/sugtime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/bg_greenblue"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="@string/suggestedtdatetime"
+                android:textColor="@color/myYellow"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
 
         </LinearLayout>
 
@@ -224,7 +279,7 @@
                 android:background="@drawable/bg_greenblue"
                 android:baselineAligned="false"
                 android:gravity="center"
-                android:padding="8dp"
+                android:padding="4dp"
                 android:text="@string/BookNo"
                 android:textAlignment="center"
                 android:textColor="#E7ECE9"
@@ -242,7 +297,7 @@
                 android:background="@drawable/bg_greenblue"
                 android:baselineAligned="false"
                 android:gravity="center"
-                android:padding="8dp"
+                android:padding="4dp"
                 android:text="@string/patname"
                 android:textAlignment="center"
                 android:textColor="#E7ECE9"
@@ -261,7 +316,7 @@
                 android:background="@drawable/bg_greenblue"
                 android:baselineAligned="false"
                 android:gravity="center"
-                android:padding="8dp"
+                android:padding="4dp"
                 android:text="@string/age"
                 android:textAlignment="center"
                 android:textColor="#E7ECE9"
@@ -280,7 +335,7 @@
                 android:background="@drawable/bg_greenblue"
                 android:baselineAligned="false"
                 android:gravity="center"
-                android:padding="8dp"
+                android:padding="4dp"
                 android:text="@string/email"
                 android:textAlignment="center"
                 android:textColor="#E7ECE9"
@@ -299,7 +354,7 @@
                 android:background="@drawable/bg_greenblue"
                 android:baselineAligned="false"
                 android:gravity="center"
-                android:padding="8dp"
+                android:padding="4dp"
                 android:text="@string/Phone"
                 android:textAlignment="center"
                 android:textColor="#E7ECE9"
@@ -316,8 +371,24 @@
                 android:layout_marginBottom="2dp"
                 android:background="@drawable/bg_greenblue"
                 android:gravity="center"
-                android:padding="8dp"
+                android:padding="4dp"
                 android:text="@string/sex"
+                android:textAlignment="center"
+                android:textColor="#E7ECE9"
+                android:textSize="18sp" />
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/bg_greenblue"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="@string/notes"
                 android:textAlignment="center"
                 android:textColor="#E7ECE9"
                 android:textSize="18sp" />
@@ -333,7 +404,7 @@
                 android:layout_marginBottom="2dp"
                 android:background="@drawable/bg_greenblue"
                 android:gravity="center"
-                android:padding="8dp"
+                android:padding="4dp"
                 android:text="@string/status"
                 android:textAlignment="center"
                 android:textColor="#E7ECE9"
@@ -351,8 +422,42 @@
                 android:layout_marginBottom="2dp"
                 android:background="@drawable/bg_greenblue"
                 android:gravity="center"
-                android:padding="8dp"
+                android:padding="4dp"
                 android:text="@string/creator"
+                android:textAlignment="center"
+                android:textColor="#E7ECE9"
+                android:textSize="18sp" />
+            <TextView
+
+                android:id="@+id/sugdateV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/bg_greenblue"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="@string/sugdate"
+                android:textAlignment="center"
+                android:textColor="#E7ECE9"
+                android:textSize="18sp" />
+            <TextView
+
+                android:id="@+id/sugtimeV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/bg_greenblue"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="@string/suggestedtdatetime"
                 android:textAlignment="center"
                 android:textColor="#E7ECE9"
                 android:textSize="18sp" />
@@ -365,9 +470,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:baselineAligned="false">
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -384,6 +489,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:orientation="horizontal"
                 android:weightSum="6">
 
@@ -391,34 +498,36 @@
                     android:id="@+id/dtime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginStart="3dp"
                     android:layout_marginEnd="3dp"
-                    android:layout_marginBottom="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/background_edit"
                     android:backgroundTint="@color/honey"
-                    android:padding="15dp"
+                    android:gravity="center"
+                    android:padding="8dp"
                     android:text="@string/dvisittime"
                     android:textAlignment="center"
                     android:textColor="@color/mywhite"
-                    android:textSize="24sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/dvisitdate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginStart="3dp"
                     android:layout_marginEnd="3dp"
-                    android:layout_marginBottom="5dp"
                     android:layout_weight="4"
                     android:background="@drawable/background_edit"
                     android:backgroundTint="@color/honey"
-                    android:padding="15dp"
+                    android:gravity="center"
+                    android:padding="8dp"
                     android:text="@string/visitdate"
                     android:textAlignment="center"
                     android:textColor="@color/mywhite"
-                    android:textSize="24sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -426,15 +535,14 @@
             <TextView
                 android:id="@+id/dremain"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="5dp"
-                android:background="@drawable/calendar2"
-                android:gravity="fill|fill_horizontal|center_vertical|fill_vertical"
-                android:padding="3dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="8dp"
+                android:background="@drawable/background_edit"
+                android:gravity="center"
+                android:padding="10dp"
                 android:text="الوقت المتبقي"
                 android:textColor="@color/mywhite"
                 android:textSize="16sp"
@@ -442,6 +550,97 @@
 
 
         </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/userMgmnt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/req_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_animation"
+            android:text="طلب تعديل موعد"
+            android:textColor="@color/mywhite" />
+
+        <Button
+            android:id="@+id/req_full_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/gradient_animation"
+            android:text="تعديل بيانات"
+            android:textColor="@color/mywhite" />
+
+        <Button
+            android:id="@+id/req_cancelbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/gradient_animation"
+            android:text="طلب الغاء موعد"
+            android:textColor="@color/mywhite" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/adminMgmnt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/acceptcancellationbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/gradient_animation"
+                android:enabled="false"
+                android:text="قبول الغاء"
+                android:textColor="@color/myYellow"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/accepttimechangebtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/gradient_animation"
+                android:enabled="false"
+                android:text="قبول تعديل"
+                android:textColor="@color/myYellow"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/confirmbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/gradient_animation"
+                android:enabled="false"
+                android:text="تأكيد"
+                android:textColor="@color/myYellow"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"/>
+
     </LinearLayout>
 
 
