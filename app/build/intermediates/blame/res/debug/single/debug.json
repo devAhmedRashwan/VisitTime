@@ -12,6 +12,10 @@
         "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\layout\\activity_allreservation.xml"
     },
     {
+        "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\layout_set_managers.xml.flat",
+        "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\layout\\set_managers.xml"
+    },
+    {
         "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_inbut_style.xml.flat",
         "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\drawable\\bg_inbut_style.xml"
     },
@@ -22,10 +26,6 @@
     {
         "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
-    },
-    {
-        "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\layout_deldal.xml.flat",
-        "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\layout\\deldal.xml"
     },
     {
         "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\anim_slide_down.xml.flat",
@@ -48,6 +48,10 @@
         "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\drawable\\icon_error.png"
     },
     {
+        "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_background.png"
+    },
+    {
         "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
@@ -62,6 +66,10 @@
     {
         "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\anim_blink.xml.flat",
         "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\anim\\blink.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_my_reservation.xml.flat",
+        "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\layout\\activity_my_reservation.xml"
     },
     {
         "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bk_med_blur.png.flat",
@@ -130,10 +138,6 @@
     {
         "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_history_black_24dp.xml.flat",
         "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\drawable\\ic_history_black_24dp.xml"
-    },
-    {
-        "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\layout_addfirstdate.xml.flat",
-        "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\layout\\addfirstdate.xml"
     },
     {
         "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\anim_zoom_in.xml.flat",
@@ -228,6 +232,10 @@
         "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_foreground.png"
     },
     {
+        "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_panel_green.xml.flat",
+        "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\drawable\\bg_panel_green.xml"
+    },
+    {
         "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_l_greenblue_noline.xml.flat",
         "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\drawable\\bg_l_greenblue_noline.xml"
     },
@@ -280,6 +288,10 @@
         "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_foreground.png"
     },
     {
+        "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_background.png"
+    },
+    {
         "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\drawable_layout_background.xml.flat",
         "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\drawable\\layout_background.xml"
     },
@@ -320,6 +332,10 @@
         "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\drawable\\background_delete.xml"
     },
     {
+        "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_background.png"
+    },
+    {
         "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bin.xml.flat",
         "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\drawable\\bin.xml"
     },
@@ -356,10 +372,6 @@
         "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\anim\\move.xml"
     },
     {
-        "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\layout_addlastdate.xml.flat",
-        "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\layout\\addlastdate.xml"
-    },
-    {
         "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_delete_white_24.xml.flat",
         "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\drawable\\ic_delete_white_24.xml"
     },
@@ -392,6 +404,10 @@
         "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\layout\\book_operations.xml"
     },
     {
+        "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_background.png"
+    },
+    {
         "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\font_wendy_one.xml.flat",
         "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\font\\wendy_one.xml"
     },
@@ -414,6 +430,10 @@
     {
         "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\anim_scale.xml.flat",
         "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\anim\\scale.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_background.png"
     },
     {
         "merged": "C:\\Users\\Rashwan-Home\\AndroidStudioProjects\\VisitTime\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_dialog.xml.flat",

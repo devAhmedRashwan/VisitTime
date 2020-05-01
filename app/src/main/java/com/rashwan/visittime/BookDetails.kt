@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_edit_book.view.*
@@ -33,10 +34,13 @@ class BookDetails : AppCompatActivity() {
     val LastDate = ToolsVisit.Dates(1)
     var timeset= mutableListOf<String>()
     var DaysInNumbersArr: MutableList<Int> = mutableListOf()
+    val todayinsec=Calendar.getInstance().timeInMillis.toString().substring(0, Calendar.getInstance().timeInMillis.toString().length - 3).toLong()-86400
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         setContentView(R.layout.bookdetails)
+        ToolsVisit.isAdmin(adminMgmnt,userMgmnt)
         DaysInNumbersArr = ToolsVisit.DaysInNumbers()
         val id = intent.extras!!.getString("id")
         mRef = database.getReference("Booked")
@@ -83,21 +87,36 @@ class BookDetails : AppCompatActivity() {
                     0 -> {
                         dstatus.text = "انتظار"
                         confirmbtn.isEnabled = true
+                        undoconfirmbtn.isEnabled = false
                     }
-                    1 -> dstatus.text = "مؤكدة"
+                    1 -> {
+                        dstatus.text = "مؤكدة"
+                        confirmbtn.isEnabled = false
+                        undoconfirmbtn.isEnabled = true
+                        markasdone.isEnabled = true
+                    }
                     2 -> dstatus.text = "تمت"
-                    3 -> dstatus.text = "فائتة"
-                    4 -> dstatus.text = "ملغية"
+//                    3 -> dstatus.text = "فائتة"
+                    4 -> {
+                        dstatus.text = "ملغية"
+                        userMgmnt.visibility=View.GONE
+                    }
                     5 -> {
                         dstatus.text = "طلب تعديل موعد"
                         accepttimechangebtn.isEnabled = true
-
+                        acceptcancellationbtn.isEnabled = false
                     }
                     6 -> {
                         dstatus.text = "طلب الغاء"
+                        req_cancelbtn.text="التراجع عن الالغاء"
                         acceptcancellationbtn.isEnabled = true
-
                     }
+                }
+                if (mbook.isconfirmed==1 && mbook.visitdate!! < todayinsec &&  mbook.isconfirmed !=2 ){
+                    dstatus.text = "فائتة"
+                }
+                if (mbook.isdeleted==1 ){
+                    dstatus.text = "محذوفة"
                 }
 
             }
@@ -165,7 +184,32 @@ class BookDetails : AppCompatActivity() {
 
                 }
         }
+        undoconfirmbtn.setOnClickListener() {
+            mRef?.child(id!!)?.child("isconfirmed")?.setValue(0)
+                ?.addOnCompleteListener {
+                    ToolsVisit.vtoast(
+                        " تم الغاء تأكيد الموعد ",
+                        1,
+                        this@BookDetails,
+                        layoutInflater
+                    )
+                    confirmbtn.isEnabled = false
 
+                }
+        }
+        markasdone.setOnClickListener() {
+            mRef?.child(id!!)?.child("isconfirmed")?.setValue(2)
+                ?.addOnCompleteListener {
+                    ToolsVisit.vtoast(
+                        " تم  تأكيد حضور الموعد ",
+                        1,
+                        this@BookDetails,
+                        layoutInflater
+                    )
+                    confirmbtn.isEnabled = false
+
+                }
+        }
         accepttimechangebtn.setOnClickListener() {
             mRef = database.getReference("Booked")
             mRef?.child(id!!)?.child("visitdate")
@@ -187,6 +231,8 @@ class BookDetails : AppCompatActivity() {
         }
         acceptcancellationbtn.setOnClickListener() {
             mRef?.child(id!!)?.child("isconfirmed")?.setValue(4)
+            val oldtime=dtime.text.toString()+"X"
+            mRef?.child(id!!)?.child("time")?.setValue(oldtime)
                 ?.addOnCompleteListener {
                     ToolsVisit.vtoast(
                         " تم قبول الغاء الموعد ",
@@ -198,18 +244,33 @@ class BookDetails : AppCompatActivity() {
                 }
         }
         req_cancelbtn.setOnClickListener() {
-            mRef?.child(id!!)?.child("isconfirmed")?.setValue(6)
-                ?.addOnCompleteListener {
-                    ToolsVisit.vtoast(
-                        " تم تقديم طلب الغاء الموعد ",
-                        1,
-                        this@BookDetails,
-                        layoutInflater
-                    )
-                    acceptcancellationbtn.isEnabled = true
-                }
-        }
+            if (req_cancelbtn.text.toString().contains("طلب")){
+                mRef?.child(id!!)?.child("isconfirmed")?.setValue(6)
+                    ?.addOnCompleteListener {
+                        ToolsVisit.vtoast(
+                            " تم تقديم طلب الغاء الموعد ",
+                            1,
+                            this@BookDetails,
+                            layoutInflater
+                        )
+                        acceptcancellationbtn.isEnabled = true
+                    }
+            }else {
+                mRef?.child(id!!)?.child("isconfirmed")?.setValue(0)
+                    ?.addOnCompleteListener {
+                        ToolsVisit.vtoast(
+                            " تم التراجع عن طلب الغاء الموعد ",
+                            1,
+                            this@BookDetails,
+                            layoutInflater
+                        )
+                        req_cancelbtn.text="طلب الغاء موعد"
+                        acceptcancellationbtn.isEnabled = false
+                        confirmbtn.isEnabled=true
+                    }
+            }
 
+        }
     }
 
         fun pickDateValidation(textview: TextView): Long {

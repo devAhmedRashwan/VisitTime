@@ -133,9 +133,13 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginBottom="2dp"
+                android:autoLink="phone"
                 android:background="@drawable/bg_greenblue"
                 android:baselineAligned="false"
+                android:clickable="true"
+                android:contextClickable="true"
                 android:gravity="center"
+                android:linksClickable="true"
                 android:padding="4dp"
                 android:text="@string/Phone"
                 android:textAlignment="center"
@@ -471,17 +475,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:baselineAligned="false"
         android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
             android:layout_marginBottom="5dp"
-            android:layout_weight="3"
             android:orientation="vertical"
             android:weightSum="100">
 
@@ -493,6 +492,18 @@
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:weightSum="6">
+
+                <TextView
+                    android:id="@+id/dremain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_edit"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="الوقت المتبقي"
+                    android:textColor="@color/mywhite"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/dtime"
@@ -509,7 +520,7 @@
                     android:text="@string/dvisittime"
                     android:textAlignment="center"
                     android:textColor="@color/mywhite"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -527,26 +538,10 @@
                     android:text="@string/visitdate"
                     android:textAlignment="center"
                     android:textColor="@color/mywhite"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/dremain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/background_edit"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="الوقت المتبقي"
-                android:textColor="@color/mywhite"
-                android:textSize="16sp"
-                android:textStyle="bold" />
 
 
         </LinearLayout>
@@ -555,51 +550,71 @@
 
     <LinearLayout
         android:id="@+id/userMgmnt"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="10dp"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="4">
 
         <Button
             android:id="@+id/req_change"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:background="@drawable/gradient_animation"
             android:text="طلب تعديل موعد"
-            android:textColor="@color/mywhite" />
+            android:textColor="@color/mywhite"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/req_full_change"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/gradient_animation"
             android:text="تعديل بيانات"
-            android:textColor="@color/mywhite" />
+            android:textColor="@color/mywhite"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/req_cancelbtn"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/gradient_animation"
             android:text="طلب الغاء موعد"
-            android:textColor="@color/mywhite" />
+            android:textColor="@color/mywhite"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/adminMgmnt"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="8">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <Button
+                android:id="@+id/delbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/gradient_animation"
+                android:enabled="false"
+                android:text="حذف موعد"
+                android:textColor="@color/myYellow"
+                android:textSize="16sp" />
 
             <Button
                 android:id="@+id/acceptcancellationbtn"
@@ -610,7 +625,7 @@
                 android:enabled="false"
                 android:text="قبول الغاء"
                 android:textColor="@color/myYellow"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
             <Button
                 android:id="@+id/accepttimechangebtn"
@@ -621,7 +636,29 @@
                 android:enabled="false"
                 android:text="قبول تعديل"
                 android:textColor="@color/myYellow"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/markasdone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/gradient_animation"
+                android:enabled="false"
+                android:text="تأكيد حضور"
+                android:textColor="@color/myYellow"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/undoconfirmbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/gradient_animation"
+                android:enabled="false"
+                android:text="الغاء تأكيد"
+                android:textColor="@color/myYellow"
+                android:textSize="16sp" />
 
             <Button
                 android:id="@+id/confirmbtn"
@@ -630,16 +667,12 @@
                 android:layout_weight="1"
                 android:background="@drawable/gradient_animation"
                 android:enabled="false"
-                android:text="تأكيد"
+                android:text="تأكيد الحجز"
                 android:textColor="@color/myYellow"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
+
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal"/>
 
     </LinearLayout>
 

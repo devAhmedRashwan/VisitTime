@@ -256,13 +256,18 @@ import java.util.GregorianCalendar as GregorianCalendar1
                      timeset.clear()
                      timeset.addAll(maintimesarray)
                      var wantedvisit = ""
+                     var sugtimevisit=""
                      for (n in dataSnapshot.children) {
                          val visita = n.getValue(Booked::class.java)
                          if (Date == visita?.visitdate?.toLong()) {
                              wantedvisit = visita.time.toString()
+                             sugtimevisit=visita.sugtime.toString()
                          }
-                         if (timeset.contains(wantedvisit)) {
+                         if (timeset.contains(wantedvisit) ) {
                              timeset.remove(wantedvisit)
+                         }
+                         if ( timeset.contains(sugtimevisit)) {
+                             timeset.remove(sugtimevisit)
                          }
                      }
                      val mBuilder = AlertDialog.Builder(

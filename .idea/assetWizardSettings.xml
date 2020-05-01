@@ -45,6 +45,18 @@
                                 <PersistentState>
                                   <option name="children">
                                     <map>
+                                      <entry key="backgroundImage">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="scalingPercent" value="33" />
+                                                <entry key="trimmed" value="true" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
                                       <entry key="foregroundImage">
                                         <value>
                                           <PersistentState>
@@ -61,7 +73,11 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="foregroundImage" value="C:\Users\Rashwan-Home\Pictures\visit_icon.png" />
+                                      <entry key="backgroundAssetType" value="COLOR" />
+                                      <entry key="backgroundColor" value="f4f4f4" />
+                                      <entry key="backgroundImage" value="C:\Users\Rashwan-Home\Pictures\transparentbk.png" />
+                                      <entry key="foregroundImage" value="C:\Users\Rashwan-Home\Pictures\new_icon.png" />
+                                      <entry key="legacyIconShape" value="NONE" />
                                     </map>
                                   </option>
                                 </PersistentState>

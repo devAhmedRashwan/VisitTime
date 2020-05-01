@@ -6,24 +6,20 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.icu.util.Calendar
 import android.os.Bundle
-import android.view.MenuItem
+import android.util.Patterns
 import android.view.View
-import android.widget.Toast
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.GravityCompat
-import com.google.android.material.navigation.NavigationView
+
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_manage.*
 import kotlinx.android.synthetic.main.addnewtime.view.*
 import kotlinx.android.synthetic.main.addnewtime.view.addtimenow
 import kotlinx.android.synthetic.main.addnewtime.view.closeit
 import kotlinx.android.synthetic.main.addnewtime.view.pickthetime
-import kotlinx.android.synthetic.main.disabletimes.view.disabletimenow
 import kotlinx.android.synthetic.main.set_dates.view.*
+import kotlinx.android.synthetic.main.set_managers.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 class Manage : AppCompatActivity() {
@@ -41,7 +37,256 @@ class Manage : AppCompatActivity() {
         val maintimesarray = ToolsVisit.gettimes()
         val DaysInarray = ToolsVisit.DaysIn()
         val disabledtimesarray = ToolsVisit.disabledtimes()
+        val mangersin = ToolsVisit.Getmgrs(1)
+        val mangersout = ToolsVisit.Getmgrs(0)
         val textviewid = (R.id.tv)
+        editmangers.setOnClickListener(){
+            ToolsVisit.btnanim(it)
+            val alert = AlertDialog.Builder(this)
+            val inflater = layoutInflater
+            val view = inflater.inflate(R.layout.set_managers, null)
+            alert.setView(view)
+            val alertdailoge = alert.create()
+            alertdailoge.show()
+
+                view.addmgrnow.setOnClickListener(){
+val Temail=view.insertmail.text.toString().replace(" ","")
+                    if((Patterns.EMAIL_ADDRESS.matcher(Temail).matches())){
+                      mRef = database.getReference("Managers")
+                        val id =ToolsVisit.MailtoStr(view.insertmail.text.toString())
+val addmgr=Managers(id,view.insertmail.text.toString(),1)
+                        mRef!!.child(id).setValue(addmgr)
+                            .addOnSuccessListener {
+                                ToolsVisit.vtoast(
+                                    " تم اضافة المدير ",
+                                    1,
+                                    this,
+                                    layoutInflater
+                                )
+                            }
+                            .addOnFailureListener {
+                                ToolsVisit.vtoast(
+                                    "لم تتم اضافة المدير" + it.message!!,
+                                    3,
+                                    this,
+                                    layoutInflater
+                                )
+                            }
+
+
+                    }else{
+                        ToolsVisit.vtoast(
+                            " برجاء ادخال بريد الكتروني بشكل صحيح ثم اعادة المحاولة",
+                            1,
+                            this,
+                            layoutInflater
+                        )
+                    }
+                }
+            view.disablemgr.setOnClickListener(){
+
+                    ToolsVisit.btnanim(it)
+                    if (mangersin.isEmpty()) {
+                        ToolsVisit.vtoast(
+                            "لا يوجد اي مدير مفعل يمكن ايقافه",
+                            2,
+                            this@Manage,
+                            layoutInflater
+                        )
+                    } else {
+
+                        var selectedItems = mutableListOf<String>()
+                        val final = Collections.unmodifiableList(selectedItems)
+                        val builder = AlertDialog.Builder(this, THEME_DEVICE_DEFAULT_LIGHT)
+                        builder.setTitle("اختر المدير المراد ايقافه")
+                        builder.setIcon(R.drawable.icon_time_set)
+
+                            .setMultiChoiceItems(mangersin.toTypedArray(), null,
+                                DialogInterface.OnMultiChoiceClickListener { dialog, which, isChecked ->
+                                    if (isChecked) {
+                                        selectedItems.add(mangersin.toTypedArray()[which])
+                                    } else if (selectedItems.contains(mangersin.toTypedArray()[which])) {
+                                        selectedItems.remove(mangersin.toTypedArray()[which])
+                                    }
+                                })
+                            .setPositiveButton("OK",
+                                DialogInterface.OnClickListener { dialog, id ->
+//                            Toast.makeText(this,"you choose $final",Toast.LENGTH_LONG).show()
+                                    if (final.toString() != "[]") {
+
+
+                                        val joinedarry =
+                                            final.toString().replace("[", "").replace("]", "")
+                                                .split(",").toTypedArray()
+                                        var lastitemindex=joinedarry.size
+                                        var timeormore="المديرين"
+                                        if(lastitemindex==1){timeormore="المدير"}
+                                        for (item in joinedarry) {
+                                            try {
+                                                var firstchar = item.substring(0, 1)
+                                                var edited = item
+                                                if (firstchar == " ") {
+                                                    edited = item.removeRange(0, 1)
+                                                }
+                                                mRef = database.getReference("Managers")
+
+                                                mRef!!.child(ToolsVisit.MailtoStr(edited)).child("isenabled").setValue(0)
+                                                    .addOnSuccessListener {
+                                                        if (item == joinedarry[lastitemindex - 1]) {
+                                                            ToolsVisit.vtoast(
+                                                                " تم ايقاف $timeormore  بنجاح   ",
+                                                                1,
+                                                                this@Manage,
+                                                                layoutInflater
+                                                            )
+                                                        }
+
+
+                                                    }
+                                                    .addOnFailureListener {
+                                                        ToolsVisit.vtoast(
+                                                            " لم يتم الايقاف " + it.message,
+                                                            3,
+                                                            this@Manage,
+                                                            layoutInflater
+                                                        )
+
+
+                                                    }
+
+
+                                            } catch (e: Exception) {
+                                                ToolsVisit.vtoast(
+                                                    " لم يتم التفعيل " + e.message,
+                                                    3,
+                                                    this@Manage,
+                                                    layoutInflater
+                                                )
+                                            }
+                                        }
+                                    }
+                                })
+                            .setNegativeButton("Cancel",
+                                DialogInterface.OnClickListener { dialog, id ->
+                                })
+                        builder.create()
+                        builder.show()
+                    }
+
+
+                }
+            view.enablemgr.setOnClickListener(){
+
+                ToolsVisit.btnanim(it)
+                if (mangersout.isEmpty()) {
+                    ToolsVisit.vtoast(
+                        "لا يوجد اي مدير موقوف يمكن تفعيله",
+                        2,
+                        this@Manage,
+                        layoutInflater
+                    )
+                } else {
+
+                    var selectedItems = mutableListOf<String>()
+                    val final = Collections.unmodifiableList(selectedItems)
+                    val builder = AlertDialog.Builder(this, THEME_DEVICE_DEFAULT_LIGHT)
+                    builder.setTitle("اختر المدير المراد تفعيله")
+                    builder.setIcon(R.drawable.icon_time_set)
+
+                        .setMultiChoiceItems(mangersout.toTypedArray(), null,
+                            DialogInterface.OnMultiChoiceClickListener { dialog, which, isChecked ->
+                                if (isChecked) {
+                                    selectedItems.add(mangersout.toTypedArray()[which])
+                                } else if (selectedItems.contains(mangersout.toTypedArray()[which])) {
+                                    selectedItems.remove(mangersout.toTypedArray()[which])
+                                }
+                            })
+                        .setPositiveButton("OK",
+                            DialogInterface.OnClickListener { dialog, id ->
+//                            Toast.makeText(this,"you choose $final",Toast.LENGTH_LONG).show()
+                                if (final.toString() != "[]") {
+
+
+                                    val joinedarry =
+                                        final.toString().replace("[", "").replace("]", "")
+                                            .split(",").toTypedArray()
+                                    var lastitemindex=joinedarry.size
+                                    var timeormore="المديرين"
+                                    if(lastitemindex==1){timeormore="المدير"}
+                                    for (item in joinedarry) {
+                                        try {
+                                            var firstchar = item.substring(0, 1)
+                                            var edited = item
+                                            if (firstchar == " ") {
+                                                edited = item.removeRange(0, 1)
+                                            }
+                                            mRef = database.getReference("Managers")
+
+                                            mRef!!.child(ToolsVisit.MailtoStr(edited)).child("isenabled").setValue(1)
+                                                .addOnSuccessListener {
+                                                    if (item == joinedarry[lastitemindex - 1]) {
+                                                        ToolsVisit.vtoast(
+                                                            " تم تفعيل $timeormore  بنجاح   ",
+                                                            1,
+                                                            this@Manage,
+                                                            layoutInflater
+                                                        )
+                                                    }
+
+
+                                                }
+                                                .addOnFailureListener {
+                                                    ToolsVisit.vtoast(
+                                                        " لم يتم التفعيل " + it.message,
+                                                        3,
+                                                        this@Manage,
+                                                        layoutInflater
+                                                    )
+
+
+                                                }
+
+
+                                        } catch (e: Exception) {
+                                            ToolsVisit.vtoast(
+                                                " لم يتم التفعيل " + e.message,
+                                                3,
+                                                this@Manage,
+                                                layoutInflater
+                                            )
+                                        }
+                                    }
+                                }
+                            })
+                        .setNegativeButton("Cancel",
+                            DialogInterface.OnClickListener { dialog, id ->
+                            })
+                    builder.create()
+                    builder.show()
+                }
+
+
+            }
+
+
+
+
+                view.closeit.setOnClickListener() {
+                    alertdailoge.dismiss()
+                }
+
+
+
+
+
+
+            }
+
+
+
+
+
+
         allreservations.setOnClickListener() {
             ToolsVisit.btnanim(it)
             startActivity(Intent(this, AllReservation::class.java))
@@ -527,6 +772,7 @@ class Manage : AppCompatActivity() {
             builder.show()
         }
     }
+
 
 
 

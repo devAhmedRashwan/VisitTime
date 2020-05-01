@@ -59,4 +59,21 @@ package com.rashwan.visittime
         }
 
     }
+class Managers {
+    var id: String? = null
+    var mgremail: String? = null
+    var isenabled: Int? = null
+
+
+    constructor()
+
+
+    constructor(
+        id: String,mgremail:String,isenabled:Int
+    ) {
+        this.id = id
+        this.mgremail = mgremail
+        this.isenabled = isenabled
+    }
+}
 

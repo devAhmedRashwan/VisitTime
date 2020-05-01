@@ -6,7 +6,11 @@
             <stroke android:width="2dp"
                 android:color="@color/mywhite">
             </stroke>
-            <gradient android:endColor="#C1EBEFEF" android:startColor="#C1EBEFEF" />
+
+
+
+            <gradient android:endColor="@color/row1s" android:startColor="#C1EBEFEF"
+                android:angle="360"/>
             <corners android:radius="5dp">
             </corners>
         </shape>

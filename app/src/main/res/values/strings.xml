@@ -140,6 +140,10 @@
     <string name="timeedit">تعديل موعد</string>
     <string name="confirmchange">تأكيد التعديل</string>
     <string name="editdata">تعديل بيانات حجز</string>
+    <string name="Managers">المديرون</string>
+    <string name="demoadmin">تجريبي مدير</string>
+    <string name="Democlint">تجريبي عميل</string>
+    <string name="controlpanel">شاشة التحكم</string>
 
     <string-array name="sexArr">"انثى","ذكر","حدد النوع"</string-array>
 

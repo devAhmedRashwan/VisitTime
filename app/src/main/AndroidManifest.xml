@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditBook"></activity>
+        <activity android:name=".MyReservation"></activity>
+        <activity android:name=".EditBook" />
         <activity android:name=".BookOperations" />
         <activity android:name=".AllReservation" />
         <activity android:name=".SignUp" />

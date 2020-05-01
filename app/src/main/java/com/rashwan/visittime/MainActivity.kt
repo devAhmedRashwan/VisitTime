@@ -1,5 +1,8 @@
 package com.rashwan.visittime
 
+import android.app.AlertDialog
+import android.app.AlertDialog.THEME_DEVICE_DEFAULT_LIGHT
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
@@ -15,14 +18,19 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.header_layout.view.*
+import java.util.*
+
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     var mRef: DatabaseReference? = null
     var mAuth: FirebaseAuth? = null
     var database: FirebaseDatabase = FirebaseDatabase.getInstance()
+//    val disablMgrsarray = ToolsVisit.Getmgrs()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+//        val disablMgrsarray = ToolsVisit.Getmgrs()
+
         mRef = database.getReference("Config")
         mAuth = FirebaseAuth.getInstance()
 
@@ -33,6 +41,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         supportActionBar?.title = getString(R.string.arapp_name)
         ToolsVisit.get_Cinfo(c_name, c_address, c_phone, c_web,null)
         ToolsVisit.get_Cinfo(set_c_name, set_c_address,set_c_phone,set_c_web,null)
+         mAuth= FirebaseAuth.getInstance()
+//        val disablMgrsarray = ToolsVisit.Getmgrs()
+        val currentlogged=mAuth?.currentUser?.email.toString()
+
+
         val actiontoggle = ActionBarDrawerToggle(
             this,
             mydrawer,
@@ -45,6 +58,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         mNav.setNavigationItemSelectedListener(this)
         getUserData()
         getClinicData()
+//        if (currentlogged in disablMgrsarray )  Manage.text="مدير"
+        ToolsVisit.isAdmin(set_clinic_btn,null)
+        ToolsVisit.isAdmin(Mngmntbtn,mybooks)
+        ToolsVisit.isAdmin(allbooks,null)
+
+tst.setOnClickListener(){
+//    startActivity(Intent(this, com.rashwan.visittime.testslider::class.java))
+
+}
+
+
         set_clinic_btn.setOnClickListener(){
             ToolsVisit.btnanim(it)
             if (clinic_info_show.isShown) {
@@ -64,7 +88,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
         booknow.setOnClickListener() {
             ToolsVisit.btnanim(it)
-            if(mAuth?.currentUser?.isEmailVerified!! || mAuth?.currentUser?.email.toString()=="demo@visittime.com"){
+            if(mAuth?.currentUser?.isEmailVerified!! || mAuth?.currentUser?.email.toString()=="demo@visittime.com" || mAuth?.currentUser?.email.toString()=="demoadmin@visittime.com"){
                 startActivity(Intent(this, com.rashwan.visittime.bookvisit::class.java))
             }else{
                 ToolsVisit.vtoast(
@@ -77,9 +101,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
         mybooks.setOnClickListener() {
             ToolsVisit.btnanim(it)
-                startActivity(Intent(this, com.rashwan.visittime.AllReservation::class.java))
+                startActivity(Intent(this, com.rashwan.visittime.MyReservation::class.java))
         }
-        Manage.setOnClickListener() {
+        allbooks.setOnClickListener() {
+            ToolsVisit.btnanim(it)
+            startActivity(Intent(this, com.rashwan.visittime.AllReservation::class.java))
+        }
+
+        Mngmntbtn.setOnClickListener() {
             ToolsVisit.btnanim(it)
             startActivity(Intent(this, com.rashwan.visittime.Manage::class.java))
         }

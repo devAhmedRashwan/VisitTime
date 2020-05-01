@@ -1,27 +1,17 @@
 package com.rashwan.visittime
 
-import android.app.Application
 import android.app.DatePickerDialog
 import android.graphics.drawable.AnimationDrawable
-import android.util.MutableBoolean
-import android.view.ContextMenu
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.*
-import androidx.core.content.ContextCompat.getDrawable
-import com.google.api.Context
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_bookvisit.*
-import kotlinx.android.synthetic.main.activity_landing.*
-import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.custom_toast.view.*
-import kotlinx.android.synthetic.main.header_layout.view.*
-import java.security.AccessControlContext
-import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class ToolsVisit {
@@ -147,6 +137,36 @@ class ToolsVisit {
 
         }
 
+        fun GoExpired() {
+            //this function to :
+            // make every book which it's visit date in the past Marked as Missed
+            //confirm the regvisit date is the same  to  visit date in the string format
+
+            var mRef: DatabaseReference? = null
+            val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+            mRef = database.getReference("Booked")
+            mRef.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {}
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    val today = Calendar.getInstance().timeInMillis.toString()
+                    val todayinsec=Calendar.getInstance().timeInMillis.toString().substring(0, Calendar.getInstance().timeInMillis.toString().length - 3).toLong()
+                    for (n in dataSnapshot.children) {
+
+                        val book = n.getValue(Booked::class.java)!!
+                        val id = book.id.toString()
+                        val visitdatevalue=tools.epochToStr(book.visitdate!!.toLong())
+                        mRef.child(id).child("regvisitdate").setValue(visitdatevalue)
+                        if (book.visitdate!! < todayinsec) {
+                            val exbook = n.getValue(Booked::class.java)!!
+                            val id = exbook.id.toString()
+                            mRef.child(id).child("isconfirmed").setValue(3)
+                        }
+                    }
+                }
+            })
+
+        }
+
         fun btnanim(view: View) {
             view.setBackgroundResource(R.drawable.gradient_animation)
             val animDrawable = view.background as AnimationDrawable
@@ -186,6 +206,54 @@ class ToolsVisit {
                 }
             })
             return vacant
+        }
+        fun Getmgrs(type:Int): MutableList<String> {
+            val vacant: MutableList<String> = mutableListOf()
+            val mAuth= FirebaseAuth.getInstance()
+            val currentlogged=mAuth?.currentUser?.email.toString()
+            val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+         val   mRef = database.getReference("Managers")
+            mRef.addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+                }
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    vacant.clear()
+                    for (n in dataSnapshot.children) {
+                        val mgr = n.getValue(Managers::class.java)!!
+                        if (mgr.isenabled!! == type) {
+                            vacant.add(mgr.mgremail!!)
+
+                        }
+                    }
+                }
+            })
+            return vacant
+        }
+        fun isAdmin(showforadmins:View?,hidefromadmins:View?): MutableList<String> {
+//            var btn= view as Button
+            val admins: MutableList<String> = mutableListOf()
+            val mAuth= FirebaseAuth.getInstance()
+            val currentlogged=mAuth.currentUser?.email.toString()
+            val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+            val   mRef = database.getReference("Managers")
+            mRef.addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+                }
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    admins.clear()
+                    for (n in dataSnapshot.children) {
+                        val mgr = n.getValue(Managers::class.java)!!
+                        if (mgr.isenabled!! == 1) {
+                            admins.add(mgr.mgremail!!)
+                        }
+                        if (currentlogged in admins ) {
+                            showforadmins?.visibility = View.VISIBLE
+                            hidefromadmins?.visibility = View.GONE
+                        }
+                    }
+                }
+            })
+            return admins
         }
 
         fun DaysIn(): MutableList<String> {
@@ -280,17 +348,17 @@ class ToolsVisit {
         }
 
 
-        fun GetVNumber():Int {
-        var vnumber:Int=99
+        fun GetVNumber(): Int {
+            var vnumber: Int = 99
             var mRef: DatabaseReference? = null
             var database: FirebaseDatabase = FirebaseDatabase.getInstance()
             mRef = database.getReference("Config")
             mRef.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {}
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    vnumber=dataSnapshot.child("vnumber").value.toString().toInt()
+                    vnumber = dataSnapshot.child("vnumber").value.toString().toInt()
 
-                    mRef.child("vnumber").setValue(vnumber+1)
+                    mRef.child("vnumber").setValue(vnumber + 1)
 
                 }
 
@@ -301,7 +369,13 @@ class ToolsVisit {
         }
 
 
-        fun get_Cinfo(cname: TextView?, caddress: TextView?, cphone: TextView?, cweb: TextView?,vnumber:TextView?) {
+        fun get_Cinfo(
+            cname: TextView?,
+            caddress: TextView?,
+            cphone: TextView?,
+            cweb: TextView?,
+            vnumber: TextView?
+        ) {
             var vacant: MutableList<String> = mutableListOf()
             var enabledlist: MutableList<String> = mutableListOf()
             var mRef: DatabaseReference? = null
@@ -474,6 +548,10 @@ class ToolsVisit {
                 }
             })
             return vacant
+        }
+        fun MailtoStr(email:String):String{
+            var Str=email.toString().replace("@","").replace(".","").replace("_","").replace("-","")
+            return Str
         }
     }
 

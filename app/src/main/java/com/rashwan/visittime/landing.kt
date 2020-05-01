@@ -27,6 +27,8 @@ class landing : AppCompatActivity(),TextWatcher {
         i.addCategory(Intent.CATEGORY_HOME)
         this.startActivity(i)
     }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        supportActionBar?.hide()
@@ -135,7 +137,7 @@ if ( LL.layoutParams.height!=(0)) {
 
                                 val builder = AlertDialog.Builder(this, THEME_DEVICE_DEFAULT_LIGHT)
                                 builder.setIcon(R.drawable.icon_time_off)
-                                builder.setTitle("لا يوجد حساب مسجل لهذا البريد الالكتروني ، هل ترغب بتسجيل حساب جديد؟")
+                                builder.setTitle("لا يوجد حساب مسجل لهذا البريد الالكتروني ، هل ترغب بتسجيل حساب؟")
                                     .setPositiveButton("تسجيل حساب جديد",
                                         DialogInterface.OnClickListener { dialog, id ->
                                             LL.layoutParams.height = (0)
@@ -158,8 +160,36 @@ if ( LL.layoutParams.height!=(0)) {
         btndemo.setOnClickListener {
             ToolsVisit.btnanim(it)
             mAuth?.signInWithEmailAndPassword("demo@VisitTime.com", "123456")
-            startActivity(Intent(this, MainActivity::class.java))
+                ?.addOnCompleteListener { it ->
+                    if (it.isSuccessful) {
+                        startActivity(Intent(this, MainActivity::class.java))
+                        val ds=mAuth?.currentUser?.displayName.toString()
+                        ToolsVisit.vtoast(
+                            " تم تسجيل الدخول كعميل تجريبي ، مرحبا",
+                            1,
+                            this,
+                            layoutInflater
+                        )
+                    }
+                }
         }
+        btndemoadmin.setOnClickListener {
+            ToolsVisit.btnanim(it)
+            mAuth?.signInWithEmailAndPassword("demoadmin@VisitTime.com", "123456")
+                ?.addOnCompleteListener { it ->
+                    if (it.isSuccessful) {
+                        startActivity(Intent(this, MainActivity::class.java))
+                        val ds=mAuth?.currentUser?.displayName.toString()
+                        ToolsVisit.vtoast(
+                            " تم تسجيل الدخول كمدير تجريبي ، مرحبا",
+                            1,
+                            this,
+                            layoutInflater
+                        )
+                    }
+                }
+        }
+
         forgetpassbtn.setOnClickListener() {
 
             ToolsVisit.btnanim(it)
@@ -199,14 +229,24 @@ if ( LL.layoutParams.height!=(0)) {
         super.onStart()
         if (mAuth?.currentUser != null) {
             var cu = mAuth?.currentUser?.displayName.toString()
+            var cmail = mAuth?.currentUser?.email.toString()
             if(cu=="Demo"){
-                cu="مستخدم تجريبي"
+                cu="عميل تجريبي"
                 ToolsVisit.vtoast(
-                    " تم تسجيل الدخول كمستخدم تجريبي",
+                    " تم تسجيل الدخول كعميل تجريبي",
                     1,
                     this@landing,
                     layoutInflater
-                )}else{
+                )}else if(cmail=="demoadmin@visittime.com"){
+                cu="مدير تجريبي"
+                ToolsVisit.vtoast(
+                    " تم تسجيل الدخول كمدير تجريبي",
+                    1,
+                    this@landing,
+                    layoutInflater
+                )}
+
+            else{
 
             ToolsVisit.vtoast(
                 " تم تسجيل الدخول كـ $cu",
@@ -216,6 +256,8 @@ if ( LL.layoutParams.height!=(0)) {
             )}
             try {
                 startActivity(Intent(this, MainActivity::class.java))
+//                           view.startAnimation(AnimationUtils.loadAnimation(this, R.anim.scale))
+
             }
             catch (e:Exception){
                 Toast.makeText(this,e.message.toString(),Toast.LENGTH_SHORT).show()
@@ -236,9 +278,7 @@ if ( LL.layoutParams.height!=(0)) {
     }
 
     override fun afterTextChanged(p0: Editable?) {}
-    override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-    }
+    override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
     override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
         val LGNemail = useremailET.text.toString()

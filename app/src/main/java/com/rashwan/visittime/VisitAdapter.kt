@@ -11,13 +11,16 @@ import android.view.animation.AnimationUtils
 import android.widget.ArrayAdapter
 import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.getSystemService
+import kotlinx.android.synthetic.main.bookdetails.*
 import kotlinx.android.synthetic.main.bookdetails.view.*
+import kotlinx.android.synthetic.main.bookdetails.view.dstatus
 import kotlinx.android.synthetic.main.rowstyle.view.*
 import kotlinx.android.synthetic.main.rowstyle.view.patphone
 import kotlinx.android.synthetic.main.rowstyle.view.remain
 import kotlinx.android.synthetic.main.rowstyle.view.rowstyle
 import kotlinx.android.synthetic.main.rowstyle.view.status
 import java.time.LocalDate
+import java.util.*
 
 class visitadapter(context: Context, caseList: List<Booked>) :
     ArrayAdapter<Booked>(context, 0, caseList) {
@@ -34,11 +37,19 @@ class visitadapter(context: Context, caseList: List<Booked>) :
             (book.isconfirmed == 0) -> view.status.text= "انتظار"
             (book.isconfirmed == 1) -> view.status.text = "مؤكدة"
             (book.isconfirmed == 2) -> view.status.text = "تمت"
-            (book.isconfirmed == 3) -> view.status.text = "فائتة"
             (book.isconfirmed == 4) -> view.status.text = "ملغية"
             (book.isconfirmed == 5) -> view.status.text = "طلب تعديل موعد"
             (book.isconfirmed == 6) -> view.status.text = "طلب الغاء"
         }
+        val todayinsec= Calendar.getInstance().timeInMillis.toString().substring(0, Calendar.getInstance().timeInMillis.toString().length - 3).toLong()-86400
+        if (book.isconfirmed!=2 &&book.visitdate!! < todayinsec ){
+            view.status.text = "فائتة"
+        }
+        if (book.isdeleted==1){
+            view.status.text = "محذوفة"
+        }
+
+
         //remaining
         var diffDays =
             ((book.visitdate!!.toLong() - tools.strToEpoch(LocalDate.now().toString())) / (86400))
