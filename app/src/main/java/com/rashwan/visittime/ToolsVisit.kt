@@ -1,16 +1,18 @@
 package com.rashwan.visittime
 
 import android.app.DatePickerDialog
+import android.content.Context
 import android.graphics.drawable.AnimationDrawable
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.Button
+import android.view.animation.AnimationUtils
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.custom_toast.view.*
+import kotlinx.android.synthetic.main.mtoast.view.*
 import java.util.*
 
 
@@ -170,7 +172,7 @@ class ToolsVisit {
         fun btnanim(view: View) {
             view.setBackgroundResource(R.drawable.gradient_animation)
             val animDrawable = view.background as AnimationDrawable
-            animDrawable.setEnterFadeDuration(10)
+            animDrawable.setEnterFadeDuration(1)
             animDrawable.setExitFadeDuration(2000)
             animDrawable.isOneShot = true
             animDrawable.start()
@@ -229,8 +231,9 @@ class ToolsVisit {
             })
             return vacant
         }
-        fun isAdmin(showforadmins:View?,hidefromadmins:View?): MutableList<String> {
+        fun isAdmin(progressbar:View?,showforadmins:View?,hidefromadmins:View?): MutableList<String> {
 //            var btn= view as Button
+            progressbar?.visibility=View.VISIBLE
             val admins: MutableList<String> = mutableListOf()
             val mAuth= FirebaseAuth.getInstance()
             val currentlogged=mAuth.currentUser?.email.toString()
@@ -253,6 +256,7 @@ class ToolsVisit {
                     }
                 }
             })
+            progressbar?.visibility=View.INVISIBLE
             return admins
         }
 
@@ -370,12 +374,17 @@ class ToolsVisit {
 
 
         fun get_Cinfo(
+            context: Context,
+            mainview:View?,
+            progressbar:ProgressBar?,
             cname: TextView?,
             caddress: TextView?,
             cphone: TextView?,
             cweb: TextView?,
             vnumber: TextView?
         ) {
+            mainview?.visibility=View.GONE
+            progressbar?.visibility=View.VISIBLE
             var vacant: MutableList<String> = mutableListOf()
             var enabledlist: MutableList<String> = mutableListOf()
             var mRef: DatabaseReference? = null
@@ -391,8 +400,15 @@ class ToolsVisit {
                         if (n.key.toString() == "website") cweb?.text = n.value.toString()
                         if (n.key.toString() == "vnumber") vnumber?.text = n.value.toString()
                     }
+                    progressbar?.visibility=View.INVISIBLE
+                    mainview?.visibility=View.VISIBLE
+                    mainview?.startAnimation(AnimationUtils.loadAnimation(context, R.anim.slide_left))
+
+
                 }
             })
+
+
         }
 
         fun set_Cinfo(
@@ -429,28 +445,22 @@ class ToolsVisit {
                     )
                 }
         }
-
-
         fun vtoast(
             text: String,
             type: Int,
             context: android.content.Context,
             layoutInflater: LayoutInflater
         ) {
-            val inflater = layoutInflater
-
-            val layout = inflater.inflate(R.layout.custom_toast, null)
+            val layout = layoutInflater.inflate(R.layout.mtoast, null)
             layout.toasttext.text = text
-            when {
-                type == 1 -> layout.image.setImageResource(R.drawable.icon_done)
-                type == 2 -> layout.image.setImageResource(R.drawable.icon_warning)
-                type == 3 -> layout.image.setImageResource(R.drawable.icon_error)
-
+            when (type) {
+                1 -> layout.image.setImageResource(R.drawable.icon_no_frame)
+                2 -> layout.image.setImageResource(R.drawable.icon_no_frame)
+                3 -> layout.image.setImageResource(R.drawable.icon_no_frame)
             }
-
             val toast = Toast(context)
-            toast.setDuration(Toast.LENGTH_LONG)
-            toast.setView(layout)
+            toast.duration = Toast.LENGTH_LONG
+            toast.view = layout
             toast.setGravity(Gravity.TOP or Gravity.CENTER, 0, 0)
             toast.show()
         }

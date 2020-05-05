@@ -24,6 +24,7 @@
         android:gravity="center"
         android:padding="10dp"
         android:text=""
+        android:layout_marginEnd="15dp"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/mywhite"
@@ -68,7 +69,7 @@
             android:text="@string/time"
             android:textAlignment="center"
             android:textAllCaps="false"
-            android:textColor="@color/mywhite"
+            android:textColor="@color/myblack"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -386,11 +387,10 @@
         android:layout_width="256dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginEnd="16dp"
         android:background="@drawable/gradient_animation"
         android:fontFamily="@font/wendy_one"
         android:gravity="center"
-        android:text="احجز الموعد وادفع الآن"
+        android:text="احجز الموعد الآن"
         android:textAllCaps="false"
         android:textColor="@color/mywhite"
         android:textSize="24sp" />
@@ -398,9 +398,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
         android:layout_marginTop="100dp"
-        android:gravity="center_horizontal"
         android:orientation="vertical">
 
         <Button
@@ -410,11 +409,10 @@
             android:layout_gravity="center"
             android:background="@drawable/gradient_animation"
             android:fontFamily="@font/wendy_one"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="الرجوع الى الصفحة الرئيسية"
+            android:padding="10dp"
+            android:text="الصفحة الرئيسية"
             android:textAllCaps="false"
             android:textColor="@color/mywhite"
-            android:textSize="24sp" />
+            android:textSize="20sp" />
     </LinearLayout>
 </LinearLayout>

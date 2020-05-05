@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">VisitTime</string>
-    <string name="arapp_name">فيزيتا- احجز تذكرة</string>
+    <string name="arapp_name">وقت الزيارة</string>
     <string-array name="mytimes">
         <item>11:00</item>
         <item>12:00</item>
@@ -94,7 +94,7 @@
     <string name="disableday">  تعطيل يوم </string>
     <string name="addtimecard"> بطاقة اضافة موعد </string>
     <string name="enableonceadded">  تفعيل الموعد تلقائيا مع الاضافة  </string>
-    <string name="bookcard">بطاقة حجز موعدرقم </string>
+    <string name="bookcard">بطاقة حجز الموعد رقم : </string>
     <string name="DaysOut"> ايام العطلـة</string>
     <string name="lastavilday">نهاية الفـترة</string>
     <string name="firstavilday">بداية الـفترة</string>
@@ -143,7 +143,7 @@
     <string name="Managers">المديرون</string>
     <string name="demoadmin">تجريبي مدير</string>
     <string name="Democlint">تجريبي عميل</string>
-    <string name="controlpanel">شاشة التحكم</string>
+    <string name="controlpanel">لوحة التحكم</string>
 
     <string-array name="sexArr">"انثى","ذكر","حدد النوع"</string-array>
 

@@ -7,11 +7,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.Toast
-import androidx.core.view.isVisible
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+//import com.google.type.DayOfWeek
 import kotlinx.android.synthetic.main.activity_allreservation.*
 import kotlinx.android.synthetic.main.activity_edit_book.*
 import kotlinx.android.synthetic.main.book_operations.*
@@ -21,7 +19,7 @@ import kotlinx.android.synthetic.main.bookdetails.*
 import kotlinx.android.synthetic.main.bookdetails.view.*
 import kotlinx.android.synthetic.main.rowstyle.*
 import kotlinx.android.synthetic.main.rowstyle.patphone
-import java.time.DayOfWeek
+//import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.temporal.TemporalAdjusters
 import java.util.*
@@ -225,11 +223,11 @@ class AllReservation : AppCompatActivity() {
         var bookstate=99
         val today = LocalDate.now()
         var firstdayofweek = today
-        while (firstdayofweek.dayOfWeek !== DayOfWeek.SATURDAY) {
+        while (firstdayofweek.dayOfWeek !== java.time.DayOfWeek.SATURDAY) {
             firstdayofweek = firstdayofweek.minusDays(1)
         }
         var lastdayofweek = today
-        while (lastdayofweek.dayOfWeek !== DayOfWeek.FRIDAY) {
+        while (lastdayofweek.dayOfWeek !== java.time.DayOfWeek.FRIDAY) {
             lastdayofweek = lastdayofweek.plusDays(1)
         }
         var firstdayofmonth = today

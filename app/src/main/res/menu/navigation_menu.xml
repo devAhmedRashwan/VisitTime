@@ -5,24 +5,28 @@
         <item
             android:id="@+id/myprofile"
             android:icon="@drawable/ic_1"
-            android:title="My Profile" />
+            android:title="الملف الخاص بي" />
         <item
             android:id="@+id/history"
             android:icon="@drawable/ic_history_black_24dp"
-            android:title="My Reservation History" />
+            android:title="ارشيف الحجز" />
         <item
             android:id="@+id/incoming"
             android:icon="@drawable/ic_send_black_24dp"
-            android:title="My Incoming Visits" />
+            android:title="المواعيد المنتظرة" />
     </group>
 
     <item
         android:id="@+id/logout"
         android:icon="@drawable/ic_logout"
-        android:title="Log Out" />
+        android:title="تسجيل الخروج " />
+    <item
+        android:id="@+id/about"
+        android:icon="@drawable/ic_exit_to_app_black_24dp"
+        android:title="عن التطبيق" />
     <item
         android:id="@+id/exit"
         android:icon="@drawable/ic_exit_to_app_black_24dp"
-        android:title="Exit" />
+        android:title="انهاء التطبيق" />
 
 </menu>

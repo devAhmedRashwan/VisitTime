@@ -17,9 +17,9 @@
                 android:color="@color/mywhite">
             </stroke>
             <gradient
-                android:startColor="@color/row1"
+                android:startColor="@color/row2"
                 android:centerColor="#0D47A1"
-                android:endColor="@color/row1"
+                android:endColor="@color/row2"
                 android:angle="180"
                 />
             <corners android:radius="15dp">

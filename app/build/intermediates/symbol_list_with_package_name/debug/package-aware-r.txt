@@ -1152,6 +1152,7 @@ drawable common_google_signin_btn_text_light
 drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
+drawable custom_progressbar_horizontal
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -1177,6 +1178,7 @@ drawable ico_clock
 drawable icon_call
 drawable icon_done
 drawable icon_error
+drawable icon_no_frame
 drawable icon_time_off
 drawable icon_time_set
 drawable icon_warning
@@ -1187,6 +1189,7 @@ drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable mydrawable
 drawable navigation_empty_icon
+drawable new_icon
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -1230,6 +1233,7 @@ id SYM
 id TTitle
 id USimageVu
 id Vdate
+id about
 id acceptcancellationbtn
 id accepttimechangebtn
 id accessibility_action_clickable_span
@@ -1445,6 +1449,7 @@ id message
 id middle
 id mini
 id missedbtn
+id mprogressBar
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
@@ -1594,7 +1599,6 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
-id tst
 id tv
 id unchecked
 id uncheckedbtn
@@ -1687,7 +1691,6 @@ layout book_operations
 layout bookdetails
 layout confirmed
 layout custom_dialog
-layout custom_toast
 layout daysout
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1706,6 +1709,7 @@ layout design_text_input_password_icon
 layout disabletimes
 layout enabletimes
 layout header_layout
+layout mtoast
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action
@@ -2127,6 +2131,7 @@ style CardView
 style CardView_Dark
 style CardView_Light
 style MyDialogTheme
+style MyProgressBarTwo
 style Platform_AppCompat
 style Platform_AppCompat_Light
 style Platform_MaterialComponents

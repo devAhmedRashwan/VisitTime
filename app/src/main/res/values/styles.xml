@@ -19,7 +19,16 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">20sp</item>
         <item name="checkboxStyle">@drawable/bg_inbut_style</item>
-
-
     </style>
+        <!-- This for progress bar -->
+
+        <style name="MyProgressBarTwo" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
+            <item name="colorButtonNormal">#f50057</item>
+            <item name="colorControlActivated">#33691e</item>
+            <item name="colorControlHighlight">#ff6d00</item>
+            <item name="android:progressDrawable">@drawable/custom_progressbar_horizontal</item>
+            <item name="android:minWidth">200dp</item>
+        </style>
+
+
 </resources>

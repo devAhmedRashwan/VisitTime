@@ -51,6 +51,7 @@
                     android:hint="ابحث عن اسم او رقم هاتف"
                     android:inputType="textPersonName"
                     android:textColor="@color/mywhite"
+                    android:textColorHint="@color/mywhite"
                     android:textStyle="italic"
                     android:visibility="visible" />
 
@@ -61,7 +62,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_weight="1"
                     android:text="استخدام البحث"
-                    android:textColor="@color/mywhite" />
+                    android:textColor="@color/myblack" />
             </LinearLayout>
 
             <TextView
@@ -74,7 +75,7 @@
                 android:text="@string/Reservation"
                 android:textAlignment="center"
                 android:textColor="@color/myYellow"
-                android:textSize="25sp"
+                android:textSize="22sp"
 
                 android:visibility="visible" />
 
@@ -108,7 +109,7 @@
                         android:paddingStart="3dp"
                         android:paddingEnd="3dp"
                         android:text="كل الحجوزات"
-                        android:textColor="@color/mygreen1"
+                        android:textColor="@color/myYellow"
                         android:textSize="15sp"
                         android:textStyle="normal|bold" />
 
@@ -129,7 +130,7 @@
                         android:paddingStart="3dp"
                         android:paddingEnd="3dp"
                         android:text="الانتظار"
-                        android:textColor="@color/mygreen1"
+                        android:textColor="@color/myYellow"
                         android:textSize="15sp"
                         android:textStyle="normal|bold" />
 
@@ -150,7 +151,7 @@
                         android:paddingStart="3dp"
                         android:paddingEnd="3dp"
                         android:text="كل الطلبات"
-                        android:textColor="@color/mygreen1"
+                        android:textColor="@color/myYellow"
                         android:textSize="15sp"
                         android:textStyle="normal|bold" />
 
@@ -170,7 +171,7 @@
                         android:paddingStart="3dp"
                         android:paddingEnd="3dp"
                         android:text="طلبات التعديل"
-                        android:textColor="@color/mygreen1"
+                        android:textColor="@color/myYellow"
                         android:textSize="15sp"
                         android:textStyle="normal|bold" />
 
@@ -190,7 +191,7 @@
                         android:paddingStart="3dp"
                         android:paddingEnd="3dp"
                         android:text="طلبات الالغاء"
-                        android:textColor="@color/mygreen1"
+                        android:textColor="@color/myYellow"
                         android:textSize="15sp"
                         android:textStyle="normal|bold" />
 
@@ -211,7 +212,7 @@
                         android:paddingStart="3dp"
                         android:paddingEnd="3dp"
                         android:text="مكتملة"
-                        android:textColor="@color/mygreen1"
+                        android:textColor="@color/myYellow"
                         android:textSize="15sp"
                         android:textStyle="normal|bold" />
 
@@ -232,7 +233,7 @@
                         android:paddingStart="3dp"
                         android:paddingEnd="3dp"
                         android:text="الفائتة"
-                        android:textColor="@color/mygreen1"
+                        android:textColor="@color/myYellow"
                         android:textSize="15sp"
                         android:textStyle="normal|bold" />
 
@@ -253,7 +254,7 @@
                         android:paddingStart="3dp"
                         android:paddingEnd="3dp"
                         android:text="الملغية"
-                        android:textColor="@color/mygreen1"
+                        android:textColor="@color/myYellow"
                         android:textSize="15sp"
                         android:textStyle="normal|bold" />
 
@@ -274,7 +275,7 @@
                         android:paddingStart="3dp"
                         android:paddingEnd="3dp"
                         android:text="كل المؤكدة"
-                        android:textColor="@color/mygreen1"
+                        android:textColor="@color/myYellow"
                         android:textSize="15sp"
                         android:textStyle="normal|bold" />
 
@@ -295,7 +296,7 @@
                         android:paddingStart="3dp"
                         android:paddingEnd="3dp"
                         android:text="مؤكد هذاالاسبوع"
-                        android:textColor="@color/mygreen1"
+                        android:textColor="@color/myYellow"
                         android:textSize="15sp"
                         android:textStyle="normal|bold" />
 
@@ -316,7 +317,7 @@
                         android:paddingStart="3dp"
                         android:paddingEnd="3dp"
                         android:text="مؤكد الاسبوع المقبل"
-                        android:textColor="@color/mygreen1"
+                        android:textColor="@color/myYellow"
                         android:textSize="15sp"
                         android:textStyle="normal|bold" />
 
@@ -337,7 +338,7 @@
                         android:paddingStart="3dp"
                         android:paddingEnd="3dp"
                         android:text="مؤكد هذاالشهر "
-                        android:textColor="@color/mygreen1"
+                        android:textColor="@color/myYellow"
                         android:textSize="15sp"
                         android:textStyle="normal|bold" />
 
@@ -358,7 +359,7 @@
                         android:paddingStart="3dp"
                         android:paddingEnd="3dp"
                         android:text="مؤكد الشهر المقبل"
-                        android:textColor="@color/mygreen1"
+                        android:textColor="@color/myYellow"
                         android:textSize="15sp"
                         android:textStyle="normal|bold" />
 
@@ -379,7 +380,7 @@
                         android:paddingStart="3dp"
                         android:paddingEnd="3dp"
                         android:text="المحذوفة"
-                        android:textColor="@color/mygreen1"
+                        android:textColor="@color/myYellow"
                         android:textSize="15sp"
                         android:textStyle="normal|bold" />
 

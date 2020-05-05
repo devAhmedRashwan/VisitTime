@@ -19,28 +19,23 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.header_layout.view.*
 import java.util.*
+import android.text.util.Linkify
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-
     var mRef: DatabaseReference? = null
     var mAuth: FirebaseAuth? = null
     var database: FirebaseDatabase = FirebaseDatabase.getInstance()
 //    val disablMgrsarray = ToolsVisit.Getmgrs()
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
 //        val disablMgrsarray = ToolsVisit.Getmgrs()
-
         mRef = database.getReference("Config")
         mAuth = FirebaseAuth.getInstance()
-
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(mytoolbar)
         supportActionBar?.title = getString(R.string.arapp_name)
-        ToolsVisit.get_Cinfo(c_name, c_address, c_phone, c_web,null)
-        ToolsVisit.get_Cinfo(set_c_name, set_c_address,set_c_phone,set_c_web,null)
+        ToolsVisit.get_Cinfo(this,main_content,mprogressBar,c_name, c_address, c_phone, c_web,null)
+        ToolsVisit.get_Cinfo(this,main_content,mprogressBar,set_c_name, set_c_address,set_c_phone,set_c_web,null)
          mAuth= FirebaseAuth.getInstance()
 //        val disablMgrsarray = ToolsVisit.Getmgrs()
         val currentlogged=mAuth?.currentUser?.email.toString()
@@ -59,16 +54,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         getUserData()
         getClinicData()
 //        if (currentlogged in disablMgrsarray )  Manage.text="مدير"
-        ToolsVisit.isAdmin(set_clinic_btn,null)
-        ToolsVisit.isAdmin(Mngmntbtn,mybooks)
-        ToolsVisit.isAdmin(allbooks,null)
-
-tst.setOnClickListener(){
-//    startActivity(Intent(this, com.rashwan.visittime.testslider::class.java))
-
-}
-
-
+        ToolsVisit.isAdmin(null,set_clinic_btn,null)
+        ToolsVisit.isAdmin(null,Mngmntbtn,mybooks)
+        ToolsVisit.isAdmin(null,allbooks,null)
+        c_phone.setAutoLinkMask(Linkify.PHONE_NUMBERS);
         set_clinic_btn.setOnClickListener(){
             ToolsVisit.btnanim(it)
             if (clinic_info_show.isShown) {

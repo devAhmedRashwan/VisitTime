@@ -198,11 +198,13 @@ class MyReservation : AppCompatActivity() {
             override fun onDataChange(p0: DataSnapshot) {
                 progressBar.visibility=View.VISIBLE
                 mNotelist?.clear()
+
                 try {
                     for (n in p0.children) {
                         val book = n.getValue(Booked::class.java)!!
-                        if(view.id==R.id.allbtn)  mNotelist!!.add(0, book)
-                        if (book.user == currentlogged) {
+
+                        if(view.id==R.id.allbtn && book.user==currentlogged)  mNotelist!!.add(0, book)
+                        if (book!!.user == currentlogged) {
                             val searchcontext =
                                 book.patname.toString() + book.patphone.toString() + book.patname.toString()
                             if (btnswitch.isChecked && searchtext.text.isEmpty()) btnswitch.isChecked =

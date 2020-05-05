@@ -9,7 +9,9 @@
 
 
 
-            <gradient android:endColor="@color/row1s" android:startColor="#C1EBEFEF"
+            <gradient android:endColor="@color/row2s"
+                android:centerColor="@color/row2s"
+                android:startColor="#C1519DEA"
                 android:angle="360"/>
             <corners android:radius="5dp">
             </corners>
@@ -21,7 +23,7 @@
             <stroke android:width="2dp"
                 android:color="@color/mywhite">
             </stroke>
-            <gradient android:endColor="@color/myred" android:startColor="@color/myreds" />
+            <gradient android:endColor="@color/row1" android:startColor="@color/mywhite" />
             <corners android:radius="5dp">
             </corners>
         </shape>

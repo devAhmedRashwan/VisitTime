@@ -51,22 +51,17 @@ import java.util.GregorianCalendar as GregorianCalendar1
      var timeset= mutableListOf<String>()
 
 
-
      override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bookvisit)
-         ToolsVisit.get_Cinfo(null,null,null,null,vnumberTV)
+         ToolsVisit.get_Cinfo(this,null,null,null,null,null,null,vnumberTV)
          mRef = database.getReference("Booked")
          cRef = database.getReference("Config")
         mAuth = FirebaseAuth.getInstance()
          DaysInNumbersArr= ToolsVisit.DaysInNumbers()
-
          val textviewid = (R.id.tv)
          val patsexadapter= ArrayAdapter(this@bookvisit, R.layout.spstyle, textviewid, arrayOf("غير محدد","ذكر","انثى"))
          patsex.adapter=patsexadapter
-
-
-
          setDTbtn.setOnClickListener() {
              ToolsVisit.btnanim(it)
             pickDateValidation(pickday)
@@ -135,12 +130,16 @@ import java.util.GregorianCalendar as GregorianCalendar1
     }
      override fun onStart() {
          super.onStart()
-
      }
     fun booknow() {
+//validate the book number first
+        if (vnumberTV.text.isEmpty()){
+            ToolsVisit.get_Cinfo(this,null,null,null,null,null,null,vnumberTV)
+
+        }
 
 
-        if (pickday.text.toString().length >14 && pickday.text.toString().contains("2")&& patname.text.isNotEmpty() && patphone.text.length > 7) {
+        if (pickday.text.toString().length >14 && vnumberTV.text.isEmpty()&& pickday.text.toString().contains("2")&& patname.text.isNotEmpty() && patphone.text.length > 7) {
 
             val id = mRef!!.push().key!!
             try {
@@ -194,7 +193,6 @@ import java.util.GregorianCalendar as GregorianCalendar1
 
         }
     }
-
     fun pickDateValidation(textview: TextView): Long {
         var orginalvalue = textview.text
         val c = Calendar.getInstance()
@@ -243,8 +241,6 @@ import java.util.GregorianCalendar as GregorianCalendar1
         }
         return result
     }
-
-
      fun AvailableDialoge(Date:Long,TextView:TextView,DateTextView:TextView):String{
          var result="null val"
          val   BRef = database.getReference("Booked")

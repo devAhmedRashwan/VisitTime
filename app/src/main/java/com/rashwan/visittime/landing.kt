@@ -180,12 +180,12 @@ if ( LL.layoutParams.height!=(0)) {
                     if (it.isSuccessful) {
                         startActivity(Intent(this, MainActivity::class.java))
                         val ds=mAuth?.currentUser?.displayName.toString()
-                        ToolsVisit.vtoast(
-                            " تم تسجيل الدخول كمدير تجريبي ، مرحبا",
-                            1,
-                            this,
-                            layoutInflater
-                        )
+//                        ToolsVisit.vtoast(
+//                            " تم تسجيل الدخول كمدير تجريبي ، مرحبا",
+//                            1,
+//                            this,
+//                            layoutInflater
+//                        )
                     }
                 }
         }
@@ -198,12 +198,12 @@ if ( LL.layoutParams.height!=(0)) {
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         // successful!
-                        ToolsVisit.vtoast(
-                            "تم ارسال رسالة اعادة ضبط كلمة السر الى بريدك الالكتروني",
-                            1,
-                            this,
-                            layoutInflater
-                        )
+//                        ToolsVisit.vtoast(
+//                            "تم ارسال رسالة اعادة ضبط كلمة السر الى بريدك الالكتروني",
+//                            1,
+//                            this,
+//                            layoutInflater
+//                        )
                     } else {
                         // failed!
                         ToolsVisit.vtoast(
@@ -230,34 +230,33 @@ if ( LL.layoutParams.height!=(0)) {
         if (mAuth?.currentUser != null) {
             var cu = mAuth?.currentUser?.displayName.toString()
             var cmail = mAuth?.currentUser?.email.toString()
-            if(cu=="Demo"){
-                cu="عميل تجريبي"
-                ToolsVisit.vtoast(
-                    " تم تسجيل الدخول كعميل تجريبي",
-                    1,
-                    this@landing,
-                    layoutInflater
-                )}else if(cmail=="demoadmin@visittime.com"){
-                cu="مدير تجريبي"
-                ToolsVisit.vtoast(
-                    " تم تسجيل الدخول كمدير تجريبي",
-                    1,
-                    this@landing,
-                    layoutInflater
-                )}
-
-            else{
-
-            ToolsVisit.vtoast(
-                " تم تسجيل الدخول كـ $cu",
-                1,
-                this@landing,
-                layoutInflater
-            )}
+//            if(cu=="Demo"){
+//                cu="عميل تجريبي"
+//                ToolsVisit.vtoast(
+//                    " تم تسجيل الدخول كعميل تجريبي",
+//                    1,
+//                    this@landing,
+//                    layoutInflater
+//                )}else if(cmail=="demoadmin@visittime.com"){
+//                cu="مدير تجريبي"
+//                ToolsVisit.vtoast(
+//                    " تم تسجيل الدخول كمدير تجريبي",
+//                    1,
+//                    this@landing,
+//                    layoutInflater
+//                )}
+//
+//            else{
+//
+//            ToolsVisit.vtoast(
+//                " تم تسجيل الدخول كـ $cu",
+//                1,
+//                this@landing,
+//                layoutInflater
+//            )}
             try {
                 startActivity(Intent(this, MainActivity::class.java))
 //                           view.startAnimation(AnimationUtils.loadAnimation(this, R.anim.scale))
-
             }
             catch (e:Exception){
                 Toast.makeText(this,e.message.toString(),Toast.LENGTH_SHORT).show()

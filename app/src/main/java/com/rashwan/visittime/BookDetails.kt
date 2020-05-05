@@ -18,8 +18,8 @@ import kotlinx.android.synthetic.main.bookdetails.*
 import kotlinx.android.synthetic.main.bookdetails.view.*
 import kotlinx.android.synthetic.main.rowstyledetailed.*
 import java.text.SimpleDateFormat
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
+//import java.time.LocalDateTime
+//import java.time.format.DateTimeFormatter
 import java.util.*
 
 class BookDetails : AppCompatActivity() {
@@ -40,7 +40,8 @@ class BookDetails : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         setContentView(R.layout.bookdetails)
-        ToolsVisit.isAdmin(adminMgmnt,userMgmnt)
+        ToolsVisit.isAdmin(null,adminMgmnt,userMgmnt)
+
         DaysInNumbersArr = ToolsVisit.DaysInNumbers()
         val id = intent.extras!!.getString("id")
         mRef = database.getReference("Booked")
@@ -156,7 +157,7 @@ class BookDetails : AppCompatActivity() {
                 mRef?.child(id!!)?.child("patage")?.setValue(BE_view.patage.text.toString().toInt())
                 mRef?.child(id!!)?.child("sex")
                     ?.setValue(BE_view.patsex.selectedItemPosition.toInt())
-                mRef?.child(id!!)?.child("patnotes")?.setValue(BE_view.patnote.text.toString())
+                mRef?.child(id!!)?.child("notes")?.setValue(BE_view.patnote.text.toString())
                 mRef?.child(id!!)?.child("ischanged")?.setValue(1)
                     ?.addOnSuccessListener {
                         ToolsVisit.vtoast(

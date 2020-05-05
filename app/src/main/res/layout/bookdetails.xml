@@ -513,7 +513,7 @@
                     android:layout_marginStart="3dp"
                     android:layout_marginEnd="3dp"
                     android:layout_weight="1"
-                    android:background="@drawable/background_edit"
+                    android:background="@drawable/bg_btn_main_nopress"
                     android:backgroundTint="@color/honey"
                     android:gravity="center"
                     android:padding="8dp"
@@ -531,7 +531,7 @@
                     android:layout_marginStart="3dp"
                     android:layout_marginEnd="3dp"
                     android:layout_weight="4"
-                    android:background="@drawable/background_edit"
+                    android:background="@drawable/bg_btn_main_nopress"
                     android:backgroundTint="@color/honey"
                     android:gravity="center"
                     android:padding="8dp"
@@ -595,7 +595,49 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:visibility="invisible"
         android:weightSum="8">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <Button
+                android:id="@+id/markasdone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/gradient_animation"
+                android:enabled="false"
+                android:text="تأكيد حضور"
+                android:textColor="@color/myYellow"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/undoconfirmbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/gradient_animation"
+                android:enabled="false"
+                android:text="الغاء تأكيد"
+                android:textColor="@color/myYellow"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/confirmbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/gradient_animation"
+                android:enabled="false"
+                android:text="تأكيد الحجز"
+                android:textColor="@color/myYellow"
+                android:textSize="16sp" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -635,39 +677,6 @@
                 android:background="@drawable/gradient_animation"
                 android:enabled="false"
                 android:text="قبول تعديل"
-                android:textColor="@color/myYellow"
-                android:textSize="16sp" />
-
-            <Button
-                android:id="@+id/markasdone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/gradient_animation"
-                android:enabled="false"
-                android:text="تأكيد حضور"
-                android:textColor="@color/myYellow"
-                android:textSize="16sp" />
-
-            <Button
-                android:id="@+id/undoconfirmbtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/gradient_animation"
-                android:enabled="false"
-                android:text="الغاء تأكيد"
-                android:textColor="@color/myYellow"
-                android:textSize="16sp" />
-
-            <Button
-                android:id="@+id/confirmbtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/gradient_animation"
-                android:enabled="false"
-                android:text="تأكيد الحجز"
                 android:textColor="@color/myYellow"
                 android:textSize="16sp" />
 
