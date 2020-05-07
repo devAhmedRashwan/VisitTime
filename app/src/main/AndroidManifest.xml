@@ -20,7 +20,8 @@
         <activity android:name=".MyReservation"></activity>
         <activity android:name=".EditBook" />
         <activity android:name=".BookOperations" />
-        <activity android:name=".AllReservation" />
+        <activity android:name=".AllReservation"
+            android:windowSoftInputMode="stateHidden"  />
         <activity android:name=".SignUp" />
         <activity android:name=".MainActivity" />
         <activity android:name=".BookDetails" />
@@ -29,7 +30,6 @@
         <activity android:name=".landing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -4,46 +4,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/bg_main"
-    tools:context=".bookvisit">
-
-    <LinearLayout
-    android:layout_width="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="20dp"
-    >
-
-    <TextView
-        android:id="@+id/allreservations"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/gradient_animation"
-        android:gravity="center"
-        android:text="@string/Manageall"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@color/mywhite"
-        android:textSize="22sp" />
-
-</LinearLayout>
+    tools:context=".bookvisit">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
         android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <Button
-            android:id="@+id/disabletimebtn"
-            android:layout_width="wrap_content"
+            android:id="@+id/allreservations"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/gradient_animation"
+            android:gravity="center"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/Manageall"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/mywhite"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/setdatesbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/gradient_animation"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="تحديد فترة الحجز"
+            android:textColor="@color/mywhite"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/addtimebtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/gradient_animation"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/addnewtimebtn"
+            android:textColor="@color/mywhite"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/disabletimebtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="15dp"
             android:background="@drawable/gradient_animation"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
@@ -53,11 +84,12 @@
 
         <Button
             android:id="@+id/enabletimesbtn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:layout_marginBottom="15dp"
             android:background="@drawable/gradient_animation"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
@@ -66,48 +98,13 @@
             android:textSize="22sp" />
 
         <Button
-            android:id="@+id/addtimebtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/gradient_animation"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:text="@string/addnewtimebtn"
-            android:textColor="@color/mywhite"
-            android:textSize="22sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/DaysInbtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/gradient_animation"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:text="@string/DaysIn"
-            android:textColor="@color/mywhite"
-            android:textSize="22sp" />
-
-        <Button
             android:id="@+id/editmangers"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:layout_marginBottom="15dp"
             android:background="@drawable/gradient_animation"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
@@ -116,18 +113,20 @@
             android:textSize="22sp" />
 
         <Button
-            android:id="@+id/setdatesbtn"
-            android:layout_width="wrap_content"
+            android:id="@+id/DaysInbtn"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:layout_marginBottom="15dp"
             android:background="@drawable/gradient_animation"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:text="اضافة فترة"
+            android:text="@string/DaysIn"
             android:textColor="@color/mywhite"
             android:textSize="22sp" />
+
     </LinearLayout>
 
 

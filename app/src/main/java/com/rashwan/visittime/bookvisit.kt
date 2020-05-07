@@ -139,7 +139,7 @@ import java.util.GregorianCalendar as GregorianCalendar1
         }
 
 
-        if (pickday.text.toString().length >14 && vnumberTV.text.isEmpty()&& pickday.text.toString().contains("2")&& patname.text.isNotEmpty() && patphone.text.length > 7) {
+        if (pickday.text.toString().length >14 && vnumberTV.text.isNotEmpty()&& pickday.text.toString().contains("2")&& patname.text.isNotEmpty() && patphone.text.length > 7) {
 
             val id = mRef!!.push().key!!
             try {

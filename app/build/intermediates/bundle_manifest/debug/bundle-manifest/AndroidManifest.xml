@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="26"
+        android:minSdkVersion="24"
         android:targetSdkVersion="29" />
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -37,7 +37,9 @@
         <activity android:name="com.rashwan.visittime.MyReservation" />
         <activity android:name="com.rashwan.visittime.EditBook" />
         <activity android:name="com.rashwan.visittime.BookOperations" />
-        <activity android:name="com.rashwan.visittime.AllReservation" />
+        <activity
+            android:name="com.rashwan.visittime.AllReservation"
+            android:windowSoftInputMode="stateHidden" />
         <activity android:name="com.rashwan.visittime.SignUp" />
         <activity android:name="com.rashwan.visittime.MainActivity" />
         <activity android:name="com.rashwan.visittime.BookDetails" />

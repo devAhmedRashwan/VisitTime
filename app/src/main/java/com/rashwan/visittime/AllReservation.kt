@@ -2,23 +2,21 @@ package com.rashwan.visittime
 
 import android.app.AlertDialog
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 //import com.google.type.DayOfWeek
 import kotlinx.android.synthetic.main.activity_allreservation.*
-import kotlinx.android.synthetic.main.activity_edit_book.*
-import kotlinx.android.synthetic.main.book_operations.*
 import kotlinx.android.synthetic.main.book_operations.view.*
 import kotlinx.android.synthetic.main.book_operations.view.admin_confirmbtn
-import kotlinx.android.synthetic.main.bookdetails.*
 import kotlinx.android.synthetic.main.bookdetails.view.*
 import kotlinx.android.synthetic.main.rowstyle.*
-import kotlinx.android.synthetic.main.rowstyle.patphone
 //import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.temporal.TemporalAdjusters
@@ -32,6 +30,7 @@ class AllReservation : AppCompatActivity() {
     var database: FirebaseDatabase = FirebaseDatabase.getInstance()
     val todayinsec= Calendar.getInstance().timeInMillis.toString().substring(0, Calendar.getInstance().timeInMillis.toString().length - 3).toLong()-86400
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_allreservation)
@@ -84,24 +83,23 @@ class AllReservation : AppCompatActivity() {
 
         res_LV.onItemLongClickListener=
             AdapterView.OnItemLongClickListener { _, _, p2, _ ->
-                val bookdbid = mNotelist?.get(p2)!!
+                val sortedList = mNotelist?.sortedWith(compareBy({ it.visitdate }))?.toList()
+                val mbook = sortedList?.get(p2)!!
                 val alertBuilder = AlertDialog.Builder(this)
                 val UBV = layoutInflater.inflate(R.layout.book_operations, null)
                 val ORGV = layoutInflater.inflate(R.layout.bookdetails, null)
                 val alertDialog = alertBuilder.create()
-                val id=bookdbid.id
               var  mRef=database.getReference("Booked")
                 var msugtime = ""
                 var msugdate:Long = 0
                 var delvalue=1
                 var delstr=""
-
                 mRef.addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onCancelled(p0: DatabaseError) {}
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
                         for (n in dataSnapshot.children) {
                             val book = n.getValue(Booked::class.java)!!
-                            if (book.id==id){
+                            if (book.id==mbook.id){
                                 msugtime=book.sugtime!!
                                 msugdate=book.sugvisitdate!!
 
@@ -131,7 +129,7 @@ class AllReservation : AppCompatActivity() {
                 })
 
 
-                val childRef = mRef?.child(bookdbid.id!!)?.child("isconfirmed")
+                val childRef = mRef?.child(mbook.id!!)?.child("isconfirmed")
                 alertDialog.setView(UBV)
                 alertDialog.show()
                 UBV.admin_confirmbtn.setOnClickListener {
@@ -160,7 +158,7 @@ class AllReservation : AppCompatActivity() {
                 UBV.admin_acceptcancellationbtn.setOnClickListener {
                     childRef?.setValue(4)
                     val oldtime=ORGV.dtime.text.toString()+"X"
-                    mRef?.child(id!!)?.child("time")?.setValue(oldtime)
+                    mRef?.child(mbook.id!!)?.child("time")?.setValue(oldtime)
                         ?.addOnCompleteListener {
                             ToolsVisit.vtoast(
                                 " تم قبول الغاء الموعد ",
@@ -173,12 +171,12 @@ class AllReservation : AppCompatActivity() {
                 }
                 UBV.admin_accepttimechangebtn.setOnClickListener {
                     mRef = database.getReference("Booked")
-                    mRef?.child(id!!)?.child("visitdate")
+                    mRef?.child(mbook.id!!)?.child("visitdate")
                         ?.setValue(msugdate)
-                    mRef?.child(id!!)?.child("time")?.setValue(msugtime)
-                    mRef?.child(id!!)?.child("sugvisitdate")?.setValue(0)
-                    mRef?.child(id!!)?.child("sugtime")?.setValue("")
-                    mRef?.child(id!!)?.child("isconfirmed")?.setValue(1)
+                    mRef?.child(mbook.id!!)?.child("time")?.setValue(msugtime)
+                    mRef?.child(mbook.id!!)?.child("sugvisitdate")?.setValue(0)
+                    mRef?.child(mbook.id!!)?.child("sugtime")?.setValue("")
+                    mRef?.child(mbook.id!!)?.child("isconfirmed")?.setValue(1)
                         ?.addOnCompleteListener {
                             ToolsVisit.vtoast(
                                 " تمت الموافقة على الموعد المقترح ",
@@ -202,7 +200,7 @@ class AllReservation : AppCompatActivity() {
                     alertDialog.dismiss()
                 }
                 UBV.admin_delbtn.setOnClickListener {
-                    mRef?.child(bookdbid.id!!)?.child("isdeleted")?.setValue(delvalue)
+                    mRef?.child(mbook.id!!)?.child("isdeleted")?.setValue(delvalue)
                         ?.addOnCompleteListener {
                             ToolsVisit.vtoast(
                                 delstr,
@@ -217,7 +215,9 @@ class AllReservation : AppCompatActivity() {
 
                 true
             }
+
     }
+    @RequiresApi(Build.VERSION_CODES.O)
     fun LVA(view: View) {
         mNotelist?.clear()
         var bookstate=99

@@ -57,37 +57,47 @@ class tools {
         fun getLocalDateFromString(d: String, format: String): LocalDate {
             return LocalDate.parse(d, DateTimeFormatter.ofPattern(format))
         }
+        fun getremain(date:Long):String{
+var mstr=""
+            //remaining
+            var diffDays =
+                ((date - tools.strToEpoch(LocalDate.now().toString())) / (86400))
+            var daycount = "ايام"
+            if (diffDays.toInt() > 11) {
+                daycount = "يوما"
+            }
+            when {
+                (diffDays.toInt()== 0) -> mstr= "موعد اليوم!"
+                (diffDays.toInt()== 1) -> mstr = "موعد باكر!"
+                (diffDays.toInt()== 2) -> mstr = "موعد بعد باكر!"
+                (diffDays.toInt()== 3) -> mstr = "متبقي يومان"
+                (diffDays.toInt() > 0) -> mstr = "متبقي( $diffDays ) $daycount"
+                (diffDays.toInt() < -10) -> {
+                    daycount = "يوما"
+                    diffDays *= -1
+                    mstr = "مضى( " + diffDays.toString() + " )$daycount"
+                }
+                (diffDays.toInt() == -1)-> mstr = "موعد الأمس"
+                (diffDays.toInt() == -2) -> mstr = "مضى يومان"
+                (diffDays.toInt() < -2) -> {
+                    diffDays= -diffDays
+                    mstr = "مضى( " + diffDays.toString() + " )$daycount"
+                }}
+            mstr= "$mstr ⏳"
 
 
-    }
-
-    internal class MyBounceInterpolator(
-        amplitude: Double,
-        frequency: Double
-    ) :
-        Interpolator {
-        private var mAmplitude = 1.0
-        private var mFrequency = 10.0
-        override fun getInterpolation(time: Float): Float {
-            return (-1 * Math.pow(Math.E, -time / mAmplitude) *
-                    Math.cos(mFrequency * time) + 1).toFloat()
+return mstr
         }
 
-        init {
-            mAmplitude = amplitude
-            mFrequency = frequency
-        }
-    }
-    fun didTapButton(view: View,context:Context) {
-//        val button: Button = findViewById(R.id.button) as Button
-        val myAnim =
-            AnimationUtils.loadAnimation(context,R.anim.fade_out)
 
-        // Use bounce interpolator with amplitude 0.2 and frequency 20
-        val interpolator = MyBounceInterpolator(0.2, 20.0)
-        myAnim.interpolator = interpolator
-        view.startAnimation(myAnim)
     }
+
+
+
+
+
+
+
 }
 
 

@@ -3,179 +3,177 @@
     android:id="@+id/rowstyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="5dp"
     android:layout_marginStart="5dp"
-    android:layout_marginTop="10dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="5dp"
     android:layout_marginEnd="5dp"
-    android:layout_marginBottom="10dp"
-    android:background="@drawable/bg_l_greenblue"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="5dp"
+    android:background="@drawable/bg_l_blue_gr"
     android:orientation="vertical">
+
     <TextView
         android:id="@+id/vnumber"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
         android:layout_marginStart="1dp"
+        android:layout_marginTop="2dp"
         android:layout_marginEnd="1dp"
+        android:layout_marginBottom="3dp"
         android:layout_weight="1"
         android:background="@drawable/bg_btn_main"
         android:baselineAligned="false"
         android:gravity="center_horizontal"
         android:paddingLeft="10dp"
+        android:paddingTop="3dp"
         android:paddingRight="10dp"
         android:paddingBottom="3dp"
-        android:paddingTop="3dp"
         android:text="@string/vnumber"
-        android:layout_gravity="center"
         android:textAlignment="center"
         android:textColor="@color/myYellow"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:textStyle="bold" />
 
     <LinearLayout
-
-        android:id="@+id/myL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="1dp"
         android:orientation="horizontal"
+        android:weightSum="7">
 
-        >
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/remain"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="3dp"
+            android:layout_weight="1.5"
+            android:background="@drawable/bg_l_blue_gr"
+            android:padding="3dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:text="@string/remainpreview"
+            android:textColor="@color/mywhite"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_l_blue_gr"
+            android:baselineAligned="false"
+            android:gravity="center_horizontal"
+            android:padding="3dp"
+            android:text="@string/timepreview"
+            android:textAlignment="center"
+            android:textColor="@color/mywhite"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Vdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="3dp"
             android:layout_marginBottom="5dp"
-            android:orientation="vertical">
+            android:layout_weight="4"
+            android:background="@drawable/bg_l_blue_gr"
+            android:gravity="center_horizontal"
+            android:padding="3dp"
+            android:text="@string/visitdate"
+            android:textAlignment="center"
+            android:textColor="@color/mywhite"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:weightSum="3">
+    </LinearLayout>
 
-                <TextView
-                    android:id="@+id/remain"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="7">
 
-                    android:background="@drawable/bg_greenblue"
-                    android:gravity="right"
-                    android:padding="3dp"
-                    android:paddingStart="5dp"
-                    android:paddingEnd="5dp"
-                    android:text="الوقت المتبقي ⏳"
-                    android:textColor="@color/mywhite"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+        <TextView
 
-                <TextView
-                    android:id="@+id/time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="1dp"
-                    android:layout_marginEnd="1dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_greenblue"
-                    android:baselineAligned="false"
-                    android:gravity="center_horizontal"
-                    android:padding="3dp"
-                    android:text="10:33  AM"
-                    android:textAlignment="center"
-                    android:textColor="@color/myYellow"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2"
+            android:background="@drawable/bg_l_blue_gr"
+            android:gravity="center_horizontal"
+            android:padding="3dp"
+            android:text="@string/status"
+            android:textColor="@color/mywhite"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/Vdate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_greenblue"
-                    android:gravity="center_horizontal"
-                    android:padding="3dp"
-                    android:text="@string/visitdate"
-                    android:textAlignment="center"
-                    android:textColor="@color/mywhite"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+        <TextView
+            android:id="@+id/patphone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2.4"
+            android:background="@drawable/bg_l_blue_gr"
+            android:baselineAligned="false"
+            android:gravity="center_horizontal"
+            android:padding="3dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:text="@string/Phone"
+            android:textAlignment="center"
+            android:textColor="@color/mywhite"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center"
-                android:weightSum="8">
-
-                <TextView
-
-                    android:id="@+id/status"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="1dp"
-                    android:layout_marginEnd="1dp"
-                    android:layout_weight="2"
-                    android:background="@drawable/bg_greenblue"
-                    android:gravity="center_horizontal"
-                    android:padding="3dp"
-                    android:text="@string/status"
-                    android:textColor="@color/myYellow"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_weight="3"
-                    android:background="@drawable/bg_greenblue"
-                    android:gravity="center_horizontal"
-                    android:padding="3dp"
-                    android:text="@string/patname"
-                    android:textAlignment="center"
-                    android:textColor="@color/mywhite"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/patphone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="1dp"
-                    android:layout_marginEnd="1dp"
-                    android:layout_weight="2"
-                    android:background="@drawable/bg_greenblue"
-                    android:baselineAligned="false"
-                    android:gravity="center_horizontal"
-                    android:padding="3dp"
-                    android:paddingStart="5dp"
-                    android:paddingEnd="5dp"
-                    android:text="@string/Phone"
-                    android:textAlignment="center"
-                    android:textColor="@color/myYellow"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2.4"
+            android:background="@drawable/bg_l_blue_gr"
+            android:gravity="center_horizontal"
+            android:padding="3dp"
+            android:text="@string/patname"
+            android:textAlignment="center"
+            android:textColor="@color/mywhite"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

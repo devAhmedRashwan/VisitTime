@@ -47,7 +47,6 @@ class BookDetails : AppCompatActivity() {
         mRef = database.getReference("Booked")
         mAuth = FirebaseAuth.getInstance()
         mNotelist = ArrayList()
-        dremain.text = intent.extras!!.getString("remain")
 
         val sortedList = mNotelist?.sortedWith(compareBy { it.visitdate })?.toList()
         mRef?.addValueEventListener(object : ValueEventListener {
@@ -67,6 +66,8 @@ class BookDetails : AppCompatActivity() {
                 dcreator.text = mbook.user
                 sugdate.text = tools.epochToStr(mbook.sugvisitdate!!)
                 sugtime.text = mbook.sugtime
+                val mbooklongdate=mbook.visitdate.toString().toLong()
+                dremain.text=tools.getremain(mbooklongdate)
                 if (mbook.sugvisitdate == 0.toLong()) {
                     sugdate.visibility = View.GONE
                     sugtime.visibility = View.GONE
@@ -113,8 +114,12 @@ class BookDetails : AppCompatActivity() {
                         acceptcancellationbtn.isEnabled = true
                     }
                 }
-                if (mbook.isconfirmed==1 && mbook.visitdate!! < todayinsec &&  mbook.isconfirmed !=2 ){
+                if ( mbook.visitdate!! < todayinsec &&  mbook.isconfirmed !=2 ){
                     dstatus.text = "فائتة"
+                    confirmbtn.isEnabled=false
+                    undoconfirmbtn.isEnabled=false
+                    markasdone.isEnabled=true
+
                 }
                 if (mbook.isdeleted==1 ){
                     dstatus.text = "محذوفة"
@@ -194,7 +199,8 @@ class BookDetails : AppCompatActivity() {
                         this@BookDetails,
                         layoutInflater
                     )
-                    confirmbtn.isEnabled = false
+                    confirmbtn.isEnabled = true
+                    markasdone.isEnabled = false
 
                 }
         }

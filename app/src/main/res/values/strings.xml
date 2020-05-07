@@ -144,6 +144,8 @@
     <string name="demoadmin">تجريبي مدير</string>
     <string name="Democlint">تجريبي عميل</string>
     <string name="controlpanel">لوحة التحكم</string>
+    <string name="timepreview">10:33 AM</string>
+    <string name="remainpreview">الوقت المتبقي ⏳</string>
 
     <string-array name="sexArr">"انثى","ذكر","حدد النوع"</string-array>
 
