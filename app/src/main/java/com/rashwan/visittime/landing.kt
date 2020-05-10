@@ -1,25 +1,26 @@
 package com.rashwan.visittime
+
+import android.app.Activity
 import android.app.AlertDialog.THEME_DEVICE_DEFAULT_LIGHT
-import android.app.Application
 import android.content.DialogInterface
 import android.content.Intent
-import android.content.res.TypedArray
-import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Patterns
-import android.view.*
-import android.view.animation.AnimationUtils
-import android.widget.LinearLayout
+import android.view.Gravity
+import android.view.Menu
+import android.view.MenuItem
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import kotlinx.android.synthetic.main.activity_landing.*
+
 class landing : AppCompatActivity(),TextWatcher {
+
     var mAuth: FirebaseAuth? = null
     override fun onBackPressed() {
         var i = Intent()
@@ -34,6 +35,8 @@ class landing : AppCompatActivity(),TextWatcher {
 //        supportActionBar?.hide()
         setContentView(R.layout.activity_landing)
         mAuth = FirebaseAuth.getInstance()
+//        val ProgressAction=NetworkTask(this as Activity)
+//         ProgressAction.execute()
         useremailET.addTextChangedListener(this)
         userpasslET.addTextChangedListener(this)
         signupbtn.setOnClickListener {
@@ -50,10 +53,6 @@ if ( LL.layoutParams.height!=(0)) {
     regbtnL.gravity = Gravity.CENTER
     RL.layoutParams.height = (0)
 }
-        }
-        SUregister.setOnClickListener(){
-
-
         }
 
         SUregister.setOnClickListener {
@@ -115,9 +114,11 @@ if ( LL.layoutParams.height!=(0)) {
             ToolsVisit.btnanim(it)
             if ((Patterns.EMAIL_ADDRESS.matcher(useremailET.text)
                     .matches()) && userpasslET.text.isNotEmpty()) {
+//                ProgressAction.execute()
                 mAuth?.signInWithEmailAndPassword(useremailET.text.toString(), userpasslET.text.toString())
                     ?.addOnCompleteListener { it ->
                         if (it.isSuccessful) {
+//                            ProgressAction.cancel(true)
                             startActivity(Intent(this, MainActivity::class.java))
                             val ds=mAuth?.currentUser?.displayName.toString()
                             ToolsVisit.vtoast(
@@ -127,6 +128,7 @@ if ( LL.layoutParams.height!=(0)) {
                                 layoutInflater
                             )
                         } else {
+//                            ProgressAction.cancel(true)
                             ToolsVisit.vtoast(
                                 "هذا الحساب غير مسجل لدينا ، يمكنك التسجيل الان",
                                 1,
@@ -159,9 +161,11 @@ if ( LL.layoutParams.height!=(0)) {
         }
         btndemo.setOnClickListener {
             ToolsVisit.btnanim(it)
+//            ProgressAction.execute()
             mAuth?.signInWithEmailAndPassword("demo@VisitTime.com", "123456")
                 ?.addOnCompleteListener { it ->
                     if (it.isSuccessful) {
+//                        ProgressAction.cancel(true)
                         startActivity(Intent(this, MainActivity::class.java))
                         val ds=mAuth?.currentUser?.displayName.toString()
                         ToolsVisit.vtoast(
@@ -175,9 +179,11 @@ if ( LL.layoutParams.height!=(0)) {
         }
         btndemoadmin.setOnClickListener {
             ToolsVisit.btnanim(it)
+//            ProgressAction.execute()
             mAuth?.signInWithEmailAndPassword("demoadmin@VisitTime.com", "123456")
                 ?.addOnCompleteListener { it ->
                     if (it.isSuccessful) {
+//                        ProgressAction.cancel(true)
                         startActivity(Intent(this, MainActivity::class.java))
                         val ds=mAuth?.currentUser?.displayName.toString()
 //                        ToolsVisit.vtoast(
@@ -226,8 +232,12 @@ if ( LL.layoutParams.height!=(0)) {
         }
     }
     override fun onStart() {
+        val ProgressAction = NetworkTask(this as Activity)
+
         super.onStart()
+        ProgressAction.execute()
         if (mAuth?.currentUser != null) {
+            ProgressAction.cancel(true)
             var cu = mAuth?.currentUser?.displayName.toString()
             var cmail = mAuth?.currentUser?.email.toString()
 //            if(cu=="Demo"){
@@ -255,12 +265,15 @@ if ( LL.layoutParams.height!=(0)) {
 //                layoutInflater
 //            )}
             try {
+                ProgressAction.cancel(true)
                 startActivity(Intent(this, MainActivity::class.java))
 //                           view.startAnimation(AnimationUtils.loadAnimation(this, R.anim.scale))
             }
             catch (e:Exception){
                 Toast.makeText(this,e.message.toString(),Toast.LENGTH_SHORT).show()
-            }        }
+            }        } else {
+            ProgressAction.cancel(true)
+        }
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.navigation_menu, menu)

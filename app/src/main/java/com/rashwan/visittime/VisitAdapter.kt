@@ -1,29 +1,20 @@
 package com.rashwan.visittime
 
 import android.annotation.SuppressLint
-import android.app.Application
 import android.content.Context
-import android.provider.Settings.Global.getString
-import android.view.LayoutInflater
+import android.os.Build
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
 import android.widget.ArrayAdapter
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.getSystemService
-import kotlinx.android.synthetic.main.bookdetails.*
-import kotlinx.android.synthetic.main.bookdetails.view.*
-import kotlinx.android.synthetic.main.bookdetails.view.dstatus
 import kotlinx.android.synthetic.main.rowstyle.view.*
-import kotlinx.android.synthetic.main.rowstyle.view.patphone
-import kotlinx.android.synthetic.main.rowstyle.view.remain
-import kotlinx.android.synthetic.main.rowstyle.view.rowstyle
-import kotlinx.android.synthetic.main.rowstyle.view.status
 import java.time.LocalDate
 import java.util.*
 
 class visitadapter(context: Context, caseList: List<Booked>) :
     ArrayAdapter<Booked>(context, 0, caseList) {
+    @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("ViewHolder")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val view = View.inflate(context, R.layout.rowstyle, null);
@@ -34,19 +25,47 @@ class visitadapter(context: Context, caseList: List<Booked>) :
         view.time.text = book?.time
         view.Vdate.text = tools.epochToStr(book?.visitdate!!.toLong())
         when {
-            (book.isconfirmed == 0) -> view.status.text= "انتظار"
-            (book.isconfirmed == 1) -> view.status.text = "مؤكدة"
-            (book.isconfirmed == 2) -> view.status.text = "تمت"
-            (book.isconfirmed == 4) -> view.status.text = "ملغية"
-            (book.isconfirmed == 5) -> view.status.text = "طلب تعديل موعد"
-            (book.isconfirmed == 6) -> view.status.text = "طلب الغاء"
+
+            (book.isconfirmed == 0) -> {
+                view.status.text = "انتظار"
+                view.status.background = ContextCompat.getDrawable(context, R.color.myYellow)
+
+            }
+            (book.isconfirmed == 1) -> {
+                view.status.text = "مؤكدة"
+                view.status.background = ContextCompat.getDrawable(context, R.color.mygreen)
+            }
+            (book.isconfirmed == 2) -> {
+                view.status.text = "تمت"
+                view.status.background = ContextCompat.getDrawable(context, R.color.myblackLight)
+            }
+
+            (book.isconfirmed == 4) -> {
+                view.status.text = "ملغية"
+                view.status.background = ContextCompat.getDrawable(context, R.color.honeyl)
+
+            }
+
+            (book.isconfirmed == 5) -> {
+                view.status.text = "طلب تعديل موعد"
+                view.status.background = ContextCompat.getDrawable(context, R.color.mypink)
+
+            }
+
+            (book.isconfirmed == 6) -> {
+                view.status.text = "طلب الغاء"
+                view.status.background = ContextCompat.getDrawable(context, R.color.myreds)
+
+            }
         }
         val todayinsec= Calendar.getInstance().timeInMillis.toString().substring(0, Calendar.getInstance().timeInMillis.toString().length - 3).toLong()-86400
         if (book.isconfirmed!=2 &&book.visitdate!! < todayinsec ){
             view.status.text = "فائتة"
+
         }
         if (book.isdeleted==1){
             view.status.text = "محذوفة"
+
         }
 
 
@@ -73,11 +92,11 @@ class visitadapter(context: Context, caseList: List<Booked>) :
             (diffDays.toInt() < -2) -> {
                 diffDays= -diffDays
                 view.remain.text = "مضى( " + diffDays.toString() + " )$daycount"
-        }}
+            }}
         view.remain.text = view.remain.text.toString() + " ⏳"
         if (book.isdeleted == 1) {
-            view.rowstyle.background =
-                ContextCompat.getDrawable(context, R.drawable.background_rowstyle_deleted)
+//            view.rowstyle.background =
+//                ContextCompat.getDrawable(context, R.drawable.background_rowstyle_deleted)
 //            view.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_in))
         } else {
 //            view.startAnimation(AnimationUtils.loadAnimation(context, R.anim.scale))

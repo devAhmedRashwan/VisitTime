@@ -3,30 +3,18 @@
 
     <group>
         <item
-            android:id="@+id/myprofile"
-            android:icon="@drawable/ic_1"
-            android:title="الملف الخاص بي" />
-        <item
-            android:id="@+id/history"
-            android:icon="@drawable/ic_history_black_24dp"
-            android:title="ارشيف الحجز" />
-        <item
-            android:id="@+id/incoming"
-            android:icon="@drawable/ic_send_black_24dp"
-            android:title="المواعيد المنتظرة" />
+            android:id="@+id/about"
+            android:icon="@drawable/ic_info"
+            android:title="@string/aboutapp" />
     </group>
 
     <item
         android:id="@+id/logout"
         android:icon="@drawable/ic_logout"
-        android:title="تسجيل الخروج " />
-    <item
-        android:id="@+id/about"
-        android:icon="@drawable/ic_exit_to_app_black_24dp"
-        android:title="عن التطبيق" />
+        android:title="@string/signout" />
     <item
         android:id="@+id/exit"
         android:icon="@drawable/ic_exit_to_app_black_24dp"
-        android:title="انهاء التطبيق" />
+        android:title="@string/terminateapp" />
 
 </menu>

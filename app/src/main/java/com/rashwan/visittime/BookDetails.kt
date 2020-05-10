@@ -1,25 +1,18 @@
 package com.rashwan.visittime
 
+//import java.time.LocalDateTime
+//import java.time.format.DateTimeFormatter
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
-import android.view.animation.AnimationUtils
 import android.widget.ArrayAdapter
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_edit_book.view.*
-import kotlinx.android.synthetic.main.book_operations.*
 import kotlinx.android.synthetic.main.bookdetails.*
-import kotlinx.android.synthetic.main.bookdetails.view.*
-import kotlinx.android.synthetic.main.rowstyledetailed.*
-import java.text.SimpleDateFormat
-//import java.time.LocalDateTime
-//import java.time.format.DateTimeFormatter
 import java.util.*
 
 class BookDetails : AppCompatActivity() {
@@ -97,7 +90,11 @@ class BookDetails : AppCompatActivity() {
                         undoconfirmbtn.isEnabled = true
                         markasdone.isEnabled = true
                     }
-                    2 -> dstatus.text = "تمت"
+                    2 -> {
+                        dstatus.text = "تمت"
+                        userMgmnt.visibility = View.GONE
+                    }
+
 //                    3 -> dstatus.text = "فائتة"
                     4 -> {
                         dstatus.text = "ملغية"
@@ -119,10 +116,14 @@ class BookDetails : AppCompatActivity() {
                     confirmbtn.isEnabled=false
                     undoconfirmbtn.isEnabled=false
                     markasdone.isEnabled=true
+                    userMgmnt.visibility = View.GONE
+
 
                 }
                 if (mbook.isdeleted==1 ){
                     dstatus.text = "محذوفة"
+                    userMgmnt.visibility = View.GONE
+
                 }
 
             }

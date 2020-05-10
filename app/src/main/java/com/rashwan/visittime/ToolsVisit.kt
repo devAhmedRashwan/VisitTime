@@ -1,12 +1,12 @@
 package com.rashwan.visittime
 
+import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Context
 import android.graphics.drawable.AnimationDrawable
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import android.view.animation.AnimationUtils
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
@@ -383,8 +383,10 @@ class ToolsVisit {
             cweb: TextView?,
             vnumber: TextView?
         ) {
+            val ProgressAction = NetworkTask(context as Activity)
+            ProgressAction.execute()
             mainview?.visibility=View.GONE
-            progressbar?.visibility=View.VISIBLE
+//            progressbar?.visibility=View.VISIBLE
             var vacant: MutableList<String> = mutableListOf()
             var enabledlist: MutableList<String> = mutableListOf()
             var mRef: DatabaseReference? = null
@@ -399,15 +401,13 @@ class ToolsVisit {
                         if (n.key.toString() == "phone") cphone?.text = n.value.toString()
                         if (n.key.toString() == "website") cweb?.text = n.value.toString()
                         if (n.key.toString() == "vnumber") vnumber?.text = n.value.toString()
+                        if (vnumber?.text != "") ProgressAction.cancel(true)
                     }
-                    progressbar?.visibility=View.INVISIBLE
                     mainview?.visibility=View.VISIBLE
-                    mainview?.startAnimation(AnimationUtils.loadAnimation(context, R.anim.slide_left))
-
+//                    mainview?.startAnimation(AnimationUtils.loadAnimation(context, R.anim.sequential))
 
                 }
             })
-
 
         }
 

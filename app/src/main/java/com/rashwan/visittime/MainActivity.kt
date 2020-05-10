@@ -1,25 +1,21 @@
 package com.rashwan.visittime
 
-import android.app.AlertDialog
-import android.app.AlertDialog.THEME_DEVICE_DEFAULT_LIGHT
-import android.content.DialogInterface
+import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.text.util.Linkify
 import android.view.MenuItem
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.core.view.isVisible
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.*
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.header_layout.view.*
-import java.util.*
-import android.text.util.Linkify
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     var mRef: DatabaseReference? = null
@@ -34,9 +30,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(R.layout.activity_main)
         setSupportActionBar(mytoolbar)
         supportActionBar?.title = getString(R.string.arapp_name)
+    val ProgressAction = NetworkTask(this as Activity)
+//    ProgressAction.execute()
         ToolsVisit.get_Cinfo(this,main_content,mprogressBar,c_name, c_address, c_phone, c_web,null)
         ToolsVisit.get_Cinfo(this,main_content,mprogressBar,set_c_name, set_c_address,set_c_phone,set_c_web,null)
-         mAuth= FirebaseAuth.getInstance()
+    c_address.setOnClickListener() {
+        val uri: Uri = Uri.parse(c_address.text.toString()) // missing 'http://' will cause crashed
+        val intent = Intent(Intent.ACTION_VIEW, uri)
+        startActivity(intent)
+    }
+
 //        val disablMgrsarray = ToolsVisit.Getmgrs()
         val currentlogged=mAuth?.currentUser?.email.toString()
 
@@ -112,22 +115,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         mydrawer.closeDrawer(GravityCompat.START)
         when {
             (id == R.id.exit) -> finishAffinity()
-            (id == R.id.incoming) ->
-                Toast.makeText(this, itemtitle, Toast.LENGTH_LONG).show()
-            (id == R.id.myprofile) -> {
-
-                Toast.makeText(this, itemtitle, Toast.LENGTH_LONG).show()
-            }
             (id == R.id.logout) -> {
-
                 FirebaseAuth.getInstance().signOut()
                 startActivity(Intent(this, landing::class.java))
-
             }
-                (id == R.id.history) ->
-                Toast.makeText(this, itemtitle, Toast.LENGTH_LONG).show()
-
-
+            (id == R.id.about) ->
+                startActivity(Intent(this, com.rashwan.visittime.About::class.java))
         }
 //        super.onBackPressed()
 
@@ -165,5 +158,6 @@ try {
 
 
     }
+
 
 }

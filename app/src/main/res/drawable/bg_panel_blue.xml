@@ -36,8 +36,7 @@
             </stroke>
 
             <!--    <solid android:color="@color/myred" /> -->
-            <gradient android:endColor="@color/row1" android:startColor="@color/row1"
-                android:centerColor="#D1009688" />
+            <gradient android:centerColor="#6B7DE3" android:endColor="@color/row2" android:startColor="@color/row2" />
 
 
             <corners android:radius="0dp">

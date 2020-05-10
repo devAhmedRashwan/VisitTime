@@ -1120,7 +1120,7 @@ drawable bg_l_blue_inline
 drawable bg_l_greenblue
 drawable bg_l_greenblue_noline
 drawable bg_main
-drawable bg_panel_green
+drawable bg_panel_blue
 drawable bg_toast
 drawable bin
 drawable bk
@@ -1155,6 +1155,7 @@ drawable common_google_signin_btn_text_light
 drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
+drawable custom_progress_bar
 drawable custom_progressbar_horizontal
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
@@ -1170,6 +1171,7 @@ drawable ic_1
 drawable ic_delete_white_24
 drawable ic_exit_to_app_black_24dp
 drawable ic_history_black_24dp
+drawable ic_info
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_logout
@@ -1206,6 +1208,8 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable old_main_background
+drawable pgb_in
+drawable pgb_out
 drawable ppic
 drawable preview
 drawable progressgif
@@ -1238,6 +1242,7 @@ id SYM
 id TTitle
 id USimageVu
 id Vdate
+id ab1
 id about
 id acceptcancellationbtn
 id accepttimechangebtn
@@ -1419,7 +1424,6 @@ id ghost_view
 id gone
 id group_divider
 id groups
-id history
 id home
 id homeAsUp
 id icon
@@ -1428,7 +1432,6 @@ id icon_only
 id ifRoom
 id image
 id imageView
-id incoming
 id info
 id insertmail
 id invisible
@@ -1448,6 +1451,7 @@ id loginbtn
 id logout
 id mNav
 id main_content
+id mappversion
 id markasdone
 id masked
 id message
@@ -1462,7 +1466,6 @@ id myL
 id mybooks
 id mydrawer
 id mylayout
-id myprofile
 id mytoolbar
 id name
 id navigation_header_container
@@ -1583,6 +1586,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
+id textView2
 id textView3
 id textView4
 id textView5
@@ -1682,6 +1686,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout about
 layout activity_allreservation
 layout activity_bookvisit
 layout activity_dialog
@@ -1713,6 +1718,7 @@ layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout disabletimes
 layout enabletimes
+layout full_screen_progress_bar
 layout header_layout
 layout mtoast
 layout mtrl_layout_snackbar
@@ -1775,6 +1781,7 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string aboutapp
 string add
 string addnewtimebtn
 string addtimecard
@@ -1915,6 +1922,7 @@ string search_menu_title
 string setdatecard
 string setday
 string sex
+string signout
 string starttimecard
 string status
 string status_bar_notification_info_overflow
@@ -1922,6 +1930,7 @@ string stopdaycard
 string stoptimecard
 string sugdate
 string suggestedtdatetime
+string terminateapp
 string test
 string time
 string timeedit
